@@ -1,0 +1,267 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Video: background (MP4)",
+  "class": "mount-video-background mount-color-button",
+  "id": "video-background",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "id": "atb_video",
+      "type": "text",
+      "label": "Video URL",
+      "info": "Path to an .mp4 video file",
+      "default": "//cdn.shopify.com/s/files/1/0266/9543/4315/files/Share_your_brand_story_by_adding_a_video_to_your_store.mp4?3663"
+    },
+    {
+      "type": "image_picker",
+      "id": "atb_image",
+      "label": "Fallback image",
+      "info": "A fallback image will be used on mobile devices where autoplay might be disabled."
+    },
+    {
+      "type": "header",
+      "content": "Text",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_title",
+      "label": "Heading",
+      "default": "Video background",
+      "info": ""
+    },
+    {
+      "type": "wysiwyg",
+      "id": "atb_body",
+      "label": "Text",
+      "default": "<p>Share information about your brand.</p>",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_button_label",
+      "label": "Button label",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_url",
+      "label": "Link",
+      "info": "The entire section will transform into a link unless there is a label for the button."
+    },
+    {
+      "type": "header",
+      "content": "Size & alignment",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_video_height",
+      "label": "Video height",
+      "options": [
+        {
+          "value": "56.25%",
+          "label": "Natural (16:9)",
+          "group": "Uncropped"
+        },
+        {
+          "value": "70vh",
+          "label": "Large",
+          "group": "Cropped"
+        },
+        {
+          "value": "100vh",
+          "label": "Full",
+          "group": "Cropped"
+        }
+      ],
+      "default": "56.25%",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_text_width",
+      "label": "Text container width",
+      "options": [
+        {
+          "value": "50%",
+          "label": "Medium"
+        },
+        {
+          "value": "75%",
+          "label": "Large"
+        },
+        {
+          "value": "100%",
+          "label": "Full"
+        }
+      ],
+      "default": "50%",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_text_size",
+      "label": "Text size",
+      "options": [
+        {
+          "value": "regular",
+          "label": "Regular"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "huge",
+          "label": "Extra large"
+        }
+      ],
+      "default": "regular",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "horizontal-left vertical-top",
+          "label": "Left top"
+        },
+        {
+          "value": "horizontal-center vertical-top",
+          "label": "Center top"
+        },
+        {
+          "value": "horizontal-right vertical-top",
+          "label": "Right top"
+        },
+        {
+          "value": "horizontal-left vertical-middle",
+          "label": "Left middle"
+        },
+        {
+          "value": "horizontal-center vertical-middle",
+          "label": "Center middle"
+        },
+        {
+          "value": "horizontal-right vertical-middle",
+          "label": "Right middle"
+        },
+        {
+          "value": "horizontal-left vertical-bottom",
+          "label": "Left bottom"
+        },
+        {
+          "value": "horizontal-center vertical-bottom",
+          "label": "Center bottom"
+        },
+        {
+          "value": "horizontal-right vertical-bottom",
+          "label": "Right bottom"
+        }
+      ],
+      "default": "horizontal-left vertical-bottom",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_color_text",
+      "label": "Custom text color",
+      "default": "rgba(0,0,0,0)",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_color_bg",
+      "label": "Overlay color",
+      "default": "rgba(0,0,0,0)",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Gutter",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_gutter_enabled",
+      "label": "Enable inner content spacing",
+      "info": ""
+    }
+  ],
+  "warnings": []
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_video' -%}
+{%- assign atb_video = val -%}
+{%- include 'atb-render' field:'atb_image' -%}
+{%- assign atb_image = val -%}
+{%- include 'atb-render' field:'atb_title' -%}
+{%- assign atb_title = val -%}
+{%- include 'atb-render' field:'atb_body' -%}
+{%- assign atb_body = val -%}
+{%- include 'atb-render' field:'atb_button_label' -%}
+{%- assign atb_button_label = val -%}
+{%- include 'atb-render' field:'atb_url' -%}
+{%- assign atb_url = val -%}
+{%- include 'atb-render' field:'atb_video_height' -%}
+{%- assign atb_video_height = val -%}
+{%- include 'atb-render' field:'atb_text_width' -%}
+{%- assign atb_text_width = val -%}
+{%- include 'atb-render' field:'atb_text_size' -%}
+{%- assign atb_text_size = val -%}
+{%- include 'atb-render' field:'atb_text_alignment' -%}
+{%- assign atb_text_alignment = val -%}
+{%- include 'atb-render' field:'atb_color_text' -%}
+{%- assign atb_color_text = val -%}
+{%- include 'atb-render' field:'atb_color_bg' -%}
+{%- assign atb_color_bg = val -%}
+{%- include 'atb-render' field:'atb_gutter_enabled' -%}
+{%- assign atb_gutter_enabled = val -%}
+{%- if atb_gutter_enabled == blank -%}
+{%- assign atb_gutter_enabled = false -%}
+{%- else -%}
+{%- assign atb_gutter_enabled = true -%}
+{%- endif -%}
+{%- assign atb_image_key = atb_image| split: '/files/' | last -%}{%- assign atb_image = images[atb_image_key] -%}{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section mount-video-background mount-color-button">
+{% render 'video-background-content',
+  id: section_id
+  gutter_enabled: atb_gutter_enabled,
+  url: atb_url,
+  button_label: atb_button_label,
+  text_alignment: atb_text_alignment,
+  text_size: atb_text_size,
+  text_width: atb_text_width,
+  title: atb_title,
+  body: atb_body,
+  video: atb_video,
+  video_height: atb_video_height,
+  image: atb_image,
+  color_text: atb_color_text,
+  color_bg: atb_color_bg
+%}
+
+</section>

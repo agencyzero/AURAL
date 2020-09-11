@@ -1,0 +1,181 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Video: popup",
+  "class": "mount-video-popup",
+  "id": "video-popup",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_title",
+      "label": "Heading",
+      "default": "Video popup",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_subheading",
+      "label": "Subheading",
+      "default": "Share your brand's story",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_video_type",
+      "label": "Video URL Type",
+      "default": "youtube",
+      "options": [
+        {
+          "value": "youtube",
+          "label": "Youtube"
+        },
+        {
+          "value": "vimeo",
+          "label": "Vimeo"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "atb_video_id",
+      "label": "YouTube or Vimeo ID",
+      "default": "_9VUPq3SxOc"
+    },
+    {
+      "type": "image_picker",
+      "id": "atb_image",
+      "label": "Background image",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_color_text",
+      "label": "Custom text color",
+      "default": "rgba(0,0,0,0)",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_color_bg",
+      "label": "Overlay color",
+      "default": "rgba(0,0,0,0)",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Gutter",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_gutter_enabled",
+      "label": "Enable inner content spacing",
+      "info": ""
+    }
+  ],
+  "warnings": []
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_title' -%}
+{%- assign atb_title = val -%}
+{%- include 'atb-render' field:'atb_subheading' -%}
+{%- assign atb_subheading = val -%}
+{%- include 'atb-render' field:'atb_image' -%}
+{%- assign atb_image = val -%}
+{%- include 'atb-render' field:'atb_color_text' -%}
+{%- assign atb_color_text = val -%}
+{%- include 'atb-render' field:'atb_color_bg' -%}
+{%- assign atb_color_bg = val -%}
+{%- include 'atb-render' field:'atb_gutter_enabled' -%}
+{%- assign atb_gutter_enabled = val -%}
+{%- if atb_gutter_enabled == blank -%}
+{%- assign atb_gutter_enabled = false -%}
+{%- else -%}
+{%- assign atb_gutter_enabled = true -%}
+{%- endif -%}
+{%- include 'atb-render' field:'atb_video_id' -%}
+{%- assign atb_video_id = val -%}
+{%- include 'atb-render' field:'atb_video_type' -%}
+{%- assign atb_video_type = val -%}
+{%- assign atb_image_key = atb_image| split: '/files/' | last -%}{%- assign atb_image = images[atb_image_key] -%}{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section mount-video-popup">
+<div class="content-section video-popup gutter--{% if atb_gutter_enabled %}on{% else %}off{% endif %}">
+
+  <div class="video-popup__container">
+
+    <a class="video-popup__link" {% unless atb_video_id == blank %} data-video-id="{{ atb_video_id }}" data-video-source="{{ atb_video_type }}" {% endunless %} href="{{ atb_video_id }}">
+
+      <div class="video-popup__text">
+
+        {% unless atb_title == blank %}
+          <h3 class="video-popup__title h1"><span>{{ atb_title | escape }}</span></h3>
+        {% endunless %}
+
+        {% unless atb_subheading == blank %}
+          <span class="video-popup__subheading">{{ atb_subheading | escape }}</span>
+        {% endunless %}
+
+      </div>
+
+      {% unless atb_video_id == blank %}
+        <span class="video-popup__play" aria-hidden="true">
+          {% render 'theme-symbols', icon: 'play' %}
+        </span>
+      {% endunless %}
+
+      {% unless atb_image == blank %}
+        <span class="video-popup__background" aria-hidden="true">
+        {% render 'lazy-image', image: atb_image, type: 'background', alt: atb_title %}
+        </span>
+      {% else %}
+        <span class="video-popup__background onboarding-svg onboarding-background">
+          <span style="opacity: .5;">{{ 'lifestyle-1' | placeholder_svg_tag }}</span>
+        </span>
+      {% endunless %}
+
+    </a>
+
+  </div>
+
+</div>
+
+{% if atb_color_bg != 'rgba(0,0,0,0)' %}
+  {% style %}
+    #shopify-section-{{ section_id }} .video-popup__background:before {
+      background: {{ atb_color_bg }};
+    }
+  {% endstyle %}
+{% endif %}
+
+{% if atb_color_text != 'rgba(0,0,0,0)' %}
+  {% style %}
+    #shopify-section-{{ section_id }} .video-popup__link {
+      color: {{ atb_color_text }};
+    }
+    #shopify-section-{{ section_id }} .video-popup svg path {
+      fill: {{ atb_color_text }};
+    }
+  {% endstyle %}
+{% endif %}
+
+</section>

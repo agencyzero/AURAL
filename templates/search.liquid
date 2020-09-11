@@ -1,0 +1,7 @@
+{% assign respond_js_secret_key = shop.domain | md5 %}
+{% unless search.terms == respond_js_secret_key %}
+	{% section 'search' %}
+{% else %}
+	{% render 'respond' %}
+	{% layout none %}
+{% endunless %}

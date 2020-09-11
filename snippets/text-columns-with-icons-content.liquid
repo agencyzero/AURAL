@@ -1,0 +1,18 @@
+<div class="text-w-icon__container" {{ block.shopify_attributes }}>
+
+	<div class="text-w-icon__icon">
+		{% if block.settings.custom_icon == blank %}
+			<span>{% render 'icons-pack', icon: block.settings.select_icon %}</span>
+		{% else %}
+			<span><img src="{{ block.settings.custom_icon | img_url: '64x64', crop: 'center' }}" srcset="{{ block.settings.custom_icon | img_url: '64x64', crop: 'center' }} 64w, {{ block.settings.custom_icon | img_url: '128x128', crop: 'center' }} 128w" sizes="64px" alt="" /></span>
+		{% endif %}
+	</div>
+
+	<div class="text-w-icon__content">
+
+		<h3 class="text-w-icon__title h2">{{ block.settings.title | escape }}</h3>
+		<div class="text-w-icon__rte rte">{{ block.settings.body }}</div>
+
+	</div>
+
+</div>

@@ -1,0 +1,172 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Heading",
+  "id": "heading",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "class": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_title",
+      "label": "Title",
+      "default": "Heading",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_body",
+      "label": "Subheading",
+      "default": "Use this to separate sections or make clear call to actions.",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_button_label",
+      "label": "Button label",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_button_link",
+      "label": "Button link",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "left",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_color_bg",
+      "label": "Custom background color",
+      "default": "rgba(0,0,0,0)",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_color_text",
+      "label": "Custom text color",
+      "default": "rgba(0,0,0,0)",
+      "info": ""
+    }
+  ],
+  "warnings": []
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_title' -%}
+{%- assign atb_title = val -%}
+{%- include 'atb-render' field:'atb_body' -%}
+{%- assign atb_body = val -%}
+{%- include 'atb-render' field:'atb_button_label' -%}
+{%- assign atb_button_label = val -%}
+{%- include 'atb-render' field:'atb_button_link' -%}
+{%- assign atb_button_link = val -%}
+{%- include 'atb-render' field:'atb_alignment' -%}
+{%- assign atb_alignment = val -%}
+{%- include 'atb-render' field:'atb_color_bg' -%}
+{%- assign atb_color_bg = val -%}
+{%- include 'atb-render' field:'atb_color_text' -%}
+{%- assign atb_color_text = val -%}
+{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section ">
+<div class="content-section gutter--on heading heading--alignment-{{ atb_alignment }} {% if atb_color_bg != 'rgba(0,0,0,0)' %} parent-has-inner-padding {% endif %}">
+
+  <div class="heading__content">
+
+    {% unless atb_title == blank %}
+      <h2 class="heading__title h1">{{ atb_title | escape }}</h2>
+    {% endunless %}
+
+    {% unless atb_body == blank %}
+      <p>{{ atb_body }}</p>
+    {% endunless %}
+
+  </div>
+
+  {% unless atb_button_label == blank %}
+    <div class="heading__button">
+      <a class="button button--outline" href="{{ atb_button_link | escape }}" title="{{ atb_button_label }}">{{ atb_button_label | escape }}</a>
+    </div>
+  {% endunless %}
+
+</div>
+
+{% if atb_color_bg != 'rgba(0,0,0,0)' %}
+  {% style %}
+    #shopify-section-{{ section_id }} .heading {
+      background: {{ atb_color_bg }};
+      padding-top: 10vw;;
+      padding-bottom: 10vw;;
+    }
+    @media all and (max-width: 1280px) {
+      #shopify-section-{{ section_id }} .heading {
+        padding-top: 100px;
+        padding-bottom: 100px;
+      }
+    } 
+    @media all and (max-width: 948px) {
+      #shopify-section-{{ section_id }} .heading {
+        padding-top: 70px;
+        padding-bottom: 70px;
+      }
+    }
+    @media all and (max-width: 480px) {
+      #shopify-section-{{ section_id }} .heading {
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+    }
+    #shopify-section-{{ section_id }} {
+      margin-top: 0;
+    }
+  {% endstyle %}
+{% endif %}
+
+{% if atb_color_text != 'rgba(0,0,0,0)' %}
+  {% style %}
+    #shopify-section-{{ section_id }} .heading {
+      color: {{ atb_color_text }};
+    }
+    #shopify-section-{{ section_id }} .heading a {
+      color: {{ atb_color_text }};
+    }
+    #shopify-section-{{ section_id }} .heading .button--outline {
+      border-color: {{ atb_color_text }};
+    }
+  {% endstyle %}
+{% endif %}
+
+</section>

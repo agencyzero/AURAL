@@ -1,0 +1,19 @@
+<ul class="pagination">
+
+	<li class="arrow {% unless paginate.previous %} disabled {% endunless %}"><a class="prev" href="{{ paginate.previous.url }}" title="{{ paginate.previous.title }}"><span aria-label="{{ 'general.pagination.previous_page' | t }}"> {% render 'theme-symbols', icon: 'arrow-long' %}</span></a></li>
+
+	{% for part in paginate.parts %}
+		{% if part.is_link %}
+			<li><a href="{{ part.url }}" title="">{{ part.title | escape }}</a></li>
+		{% else %}
+			{% if part.title == paginate.current_page %}
+				<li class="active"><span>{{ part.title | escape }}</span></li>
+			{% else %}
+				<li><span>{{ part.title | escape }}</span></li>
+			{% endif %}
+		{% endif %}
+	{% endfor %}
+
+	<li class="arrow {% unless paginate.next %} disabled {% endunless %}"><a class="next" href="{{ paginate.next.url }}" title="{{ paginate.next.title }}"><span aria-label="{{ 'general.pagination.next_page' | t }}"> {% render 'theme-symbols', icon: 'arrow-long' %}</span></a></li>
+
+</ul>

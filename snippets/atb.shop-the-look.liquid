@@ -1,0 +1,149 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Shop the look",
+  "class": "mount-shop-the-look overflow-hidden",
+  "max_blocks": 8,
+  "id": "shop-the-look",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_title",
+      "label": "Heading",
+      "default": "Shop the look",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_subheading",
+      "label": "Subheading",
+      "info": ""
+    },
+    {
+      "type": "image_picker",
+      "id": "atb_image",
+      "label": "Background image",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_color_bg",
+      "label": "Background overlay",
+      "default": "rgba(0,0,0,0)",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_color_text",
+      "label": "Custom text color",
+      "default": "rgba(0,0,0,0)",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "blocks",
+      "label": "Block ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": "",
+      "repeatable": "Product"
+    },
+    {
+      "type": "product",
+      "id": "block_product",
+      "label": "Select product",
+      "repeatable": "Product",
+      "info": ""
+    }
+  ],
+  "warnings": []
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_title' -%}
+{%- assign atb_title = val -%}
+{%- include 'atb-render' field:'atb_subheading' -%}
+{%- assign atb_subheading = val -%}
+{%- include 'atb-render' field:'atb_image' -%}
+{%- assign atb_image = val -%}
+{%- include 'atb-render' field:'atb_color_bg' -%}
+{%- assign atb_color_bg = val -%}
+{%- include 'atb-render' field:'atb_color_text' -%}
+{%- assign atb_color_text = val -%}
+{%- include 'atb-render' field:'blocks' -%}
+{%- assign blocks = val -%}
+{%- include 'atb-render' field:'block_product' -%}
+{%- assign block_product = val -%}
+{%- assign atb_image_key = atb_image| split: '/files/' | last -%}{%- assign atb_image = images[atb_image_key] -%}{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section mount-shop-the-look overflow-hidden">
+<div class="content-section gutter--on shop-the-look">
+    
+  <div class="shop-the-look__header">
+
+    {% unless atb_title == blank %}
+      <h3 class="shop-the-look__title h1">{{ atb_title | escape }}</h3>
+    {% endunless %}
+
+    {% unless atb_title == blank %}
+      <p class="shop-the-look__subheading">{{ atb_subheading | escape }}</p>
+    {% endunless %}
+
+    <div class="shop-the-look__background">
+      {% if atb_image %}
+        {% render 'lazy-image', image: atb_image, type: 'background' %}
+      {% else %}
+        <span class="onboarding-svg onboarding-background">{{ 'collection-1' | placeholder_svg_tag }}</span>
+      {% endif %}
+    </div>
+
+  </div>
+
+  <div class="shop-the-look__content">
+      
+    {% if blocks.size > 0 %}
+      <div class="collection--slider mount-collection">
+        {% for block0 in blocks %}
+          {% render 'product-item', product: all_products[block_product[forloop.index0]] %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+  </div>
+
+  {% if atb_color_text != 'rgba(0,0,0,0)' %}
+    {% style %}
+      #shopify-section-{{ section_id }} .shop-the-look__header {
+        color: {{ atb_color_text }};
+      }
+    {% endstyle %}
+  {% endif %}
+
+  {% if atb_color_bg != 'rgba(0,0,0,0)' %}
+    {% style %}
+      #shopify-section-{{ section_id }} .shop-the-look__background:after {
+        background-color: {{ atb_color_bg }};
+      }
+    {% endstyle %}
+  {% endif %}
+
+</div>
+
+</section>

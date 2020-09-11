@@ -1,0 +1,173 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Blog posts",
+  "class": "mount-blog-posts overflow-hidden",
+  "id": "blog-posts",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_title",
+      "label": "Heading",
+      "default": "Latest Articles",
+      "info": ""
+    },
+    {
+      "type": "blog",
+      "id": "atb_blog",
+      "label": "Blog",
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_post_limit",
+      "label": "Posts",
+      "min": 1,
+      "max": 16,
+      "step": 1,
+      "default": 4,
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_blog_show_image",
+      "label": "Show post image",
+      "default": true,
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_blog_show_author",
+      "label": "Show author",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_blog_show_date",
+      "label": "Show date",
+      "default": true,
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_show_view_all",
+      "label": "Show link to blog page",
+      "default": true,
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_layout",
+      "label": "Layout",
+      "options": [
+        {
+          "label": "One column",
+          "value": "grid cols-1",
+          "group": "Grid"
+        },
+        {
+          "label": "Two columns",
+          "value": "grid cols-2",
+          "group": "Grid"
+        },
+        {
+          "label": "Flexible (2 - 5 columns)",
+          "value": "slider cols-4",
+          "group": "Slider"
+        }
+      ],
+      "default": "grid cols-2",
+      "info": ""
+    }
+  ],
+  "warnings": []
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_title' -%}
+{%- assign atb_title = val -%}
+{%- include 'atb-render' field:'atb_blog' -%}
+{%- assign atb_blog = val -%}
+{%- include 'atb-render' field:'atb_post_limit' -%}
+{%- assign atb_post_limit = val -%}
+{%- include 'atb-render' field:'atb_blog_show_image' -%}
+{%- assign atb_blog_show_image = val -%}
+{%- include 'atb-render' field:'atb_blog_show_author' -%}
+{%- assign atb_blog_show_author = val -%}
+{%- include 'atb-render' field:'atb_blog_show_date' -%}
+{%- assign atb_blog_show_date = val -%}
+{%- include 'atb-render' field:'atb_show_view_all' -%}
+{%- assign atb_show_view_all = val -%}
+{%- include 'atb-render' field:'atb_layout' -%}
+{%- assign atb_layout = val -%}
+{%- if atb_blog_show_image == blank -%}
+{%- assign atb_blog_show_image = false -%}
+{%- else -%}
+{%- assign atb_blog_show_image = true -%}
+{%- endif -%}
+{%- if atb_blog_show_author == blank -%}
+{%- assign atb_blog_show_author = false -%}
+{%- else -%}
+{%- assign atb_blog_show_author = true -%}
+{%- endif -%}
+{%- if atb_blog_show_date == blank -%}
+{%- assign atb_blog_show_date = false -%}
+{%- else -%}
+{%- assign atb_blog_show_date = true -%}
+{%- endif -%}
+{%- if atb_show_view_all == blank -%}
+{%- assign atb_show_view_all = false -%}
+{%- else -%}
+{%- assign atb_show_view_all = true -%}
+{%- endif -%}
+{%- assign atb_post_limit = atb_post_limit | plus: 0 -%}
+{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section mount-blog-posts overflow-hidden">
+<div class="content-section gutter--on blog-posts">
+
+  <div class="blog-posts__header rte">
+    
+    {% unless atb_title == blank %}
+      <h2 class="blog-posts__title h1" style="flex: 1;">{{ atb_title | escape }}</h2>
+    {% endunless %}
+
+    {% if atb_show_view_all %}
+      <span>
+        <a href="{{ blogs[atb_blog].url }}">{{ 'blog.view_all_articles' | t }}</a>
+      </span>
+    {% endif %}
+
+  </div>
+
+  <div class="blog--{{ atb_layout }} blog--images-{{ atb_blog_show_image }}" data-limit="{{ blogs[atb_blog].articles.size }}">
+    
+    {% unless atb_blog == blank %}
+      {% for article in blogs[atb_blog].articles limit:atb_post_limit %}
+        {% render 'blog-item', article: article, layout: atb_layout, blog_show_author: atb_blog_show_author, blog_show_date: atb_blog_show_date, blog_show_image: atb_blog_show_image %}
+      {% endfor %}
+    {% else %}
+      {% for i in (1..atb_post_limit) %}
+        {% render 'blog-item', layout: atb_layout, blog_show_author: atb_blog_show_author, blog_show_date: atb_blog_show_date, blog_show_image: atb_blog_show_image, blank_article: true %}
+      {% endfor %}
+    {% endunless %}
+
+  </div>
+
+</div>
+
+</section>

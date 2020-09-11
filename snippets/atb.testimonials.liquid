@@ -1,0 +1,224 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Testimonials",
+  "class": "mount-testimonials",
+  "max_blocks": 8,
+  "id": "testimonials",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_autorotate",
+      "label": "Autorotate",
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_autorotate_speed",
+      "label": "Autorotate speed",
+      "min": 3,
+      "max": 9,
+      "step": 1,
+      "unit": "sec",
+      "default": 5,
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_color_bg",
+      "label": "Custom background color",
+      "default": "rgba(0,0,0,0)",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_color_text",
+      "label": "Custom text color",
+      "default": "rgba(0,0,0,0)",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "blocks",
+      "label": "Block ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": "",
+      "repeatable": "Testimonial"
+    },
+    {
+      "type": "wysiwyg",
+      "id": "block_quote",
+      "label": "Quote",
+      "default": "<p>Add customer reviews and testimonials to showcase your store's happy customers.</p>",
+      "repeatable": "Testimonial",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "block_author_name",
+      "label": "Author name",
+      "default": "Author",
+      "repeatable": "Testimonial",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "block_author_title",
+      "label": "Author title",
+      "default": "Customer",
+      "repeatable": "Testimonial",
+      "info": ""
+    },
+    {
+      "type": "image_picker",
+      "id": "block_author_avatar",
+      "label": "Author avatar",
+      "repeatable": "Testimonial",
+      "info": ""
+    }
+  ],
+  "warnings": [
+    "repeating image fields may not be properly handled"
+  ]
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_autorotate' -%}
+{%- assign atb_autorotate = val -%}
+{%- include 'atb-render' field:'atb_autorotate_speed' -%}
+{%- assign atb_autorotate_speed = val -%}
+{%- include 'atb-render' field:'atb_color_bg' -%}
+{%- assign atb_color_bg = val -%}
+{%- include 'atb-render' field:'atb_color_text' -%}
+{%- assign atb_color_text = val -%}
+{%- include 'atb-render' field:'blocks' -%}
+{%- assign blocks = val -%}
+{%- include 'atb-render' field:'block_quote' -%}
+{%- assign block_quote = val -%}
+{%- include 'atb-render' field:'block_author_name' -%}
+{%- assign block_author_name = val -%}
+{%- include 'atb-render' field:'block_author_title' -%}
+{%- assign block_author_title = val -%}
+{%- include 'atb-render' field:'block_author_avatar' -%}
+{%- assign block_author_avatar = val -%}
+{%- if atb_autorotate == blank -%}
+{%- assign atb_autorotate = false -%}
+{%- else -%}
+{%- assign atb_autorotate = true -%}
+{%- endif -%}
+{%- assign atb_autorotate_speed = atb_autorotate_speed | plus: 0 -%}
+{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section mount-testimonials">
+<div class="content-section gutter--on testimonials {% if atb_color_bg != 'rgba(0,0,0,0)' %} parent-has-inner-padding {% endif %}">
+
+  <div class="testimonials__container content-slider" data-autoplay="{% if atb_autorotate %}{{ atb_autorotate_speed | times: 1000 }}{% else %}0{% endif %}">
+        
+    {% for block0 in blocks %}
+{%- assign my_image_key0 = block_author_avatar[forloop.index0]| split: '/files/' | last -%}
+{%- assign my_image0 = images[my_image_key0] -%}
+
+      <div class="testimonial content-slider__item" {{ block.shopify_attributes }}>
+
+        <div class="testimonial__header">
+
+          {% if my_image0 %}
+            <figure class="testimonial__author-avatar lazy-image lazy--image" aria-hidden="true">
+              <img 
+                src="{{ my_image0 | img_url: '66x66', crop: 'center' }}"
+                alt="{{ my_image0.alt | escape }}"
+                srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                data-srcset="{{ my_image0 | img_url: '66x66', crop: 'center' }} 66w, {{ block_author_avatar[forloop.index0] | img_url: '132x132', crop: 'center' }} 132w" 
+                data-sizes="auto" class="lazyload" 
+              />
+            </figure>
+          {% endif %}
+          
+          <div>
+
+            {% if block_author_name[forloop.index0] %}
+              <span class="testimonial__author-name">{{ block_author_name[forloop.index0] | escape }}</span>
+            {% endif %}
+
+            {% if block_author_title[forloop.index0] %}
+              <span class="testimonial__author-title">{{ block_author_title[forloop.index0] | escape }}</span>
+            {% endif %}
+
+          </div>
+
+        </div>
+
+        <div class="testimonial__content rte">
+          {{ block_quote[forloop.index0] }}
+        </div>
+
+      </div>
+
+    {% endfor %}
+
+  </div>
+
+</div>
+
+{% if atb_color_bg != 'rgba(0,0,0,0)' %}
+  {% style %}
+    #shopify-section-{{ section_id }} .testimonials {
+      background: {{ atb_color_bg }};
+      padding-top: 10vw;;
+      padding-bottom: 10vw;;
+    }
+    @media all and (max-width: 1280px) {
+      #shopify-section-{{ section_id }} .testimonials {
+        padding-top: 100px;
+        padding-bottom: 100px;
+      }
+    } 
+    @media all and (max-width: 948px) {
+      #shopify-section-{{ section_id }} .testimonials {
+        padding-top: 70px;
+        padding-bottom: 70px;
+      }
+    }
+    @media all and (max-width: 480px) {
+      #shopify-section-{{ section_id }} .testimonials {
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+    }
+    #shopify-section-{{ section_id }} {
+      margin-top: 0;
+    }
+  {% endstyle %}
+{% endif %}
+
+{% if atb_color_text != 'rgba(0,0,0,0)' %}
+  {% style %}
+    #shopify-section-{{ section_id }} .testimonials,
+    #shopify-section-{{ section_id }} .testimonials a {
+      color: {{ atb_color_text }};
+    }
+    #shopify-section-{{ section_id }} .testimonials svg path {
+      fill: {{ atb_color_text }};
+    }
+  {% endstyle %}
+{% endif %}
+
+</section>

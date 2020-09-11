@@ -1,0 +1,188 @@
+<div class="sidebar">
+
+	<div class="sidebar__container sidebar__responsive-container">
+
+		<div class="sidebar__container-holder" style="flex: 1 0 auto;">
+
+	    <header class="logo">
+
+				{% if template == 'index' %}
+					<h1>
+				{% else %}
+					<div>
+				{% endif %}
+
+					{% if section.settings.logo_src  %}
+
+						<a class="logo__image" href="{{ routes.root_url }}">
+							<img src="{{ section.settings.logo_src | img_url: 'master' }}" alt="{{ shop.name | escape }}" style="max-width: {{ section.settings.logo_width | escape }}px;" />
+						</a>
+
+					{% else %}
+
+						<a class="logo__text" href="{{ routes.root_url }}">{{ shop.name | escape }}</a>
+
+					{% endif %}
+
+				{% if template == 'index' %}
+					</h1>
+				{% else %}
+					</div>
+				{% endif %}
+
+	    </header>
+
+	    <div class="sidebar__menus {% if section.settings.show_search %} search-bottom-padding {% endif %}">
+
+		    <nav class="primary-menu">
+					{% render 'sidebar-navigation', menu: menus[section.settings.menu_primary] %}
+	    	</nav>
+
+	    	<nav class="secondary-menu">
+
+					{% render 'sidebar-navigation', menu: menus[section.settings.menu_secondary] %}
+
+					{% if shop.customer_accounts_enabled %}
+		    		<ul class="sidebar__menu accounts-menu">
+		    			<li>
+			    			{% if customer %}
+			    				<a href="{{ routes.account_url }}"><span class="underline-animation">{{ 'general.account_link.logged_in' | t }}</span></a>
+		    				{% else %}
+			    				<a href="{{ routes.account_login_url }}"><span class="underline-animation">{{ 'general.account_link.logged_out' | t }}</span></a>
+								{% endif %}
+							</li>
+		    		</ul>
+	    		{% endif %}
+
+					<div class="localization-form-holder">
+			      {% render 'localization-form', location: 'sidebar', show_currency_selector: section.settings.show_currency_selector, show_locale_selector: section.settings.show_locale_selector %}
+			    </div>
+
+	    	</nav>
+
+				<span class="sidebar__menus-close hidden" aria-label="{{ 'general.close' | t }}">
+					{% render 'theme-symbols', icon: 'close' %}
+				</span>
+
+				<span class="sidebar__menus-back hidden" aria-label="{{ 'general.back' | t }}">
+					{% render 'theme-symbols', icon: 'arrow-left' %}
+				</span>
+
+	    </div>
+
+	    <div class="sidebar__responsive-handles">
+				
+				{% if section.settings.show_search %}
+					<span class="sidebar__search-handle">
+						<span class="icon icon-search" aria-hidden="true">{% render 'theme-symbols', icon: 'search' %}</span>
+					</span>
+				{% endif %}
+
+				<a href="{{ routes.cart_url }}" class="sidebar__cart-handle" aria-label="{{ 'cart.title' | t }}" title="{{ 'cart.title' | t }}">
+					<span class="icon icon-cart" aria-hidden="true" style="height: 28px;">{% render 'theme-symbols', icon: 'cart' %}</span>
+					<span class="count" aria-hidden="true">{{ cart.item_count }}</span>
+				</a>
+
+				<span class="sidebar__menu-handle">
+					<span class="icon icon-menu" aria-hidden="true">{% render 'theme-symbols', icon: 'burger' %}</span>
+				</span>
+
+			</div>
+			
+			{% unless template contains 'cart' %}
+				<div class="sidebar__cart">
+					<div>
+						{% render 'cart-form', location: 'sidebar' %}
+						<span class="sidebar__cart-close" aria-label="{{ 'general.close' | t }}">
+							{% render 'theme-symbols', icon: 'close' %}
+						</span>
+					</div>
+				</div>
+			{% endunless %}
+
+			{% if section.settings.show_search %}
+				<div class="sidebar__search {% if settings.predictive_search_enabled %} predictive-search {% endif %}">
+					<div>
+						{% render 'search-form' %}
+						<div class="sidebar__search-container">
+							<div class="sidebar__search-link"></div>
+							<div class="sidebar__search-results"></div>
+						</div>
+						<span class="sidebar__search-close" aria-label="{{ 'general.close' | t }}">
+							{% render 'theme-symbols', icon: 'close' %}
+						</span>
+					</div>
+				</div>
+			{% endif %}
+
+		</div>
+	</div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Sidebar",
+    "class": "mount-sidebar mount-overlay",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo_src",
+        "label": "Image"
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "label": "Custom logo width (in pixels)",
+        "min": 50,
+        "max": 250,
+        "step": 2,
+        "default": 100
+      },
+      {
+        "type": "link_list",
+        "id": "menu_primary",
+        "label": "Primary navigation",
+        "default": "main-menu"
+      },
+      {
+        "type": "link_list",
+        "id": "menu_secondary",
+        "label": "Secondary navigation",
+	      "info": "This menu won't show dropdown items"
+      },
+      {
+        "type": "header",
+        "content": "Language Selector",
+        "info": "To add a language, go to your [language settings.](/admin/settings/languages)"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_locale_selector",
+        "label": "Show language selector",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Currency Selector",
+        "info": "To add a currency, go to your [payment settings.](/admin/settings/payments)"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_currency_selector",
+        "label": "Show currency selector",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Search"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_search",
+        "label": "Show search",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}

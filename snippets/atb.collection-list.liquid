@@ -1,0 +1,200 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Collection list",
+  "class": "overflow-hidden",
+  "max_blocks": 8,
+  "id": "collection-list",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "layout-fulls",
+          "label": "100%"
+        },
+        {
+          "value": "layout-halves",
+          "label": "50%"
+        },
+        {
+          "value": "layout-thirds",
+          "label": "33.333%"
+        }
+      ],
+      "default": "layout-halves",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "horizontal-left vertical-top",
+          "label": "Left top"
+        },
+        {
+          "value": "horizontal-center vertical-top",
+          "label": "Center top"
+        },
+        {
+          "value": "horizontal-right vertical-top",
+          "label": "Right top"
+        },
+        {
+          "value": "horizontal-left vertical-middle",
+          "label": "Left middle"
+        },
+        {
+          "value": "horizontal-center vertical-middle",
+          "label": "Center middle"
+        },
+        {
+          "value": "horizontal-right vertical-middle",
+          "label": "Right middle"
+        },
+        {
+          "value": "horizontal-left vertical-bottom",
+          "label": "Left bottom"
+        },
+        {
+          "value": "horizontal-center vertical-bottom",
+          "label": "Center bottom"
+        },
+        {
+          "value": "horizontal-right vertical-bottom",
+          "label": "Right bottom"
+        }
+      ],
+      "default": "horizontal-left vertical-top",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_color_text",
+      "label": "Custom text color",
+      "default": "rgba(0,0,0,0)",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_color_bg",
+      "label": "Background overlay",
+      "default": "rgba(0,0,0,0)",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Gutter",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_gutter_enabled",
+      "label": "Enable inner content spacing",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "blocks",
+      "label": "Block ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": "",
+      "repeatable": "Collection"
+    },
+    {
+      "type": "collection",
+      "id": "block_collection",
+      "label": "Collection",
+      "repeatable": "Collection",
+      "info": ""
+    },
+    {
+      "type": "image_picker",
+      "id": "block_collection_image",
+      "label": "Image",
+      "info": "If the collection doesn't have a featured image.",
+      "repeatable": "Collection"
+    }
+  ],
+  "warnings": [
+    "repeating image fields may not be properly handled"
+  ]
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_layout' -%}
+{%- assign atb_layout = val -%}
+{%- include 'atb-render' field:'atb_alignment' -%}
+{%- assign atb_alignment = val -%}
+{%- include 'atb-render' field:'atb_color_text' -%}
+{%- assign atb_color_text = val -%}
+{%- include 'atb-render' field:'atb_color_bg' -%}
+{%- assign atb_color_bg = val -%}
+{%- include 'atb-render' field:'atb_gutter_enabled' -%}
+{%- assign atb_gutter_enabled = val -%}
+{%- include 'atb-render' field:'blocks' -%}
+{%- assign blocks = val -%}
+{%- include 'atb-render' field:'block_collection' -%}
+{%- assign block_collection = val -%}
+{%- include 'atb-render' field:'block_collection_image' -%}
+{%- assign block_collection_image = val -%}
+{%- if atb_gutter_enabled == blank -%}
+{%- assign atb_gutter_enabled = false -%}
+{%- else -%}
+{%- assign atb_gutter_enabled = true -%}
+{%- endif -%}
+{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section overflow-hidden">
+<div class="content-section gutter--{% if atb_gutter_enabled %}on{% else %}off{% endif %} collection-list {{ atb_layout }}">
+
+  {% for block0 in blocks %}
+{%- assign my_image_key0 = block_collection_image[forloop.index0]| split: '/files/' | last -%}
+{%- assign my_image0 = images[my_image_key0] -%}
+    {% render 'collection-item', collection: collections[block_collection[forloop.index0]], text_alignment: atb_alignment, image: my_image0 %}
+  {% endfor %}
+
+</div>
+
+{% if atb_color_text != 'rgba(0,0,0,0)' %}
+  {% style %}
+    #shopify-section-{{ section_id }} .collection-item__header {
+      color: {{ atb_color_text }};
+    }
+    #shopify-section-{{ section_id }} .collection-item__title span {
+      background-image: linear-gradient(to right, {{ atb_color_text }}, {{ atb_color_text }});
+    }
+  {% endstyle %}
+{% endif %}
+
+{% if atb_color_bg != 'rgba(0,0,0,0)' %}
+  {% style %}
+    #shopify-section-{{ section_id }} .collection-item__background:after {
+      background: {{ atb_color_bg }};
+    }
+  {% endstyle %}
+{% endif %}
+
+</section>

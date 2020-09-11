@@ -1,0 +1,212 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Gallery",
+  "class": "mount-gallery",
+  "max_blocks": 99,
+  "id": "gallery",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_gallery_aspect",
+      "label": "Images aspect ratio",
+      "options": [
+        {
+          "value": "1",
+          "label": "Square (1:1)",
+          "group": "Cropped"
+        },
+        {
+          "value": "0.66666",
+          "label": "Tall (2:3)",
+          "group": "Cropped"
+        },
+        {
+          "value": "1.33333",
+          "label": "Short (4:3)",
+          "group": "Cropped"
+        }
+      ],
+      "default": "1",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_style_mobile",
+      "label": "Turn gallery into slider on mobile",
+      "default": false,
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_slider_height",
+      "label": "Mobile slider height",
+      "options": [
+        {
+          "value": "50vh",
+          "label": "Medium"
+        },
+        {
+          "value": "75vh",
+          "label": "Large"
+        },
+        {
+          "value": "100vh",
+          "label": "Full"
+        }
+      ],
+      "default": "75vh",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_lightbox",
+      "label": "Enable lightbox",
+      "info": "Shows larger image on click",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Gutter",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_gutter_enabled",
+      "label": "Enable inner content spacing",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "blocks",
+      "label": "Block ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": "",
+      "repeatable": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "block_image",
+      "label": "Image",
+      "repeatable": "Image",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "block_caption",
+      "label": "Caption",
+      "repeatable": "Image",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "block_featured",
+      "label": "Enlarge image in grid",
+      "repeatable": "Image",
+      "info": ""
+    }
+  ],
+  "warnings": [
+    "repeating checkbox fields may not be properly handled",
+    "repeating image fields may not be properly handled"
+  ]
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_gallery_aspect' -%}
+{%- assign atb_gallery_aspect = val -%}
+{%- include 'atb-render' field:'atb_style_mobile' -%}
+{%- assign atb_style_mobile = val -%}
+{%- include 'atb-render' field:'atb_slider_height' -%}
+{%- assign atb_slider_height = val -%}
+{%- include 'atb-render' field:'atb_lightbox' -%}
+{%- assign atb_lightbox = val -%}
+{%- include 'atb-render' field:'atb_gutter_enabled' -%}
+{%- assign atb_gutter_enabled = val -%}
+{%- include 'atb-render' field:'blocks' -%}
+{%- assign blocks = val -%}
+{%- include 'atb-render' field:'block_image' -%}
+{%- assign block_image = val -%}
+{%- include 'atb-render' field:'block_caption' -%}
+{%- assign block_caption = val -%}
+{%- include 'atb-render' field:'block_featured' -%}
+{%- assign block_featured = val -%}
+{%- if atb_style_mobile == blank -%}
+{%- assign atb_style_mobile = false -%}
+{%- else -%}
+{%- assign atb_style_mobile = true -%}
+{%- endif -%}
+{%- if atb_lightbox == blank -%}
+{%- assign atb_lightbox = false -%}
+{%- else -%}
+{%- assign atb_lightbox = true -%}
+{%- endif -%}
+{%- if atb_gutter_enabled == blank -%}
+{%- assign atb_gutter_enabled = false -%}
+{%- else -%}
+{%- assign atb_gutter_enabled = true -%}
+{%- endif -%}
+{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section mount-gallery">
+{% assign aspect_ratio = atb_gallery_aspect %}
+
+<div class="content-section gutter--{% if atb_gutter_enabled %}on{% else %}off{% endif %} gallery gallery--grid gallery--mobile-slider-{{ atb_style_mobile }}" data-blocks-size="{{ blocks.size }}" data-slider-height="{{ atb_slider_height }}">
+
+  <div class="gallery__content" data-lightbox="{{ atb_lightbox }}">
+
+    {% for block0 in blocks %}
+{%- if block_featured[forloop.index0] == blank -%}
+{%- assign my_checkbox0 = false -%}
+{%- else -%}
+{%- assign my_checkbox0 = true -%}
+{%- endif -%}
+{%- assign my_image_key0 = block_image[forloop.index0]| split: '/files/' | last -%}
+{%- assign my_image0 = images[my_image_key0] -%}
+    
+      <div class="gallery__item {% if my_checkbox0 %} featured {% endif %}" {{ block.shopify_attributes }}>
+
+        <div class="gallery__image">
+
+          {% unless my_image0 == blank %}
+
+            {% render 'lazy-image', image: my_image0, type: 'image', ratio: aspect_ratio, alt: block_caption[forloop.index0], caption: block_caption[forloop.index0] %}
+
+          {% else %}
+
+            <span class="onboarding-svg onboarding-background" style="padding-top:{{ aspect_ratio | times: 100 }}%" data-padding="{{ aspect_ratio }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </span>
+
+          {% endunless %}
+
+          {% if atb_lightbox and my_image0 != blank %}
+            <div class="gallery__zoom" data-mfp-src="{{ my_image0 | img_url: 'master' }}" aria-hidden="true">
+              {% render 'theme-symbols', icon: 'zoom-in' %}
+            </div>
+          {% endif %}
+
+        </div>
+
+      </div>
+
+    {% endfor %}
+
+  </div>
+
+</div>
+
+</section>

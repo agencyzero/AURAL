@@ -1,0 +1,144 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Text columns with images",
+  "max_blocks": 4,
+  "id": "text-columns-with-images",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "class": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_color_bg",
+      "label": "Custom background color",
+      "default": "rgba(0,0,0,0)",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_color_text",
+      "label": "Custom text color",
+      "default": "rgba(0,0,0,0)",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "blocks",
+      "label": "Block ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": "",
+      "repeatable": "Text"
+    },
+    {
+      "type": "text",
+      "id": "block_title",
+      "label": "Heading",
+      "default": "Text with image",
+      "repeatable": "Text",
+      "info": ""
+    },
+    {
+      "type": "wysiwyg",
+      "id": "block_body",
+      "label": "Text",
+      "default": "<p>Share your latest products, collections or promotions!</p>",
+      "repeatable": "Text",
+      "info": ""
+    },
+    {
+      "type": "image_picker",
+      "id": "block_image",
+      "label": "Image",
+      "repeatable": "Text",
+      "info": ""
+    }
+  ],
+  "warnings": [
+    "repeating image fields may not be properly handled"
+  ]
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_color_bg' -%}
+{%- assign atb_color_bg = val -%}
+{%- include 'atb-render' field:'atb_color_text' -%}
+{%- assign atb_color_text = val -%}
+{%- include 'atb-render' field:'blocks' -%}
+{%- assign blocks = val -%}
+{%- include 'atb-render' field:'block_title' -%}
+{%- assign block_title = val -%}
+{%- include 'atb-render' field:'block_body' -%}
+{%- assign block_body = val -%}
+{%- include 'atb-render' field:'block_image' -%}
+{%- assign block_image = val -%}
+{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section ">
+<div class="content-section gutter--on text-w-image {% if atb_color_bg != 'rgba(0,0,0,0)' %} parent-has-inner-padding {% endif %}" data-size="{{ blocks.size }}">
+
+	{% for block0 in blocks %}
+{%- assign my_image_key0 = block_image[forloop.index0]| split: '/files/' | last -%}
+{%- assign my_image0 = images[my_image_key0] -%}
+    {% render 'text-columns-with-images-content', block: block %}
+	{% endfor %}
+
+</div>
+
+{% if atb_color_bg != 'rgba(0,0,0,0)' %}
+  {% style %}
+    #shopify-section-{{ section_id }} .text-w-image {
+      background: {{ atb_color_bg }};
+      padding-top: 10vw;;
+      padding-bottom: 10vw;;
+    }
+    @media all and (max-width: 1280px) {
+      #shopify-section-{{ section_id }} .text-w-image {
+        padding-top: 100px;
+        padding-bottom: 100px;
+      }
+    } 
+    @media all and (max-width: 948px) {
+      #shopify-section-{{ section_id }} .text-w-image {
+        padding-top: 70px;
+        padding-bottom: 70px;
+      }
+    }
+    @media all and (max-width: 480px) {
+      #shopify-section-{{ section_id }} .text-w-image {
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+    }
+    #shopify-section-{{ section_id }} {
+      margin-top: 0;
+    }
+  {% endstyle %}
+{% endif %}
+
+{% if atb_color_text != 'rgba(0,0,0,0)' %}
+  {% style %}
+    #shopify-section-{{ section_id }} .text-w-image,
+     #shopify-section-{{ section_id }} .text-w-image a {
+      color: {{ atb_color_text }};
+    }
+  {% endstyle %}
+{% endif %}
+
+</section>

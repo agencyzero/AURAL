@@ -1,0 +1,198 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Rich text",
+  "id": "rich-text",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "class": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "text",
+      "id": "atb_title",
+      "label": "Heading",
+      "default": "Talk about your brand",
+      "info": ""
+    },
+    {
+      "type": "wysiwyg",
+      "id": "atb_body",
+      "label": "Text",
+      "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p><p><a href=\"#\">Insert links as well</a></p>",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_text_size",
+      "label": "Heading size",
+      "options": [
+        {
+          "value": "regular",
+          "label": "Regular"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "huge",
+          "label": "Extra large"
+        }
+      ],
+      "default": "regular",
+      "info": ""
+    },
+    {
+      "type": "image_picker",
+      "id": "atb_image",
+      "label": "Image",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_image_position",
+      "label": "Image position",
+      "options": [
+        {
+          "value": "align-right",
+          "label": "Left"
+        },
+        {
+          "value": "align-left",
+          "label": "Right"
+        }
+      ],
+      "default": "align-left",
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_image_height",
+      "label": "Image height",
+      "options": [
+        {
+          "value": "50vh",
+          "label": "Regular"
+        },
+        {
+          "value": "75vh",
+          "label": "Large"
+        },
+        {
+          "value": "100vh",
+          "label": "Full"
+        }
+      ],
+      "default": "75vh",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_color_bg",
+      "label": "Custom background color",
+      "default": "rgba(0,0,0,0)",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "atb_color_text",
+      "label": "Custom text color",
+      "default": "rgba(0,0,0,0)",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Gutter",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_gutter_enabled",
+      "label": "Enable inner content spacing",
+      "info": "Only when using images"
+    }
+  ],
+  "warnings": []
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_title' -%}
+{%- assign atb_title = val -%}
+{%- include 'atb-render' field:'atb_body' -%}
+{%- assign atb_body = val -%}
+{%- include 'atb-render' field:'atb_text_alignment' -%}
+{%- assign atb_text_alignment = val -%}
+{%- include 'atb-render' field:'atb_text_size' -%}
+{%- assign atb_text_size = val -%}
+{%- include 'atb-render' field:'atb_image' -%}
+{%- assign atb_image = val -%}
+{%- include 'atb-render' field:'atb_image_position' -%}
+{%- assign atb_image_position = val -%}
+{%- include 'atb-render' field:'atb_image_height' -%}
+{%- assign atb_image_height = val -%}
+{%- include 'atb-render' field:'atb_color_bg' -%}
+{%- assign atb_color_bg = val -%}
+{%- include 'atb-render' field:'atb_color_text' -%}
+{%- assign atb_color_text = val -%}
+{%- include 'atb-render' field:'atb_gutter_enabled' -%}
+{%- assign atb_gutter_enabled = val -%}
+{%- if atb_gutter_enabled == blank -%}
+{%- assign atb_gutter_enabled = false -%}
+{%- else -%}
+{%- assign atb_gutter_enabled = true -%}
+{%- endif -%}
+{%- assign atb_image_key = atb_image| split: '/files/' | last -%}{%- assign atb_image = images[atb_image_key] -%}{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section ">
+{% render 'rich-text-content', 
+  id: section_id,
+  gutter_enabled: atb_gutter_enabled,
+  image: atb_image,
+  image_position: atb_image_position,
+  image_height: atb_image_height,
+  title: atb_title,
+  body: atb_body,
+  text_alignment: atb_text_alignment,
+  text_size: atb_text_size,
+  color_bg: atb_color_bg,
+  color_text: atb_color_text
+%}
+
+</section>

@@ -1,0 +1,54 @@
+{% if grid_aspect == 'natural' %}
+	{% if product.media.size == 0 or blank_product %} 
+		{% assign aspect_ratio = 1 %}
+	{% else %}
+		{% unless product.featured_media.aspect_ratio > 0 %}
+			{% assign aspect_ratio = 1 %}
+		{% else %}
+			{% assign aspect_ratio = product.featured_media.aspect_ratio %}
+		{% endunless %}
+	{% endif %}
+{% else %}
+	{% assign aspect_ratio = grid_aspect %}
+{% endif %}
+
+<div class="product-item">
+
+	<a href="{{ product.url | within: collection }}" >
+
+		{% if product.media.size == 0 or blank_product %} 
+
+	  	<span class="product-item__thumbnail onboarding-svg onboarding-background" style="padding-top:{{ aspect_ratio | times: 100 }}%" data-padding="{{ aspect_ratio | times: 100 }}">
+   			{% assign no = forloop.index | modulo:6 | plus:1 %}
+		    {{ 'product-X' | replace: 'X', no | placeholder_svg_tag }}
+		   </span>
+
+		{% else %}
+
+			<div class="product-item__thumbnail" style="padding-top:{{ 100 | divided_by: aspect_ratio }}%" data-padding="{{ 100 | divided_by: aspect_ratio }}">
+				
+				{% if grid_aspect == 'natural' %}
+					{% render 'lazy-image', image: product.featured_media, type: 'background', %}
+			  {% else %}
+					{% render 'lazy-image', image: product.featured_media, type: 'background', ratio: aspect_ratio %}
+			  {% endif %}
+
+		  </div>
+
+		{% endif %}
+
+	  <div class="product-item__caption">
+
+	  	<h3 class="product-item__title h3">
+	  		{% unless product.title == blank %}
+	  			{{ product.title | escape }}
+	  		{% else %}
+	  			Product title
+	  		{% endunless %}
+	  	</h3>
+
+		</div>
+
+	</a>
+
+</div>

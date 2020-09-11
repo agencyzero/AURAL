@@ -1,0 +1,370 @@
+{% comment %}
+ATB-SCHEMA{
+  "name": "Slideshow: horizontal",
+  "class": "mount-slider overflow-hidden",
+  "max_blocks": 8,
+  "id": "slider-horizontal",
+  "banner": "",
+  "icon": "",
+  "tags": "",
+  "description": "",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Section ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_size",
+      "label": "Slider height",
+      "options": [
+        {
+          "value": "60vh",
+          "label": "Medium"
+        },
+        {
+          "value": "80vh",
+          "label": "Large"
+        },
+        {
+          "value": "100vh",
+          "label": "Full"
+        }
+      ],
+      "default": "60vh",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_autorotate",
+      "label": "Autorotate",
+      "info": ""
+    },
+    {
+      "type": "range",
+      "id": "atb_autorotate_speed",
+      "label": "Autorotate speed",
+      "min": 3,
+      "max": 9,
+      "step": 1,
+      "unit": "sec",
+      "default": 5,
+      "info": ""
+    },
+    {
+      "type": "select",
+      "id": "atb_text_size",
+      "label": "Heading size",
+      "options": [
+        {
+          "value": "regular",
+          "label": "Regular"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "huge",
+          "label": "Extra large"
+        }
+      ],
+      "default": "regular",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Gutter",
+      "info": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "atb_gutter_enabled",
+      "label": "Enable inner content spacing",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "blocks",
+      "label": "Block ID",
+      "info": "Enter a unique ID with only letters and numbers, no spaces",
+      "default": "",
+      "repeatable": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "block_image",
+      "label": "Image",
+      "repeatable": "Image",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "block_title",
+      "label": "Heading",
+      "repeatable": "Image",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "block_subheading",
+      "label": "Subheading",
+      "repeatable": "Image",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "block_caption",
+      "label": "Caption",
+      "repeatable": "Image",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "block_button_label",
+      "label": "Button label",
+      "repeatable": "Image",
+      "info": ""
+    },
+    {
+      "type": "text",
+      "id": "block_url",
+      "label": "Link",
+      "info": "Unless there is a label for the button, the link will be on the text.",
+      "repeatable": "Image"
+    },
+    {
+      "type": "select",
+      "id": "block_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "horizontal-left vertical-top",
+          "label": "Left top"
+        },
+        {
+          "value": "horizontal-center vertical-top",
+          "label": "Center top"
+        },
+        {
+          "value": "horizontal-right vertical-top",
+          "label": "Right top"
+        },
+        {
+          "value": "horizontal-left vertical-middle",
+          "label": "Left middle"
+        },
+        {
+          "value": "horizontal-center vertical-middle",
+          "label": "Center middle"
+        },
+        {
+          "value": "horizontal-right vertical-middle",
+          "label": "Right middle"
+        },
+        {
+          "value": "horizontal-left vertical-bottom",
+          "label": "Left bottom"
+        },
+        {
+          "value": "horizontal-center vertical-bottom",
+          "label": "Center bottom"
+        },
+        {
+          "value": "horizontal-right vertical-bottom",
+          "label": "Right bottom"
+        }
+      ],
+      "default": "horizontal-left vertical-bottom",
+      "repeatable": "Image",
+      "info": ""
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "repeatable": "Image",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "block_color_text",
+      "label": "Custom text color",
+      "default": "rgba(0,0,0,0)",
+      "repeatable": "Image",
+      "info": ""
+    },
+    {
+      "type": "color",
+      "id": "block_color_bg",
+      "label": "Overlay color",
+      "default": "rgba(0,0,0,0)",
+      "repeatable": "Image",
+      "info": ""
+    }
+  ],
+  "warnings": [
+    "repeating image fields may not be properly handled"
+  ]
+}ATB-SCHEMA
+{% endcomment %}
+
+
+{%- include 'atb-render' field:'section_id' -%}
+{%- assign section_id = val -%}
+{%- include 'atb-render' field:'atb_size' -%}
+{%- assign atb_size = val -%}
+{%- include 'atb-render' field:'atb_autorotate' -%}
+{%- assign atb_autorotate = val -%}
+{%- include 'atb-render' field:'atb_autorotate_speed' -%}
+{%- assign atb_autorotate_speed = val -%}
+{%- include 'atb-render' field:'atb_text_size' -%}
+{%- assign atb_text_size = val -%}
+{%- include 'atb-render' field:'atb_gutter_enabled' -%}
+{%- assign atb_gutter_enabled = val -%}
+{%- include 'atb-render' field:'blocks' -%}
+{%- assign blocks = val -%}
+{%- include 'atb-render' field:'block_image' -%}
+{%- assign block_image = val -%}
+{%- include 'atb-render' field:'block_title' -%}
+{%- assign block_title = val -%}
+{%- include 'atb-render' field:'block_subheading' -%}
+{%- assign block_subheading = val -%}
+{%- include 'atb-render' field:'block_caption' -%}
+{%- assign block_caption = val -%}
+{%- include 'atb-render' field:'block_button_label' -%}
+{%- assign block_button_label = val -%}
+{%- include 'atb-render' field:'block_url' -%}
+{%- assign block_url = val -%}
+{%- include 'atb-render' field:'block_alignment' -%}
+{%- assign block_alignment = val -%}
+{%- include 'atb-render' field:'block_color_text' -%}
+{%- assign block_color_text = val -%}
+{%- include 'atb-render' field:'block_color_bg' -%}
+{%- assign block_color_bg = val -%}
+{%- if atb_autorotate == blank -%}
+{%- assign atb_autorotate = false -%}
+{%- else -%}
+{%- assign atb_autorotate = true -%}
+{%- endif -%}
+{%- if atb_gutter_enabled == blank -%}
+{%- assign atb_gutter_enabled = false -%}
+{%- else -%}
+{%- assign atb_gutter_enabled = true -%}
+{%- endif -%}
+{%- assign atb_autorotate_speed = atb_autorotate_speed | plus: 0 -%}
+{%- assign no_image = images['no_image_comparison'] -%}
+
+<section id="shopify-section-{{section_id}}" class="shopify-section mount-slider overflow-hidden">
+{% if blocks.size > 0 %}
+
+	<div class="content-section slider slider--horizontal slider--slide gutter--{% if atb_gutter_enabled %}on{% else %}off{% endif %}  {% if atb_size == '100vh' %} slider--mobile-js-height {% endif %}" data-autorotate="{% if atb_autorotate %}{{ atb_autorotate_speed | times: 1000 }}{% else %}false{% endif %}" data-blocks="{{ blocks.size }}">
+
+	  {% for block0 in blocks %}
+{%- assign my_image_key0 = block_image[forloop.index0]| split: '/files/' | last -%}
+{%- assign my_image0 = images[my_image_key0] -%}
+
+	  	<div id="slide-{{ blocks[forloop.index0] }}" class="slide" {{ block.shopify_attributes }} data-index="{{ forloop.index }}">
+
+				<div class="slide__text {{ block_alignment[forloop.index0] }}">
+
+		      {% if block_url[forloop.index0] != blank and block_button_label[forloop.index0] == blank %}
+		        <a href="{{ block_url[forloop.index0] | escape }}">
+		      {% endif %}
+
+						<div>
+							
+							{% unless block_caption[forloop.index0] == blank %}
+								<div class="slide__caption"><span>{{ block_caption[forloop.index0] | escape }}</span></div>
+							{% endunless %}
+
+							{% unless block_title[forloop.index0] == blank %}
+								<div class="slide__title"><h2 class="{% if atb_text_size == 'regular' %} h1 {% elsif atb_text_size == 'large' %} h0 {% else %} hh {% endif %}"><span>{{ block_title[forloop.index0] | escape }}</span></h2></div>
+							{% endunless %}
+							
+							{% unless block_subheading[forloop.index0] == blank %}
+								<div class="slide__subheading"><span>{{ block_subheading[forloop.index0] | escape }}</span></div>
+							{% endunless %}
+
+							{% unless block_button_label[forloop.index0] == blank %}
+								<div class="slide__button"><a class="button button--solid" href="{{ block_url[forloop.index0] | escape }}" {% if block_color_text[forloop.index0] != 'rgba(0,0,0,0)' %} data-color="{{ block_color_text[forloop.index0] }}" {% endif %} title="{{ block_button_label[forloop.index0] | escape }}">{{ block_button_label[forloop.index0] | escape }} {% render 'theme-symbols', icon: 'arrow-right' %}</a></div>
+							{% endunless %}
+
+						</div>
+
+		      {% if block_url[forloop.index0] != blank and block_button_label[forloop.index0] == blank %}
+		        </a>
+		      {% endif %}
+	      
+				</div>
+
+				<div class="slide__image">
+
+	        {% if my_image0 == blank %}
+
+	          {% assign no = forloop.index | modulo: 2 | plus: 1 %}
+	          <span class="img onboarding-svg" data-image="{{ 'lifestyle-X' | replace: 'X', no }}">{{ 'lifestyle-X' | replace: 'X', no | placeholder_svg_tag }}</span>
+
+	        {% else %}
+					
+						{% render 'lazy-image', image: my_image0, type: 'background', alt: block_title[forloop.index0] %}
+
+					{% endif %}
+
+					<span class="slide__overlay"></span>
+
+				</div>
+
+				{% if block_color_text[forloop.index0] != 'rgba(0,0,0,0)' %}
+					{% style %}
+						#slide-{{ blocks[forloop.index0] }} .slide__text,
+						#slide-{{ blocks[forloop.index0] }} .slide__text a {
+							color: {{ block_color_text[forloop.index0] }};
+						}
+			      #slide-{{ blocks[forloop.index0] }} .slide__title span {
+			        background-image: linear-gradient(to right, {{ block_color_text[forloop.index0] }}, {{ block_color_text[forloop.index0] }});
+			      }
+			      #slide-{{ blocks[forloop.index0] }} .button--solid {
+			        background: {{ block_color_text[forloop.index0] }};
+			      }
+					{% endstyle %}
+			    <script type="text/javascript">
+			      $('#slide-{{ blocks[forloop.index0] }} .button--solid').css('color', lightOrDark('{{ block_color_text[forloop.index0] }}'));
+			      $('#slide-{{ blocks[forloop.index0] }} .button--solid path').css('fill', lightOrDark('{{ block_color_text[forloop.index0] }}'));
+			    </script>
+				{% endif %}
+
+				{% if block_color_bg[forloop.index0] != 'rgba(0,0,0,0)' %}
+					{% style %}
+						#slide-{{ blocks[forloop.index0] }} .slide__text:before {
+							background-color: {{ block_color_bg[forloop.index0] }};
+						}
+					{% endstyle %}
+				{% endif %}
+
+			</div>
+
+		{% endfor %}
+
+		{% style %}
+			#shopify-section-{{ section_id }} .slider--horizontal {
+				height: {{ atb_size }};
+			}
+			@media all and (max-width: 948px) {
+				#shopify-section-{{ section_id }} .slider--horizontal {
+					height: calc({{ atb_size }} - 120px);
+				}
+				#shopify-section-{{ section_id }} {
+					padding-bottom: 57px;
+				}
+			}
+		
+		{% endstyle %}
+
+	</div>
+
+{% endif %}
+
+</section>
