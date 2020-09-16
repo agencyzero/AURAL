@@ -2,10 +2,6 @@ development:
   password: ${DEV_PASSWD}
   theme_id: ${DEV_THEMEID}
   store: ${DEV_SHOP}
-staging:
-  password: ${STAGE_PASSWD}
-  theme_id: ${STAGE_THEMEID}
-  store: ${STAGE_SHOP}
 production:
   password: ${PROD_PASSWD}
   theme_id: ${PROD_THEMEID}
