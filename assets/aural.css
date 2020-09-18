@@ -2,6 +2,29 @@
 .sidebar__menu a {
     font-family: Oswald, sans-serif!important;
 }
+.sidebar__submenu--first .sidebar__container:after{
+	background:#fb8237!important;
+	border-right: 1px solid #fb8237!important;
+	border-left: 1px solid #fb8237!important;
+}
+.sidebar__submenu--second .sidebar__container:after{
+	background:#fb8f4b!important;
+	border-right: 1px solid #fb8f4b!important;
+	border-left: 1px solid #fb8f4b!important;
+}
+.page-content, .article__content { /*fixing page headers*/
+    margin: 100px auto 0 auto;
+    display: inline;
+    z-index: 1;
+    position: absolute;
+
+}
+.page-content h1, .article__content h1{
+	color:white!important;
+}
+
+
+
 
 
 
@@ -143,6 +166,18 @@
 	line-height:32.4px;
 	margin-bottom:0px;
 	-webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+}
+.item.item1.lifestyle-eames {
+    position: relative;
+}
+.item.item1.lifestyle-eames h1 {
+	text-transform:uppercase;
+    background: transparent;
+    display: inline-block;
+    position: absolute;
+    bottom: -20px;
+    left: 30px;
+    font-size: 2rem;
 }
  /* home grid product hovers */
 .home .grid h2 {
