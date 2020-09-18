@@ -1,90 +1,118 @@
-.grid {
-  display: grid;
-  align-items: center;
-  text-align:center;
-  grid-template-columns: repeat(4,1fr);
-  grid-gap: 1em;
-  grid-lines:1px;
+.home .grid {
+	display: grid;
+	align-items: center;
+	text-align:center;
+	grid-template-columns: repeat(4,1fr);
+	grid-template-rows: .8fr 1.2fr .8fr .8fr 1fr 1fr .8fr .6fr;
+    grid-gap: 1.4em;
 }
-.grid > .item{
-  background-color:#369;
-  color:#fff;
+.home .grid > .item{
+	background-color:#a4dded;
+	color:#fff;
+	height:100%;
 }
-/*.grid > .item::before {
-  content: "";
-  display: inline-block;
-  width: 1px;
-  height: 0;
-}
-.grid > .item.lg::before {
-  padding-bottom: calc(100% / 1);
-}
-.grid > .item.sm::before {
-  padding-bottom: calc(100% / (5/4));
-}
-.grid > .item.wide::before {
-  padding-bottom: calc(100% / (10/4));
-}*/
-.item1{
+
+/* positioning elements */
+.home .grid .item1{
 	grid-column-start: 1;
 	grid-column-end: 3;
 	grid-row-start: 1;
 	grid-row-end: 3;
 }
-.item2{
+.home .grid .item2{
 	grid-column-start: 1;
 	grid-column-end: 3;
 	grid-row-start: 3;
 	grid-row-end: 5;
 }
-.item3{
+.home .grid .item3{
 	grid-column-start: 1;
 	grid-column-end: 3;
 	grid-row-start: 5;
 	grid-row-end: 7;
 }
-.item4{
+.home .grid .item4{
 	grid-column-start: 3;
 	grid-column-end: 4;
 	grid-row-start: 1;
 	grid-row-end: 2;
 }
-.item5{
+.home .grid .item5{
 	grid-column-start: 4;
 	grid-column-end: 5;
 	grid-row-start: 1;
 	grid-row-end: 2;
 }
-.item6{
+.home .grid .item6{
 	grid-column-start: 3;
 	grid-column-end: 5;
 	grid-row-start: 2;
 	grid-row-end: 4;
 }
-.item7{
+.home .grid .item7{
 	grid-column-start: 3;
 	grid-column-end: 4;
 	grid-row-start: 4;
 	grid-row-end: 5;
 }
-.item8{
+.home .grid .item8{
 	grid-column-start: 4;
 	grid-column-end: 5;
 	grid-row-start: 4;
 	grid-row-end: 5;
 }
-.item9{
+.home .grid .item9{
 	grid-column-start: 3;
 	grid-column-end: 5;
 	grid-row-start: 5;
 	grid-row-end: 6;
 }
-.item10{
+.home .grid .item10{
 	grid-column-start: 3;
 	grid-column-end: 5;
 	grid-row-start: 6;
 	grid-row-end: 8;
 }
+
+/*grid backgrounds*/
+.home .grid .item .img
+,.home .grid .wrapper{
+    height: 100%; 
+    width: 100%;
+    background: 50% no-repeat;
+    background-image: inherit;
+    background-size: cover;
+ }
+.lifestyle-eames .img{
+ 	background-image: url('//aural.wpengine.com/wp-content/uploads/2020/03/Upstairs_eames.jpg')!important;
+ }
+.lifestyle-records .img{
+ 	background-image: url('//auralhifi.sirv.com/WP_auralfetish.com/2020/03/T/u/s/Turntable_records.jpg')!important;
+ }
+.lifestyle-power .img{
+ 	background-image: url('//auralhifi.sirv.com/WP_auralfetish.com/2020/03/R/e/r/Reciever.jpg')!important;
+ }
+.item2 .wrapper{
+ 	background-image: url('//aural.wpengine.com/wp-content/uploads/2020/03/Dynaco_ST-70_Tube-Amplifier.jpg')!important;
+ }
+.item3 .wrapper{
+ 	background-image: url('//aural.wpengine.com/wp-content/uploads/2020/03/Mac_Collection.jpg')!important;
+ }
+.item4 .wrapper{
+ 	background-image: url('//auralhifi.sirv.com/WP_auralfetish.com/2020/08/M/c/d/Mcintosh_MAC1700-2_L-scaled.jpg')!important;
+ }
+.item5 .wrapper{
+ 	background-image: url('https://auralhifi.sirv.com/WP_auralfetish.com/2020/08/T/h/d/Thorens_TD206_L-1-scaled.jpg')!important;
+ }
+.item7 .wrapper{
+ 	background-image: url('https://auralhifi.sirv.com/WP_auralfetish.com/2020/09/M/a/L/Marantz_Model-28_twenty-Eight_L.jpg')!important;
+ }
+.item8 .wrapper{
+ 	background-image: url('https://auralhifi.sirv.com/WP_auralfetish.com/2020/03/H/a/2/Harman-Kardon_Fifty-Thirty_SS_Receiver-2.jpg')!important;
+ }
+
+
+ /**/
 
 .home .grid h2 {
     font-size: 50px;
@@ -121,20 +149,10 @@
 	margin-bottom:0px;
 	-webkit-tap-highlight-color:rgba(0, 0, 0, 0);
 }
-/*.home .grid {
-	display: grid;
-	grid-template-columns:2fr 1fr 1fr;
-	grid-template-rows:200px 200px 100px 100px;
-	grid-auto-flow: column;
-	margin: 20px 0 0 20px;
-}
-.home .grid .item{
-	margin: 0 20px 20px 0;
-}*/
-.grid [class*="product"] .wrapper{
+.home .grid [class*="product"] .wrapper{
 	position:relative;
 }
-.grid [class*="product"] .wrapper .overlay {
+.home .grid [class*="product"] .wrapper .overlay {
 	background-color: rgba(31, 38, 16, 1);
 	position: absolute;
 	top: 0;
@@ -146,11 +164,11 @@
 	opacity: 0;
 	transition: .5s ease;
 }
-.grid [class*="product"]:hover .overlay {
+.home .grid [class*="product"]:hover .overlay {
 	opacity: 1;
 }
-.grid .overlay {color:white;}
-.grid .overlay .btn {
+.home .grid .overlay {color:white;}
+.home .grid .overlay .btn {
   font: normal 400 20px/20px Oswald, sans-serif;
   background: none scroll 0 0/auto padding-box border-box rgba(0, 0, 0, 0);
   padding: 10.5px 32px;
