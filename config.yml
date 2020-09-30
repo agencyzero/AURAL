@@ -2,6 +2,10 @@ development:
   password: ${DEV_PASSWD}
   theme_id: ${DEV_THEMEID}
   store: ${DEV_SHOP}
+dev:
+  password: ${DEV_PASSWD}
+  theme_id: ${DEV_THEMEID}
+  store: ${DEV_SHOP}
 test:
   password: ${TEST_PASSWD}
   theme_id: ${TEST_THEMEID}
@@ -10,4 +14,3 @@ production:
   password: ${PROD_PASSWD}
   theme_id: ${PROD_THEMEID}
   store: ${PROD_SHOP}
-  
