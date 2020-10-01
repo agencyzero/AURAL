@@ -22,8 +22,15 @@
 .page-content h1, .article__content h1{
 	color:white!important;
 }
-
-
+.primary-menu .sidebar__menu a .underline-animation  {
+    display: block!important;
+}
+.sub-menu {
+    font-size: .74em;
+}
+.sidebar__submenu--second .sub-menu {
+    font-size: 1em;
+}
 
 
 

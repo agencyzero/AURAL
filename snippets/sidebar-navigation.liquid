@@ -4,7 +4,7 @@
 
 		<li class="{% if link.links != blank %} has-submenu {% endif %}" {% if link.links != blank %} aria-haspopup="true" {% endif %}>
 
-			<a href="{{ link.url }}" {% if link.active or link.child_active %} class="selected" {% endif %}>
+			<a href="{% if link.links != blank %}javascript: void(0){% else %}{{ link.url }}{% endif %}" {% if link.active or link.child_active %} class="selected" {% endif %}>
 				<span style="flex: 1;"><span class="underline-animation">{{ link.title }}</span></span>
 				{% if link.links != blank %} {% render 'theme-symbols', icon: 'arrow' %} {% endif %}
 			</a>
@@ -23,7 +23,7 @@
 
 									<li class="{% if childlink.links != blank %} has-submenu has-second-submenu {% endif %}" {% if childlink.links != blank %} aria-haspopup="true" {% endif %}>
 
-										<a href="{{ childlink.url }}" {% if childlink.active or childlink.child_active %} class="selected" {% endif %}>
+										<a href="{% if childlink.links != blank %}javascript: void(0){% else %}{{ childlink.url }}{% endif %}" {% if childlink.active or childlink.child_active %} class="selected" {% endif %}>
 											<span style="flex: 1;"><span class="underline-animation">{{ childlink.title | escape }}</span></span>
 											{% if childlink.links != blank %} {% render 'theme-symbols', icon: 'arrow' %} {% endif %}
 										</a>
