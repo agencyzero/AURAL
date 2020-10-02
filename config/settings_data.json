@@ -78,9 +78,9 @@
       "product-recommendations": {
         "type": "product-recommendations",
         "settings": {
-          "show_product_recommendations": false,
+          "show_product_recommendations": true,
           "show_after_story": false,
-          "product_recommendations_heading": "Recommended products"
+          "product_recommendations_heading": "YOU MAY ALSO LIKE"
         }
       },
       "announcement-bar": {
@@ -90,7 +90,6 @@
           "bar_show_on_homepage": false,
           "bar_show_dismiss": true,
           "bar_message": "Use this bar for a short, important announcement.",
-          "bar_link": "",
           "bar_bgcolor": "#111111",
           "bar_txtcolor": "#ffffff"
         }
@@ -126,73 +125,16 @@
           "show_currency_selector": true
         }
       },
-      "1570683739738": {
-        "type": "slider-vertical",
-        "blocks": {
-          "1570684534406": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "title": "MID CENTURY AUDIO",
-              "subheading": "",
-              "caption": "",
-              "button_label": "Shop Now",
-              "url": "",
-              "alignment": "horizontal-left vertical-bottom",
-              "color_text": "rgba(0,0,0,0)",
-              "color_bg": "rgba(0,0,0,0)"
-            }
-          },
-          "1570683995617": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "title": "Heading",
-              "subheading": "",
-              "caption": "Caption",
-              "button_label": "Shop Now",
-              "url": "",
-              "alignment": "horizontal-left vertical-bottom",
-              "color_text": "rgba(0,0,0,0)",
-              "color_bg": "rgba(0,0,0,0)"
-            }
-          },
-          "1570683759174": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "title": "Heading",
-              "subheading": "",
-              "caption": "Caption",
-              "button_label": "Shop Now",
-              "url": "",
-              "alignment": "horizontal-left vertical-bottom",
-              "color_text": "rgba(0,0,0,0)",
-              "color_bg": "rgba(0,0,0,0)"
-            }
-          }
-        },
-        "block_order": [
-          "1570684534406",
-          "1570683995617",
-          "1570683759174"
-        ],
-        "settings": {
-          "text_size": "large",
-          "style_mobile": true,
-          "size": "75vh"
-        }
-      },
       "product": {
         "type": "product",
         "settings": {
-          "show_vendor": true,
+          "show_vendor": false,
           "product_description_truncated": "truncated--disabled",
-          "show_quantity_selector": true,
+          "show_quantity_selector": false,
           "show_quantities": true,
           "show_variant_labels": true,
           "hide_variants": false,
-          "enable_payment_button": true,
+          "enable_payment_button": false,
           "show_share": true,
           "gallery_style": "scroll",
           "gallery_pagination": "dots",
@@ -206,8 +148,8 @@
       "collection": {
         "type": "collection",
         "settings": {
-          "products_number": 12,
-          "show_collection_image": true,
+          "products_number": 48,
+          "show_collection_image": false,
           "color_text": "rgba(0,0,0,0)",
           "color_bg": "rgba(0,0,0,0)",
           "show_collection_description_below": false,
@@ -216,149 +158,15 @@
           "collection_filtering_type": "by-tags"
         }
       },
-      "1570690376128": {
-        "type": "image-with-text",
-        "blocks": {
-          "1570690376128-0": {
-            "type": "image",
-            "settings": {
-              "title": "Image with text",
-              "body": "",
-              "button_label": "",
-              "url": "",
-              "image": ""
-            }
-          }
-        },
-        "block_order": [
-          "1570690376128-0"
-        ],
-        "settings": {
-          "image_height": "75vh",
-          "text_width": "75%",
-          "text_size": "huge",
-          "text_alignment": "horizontal-center vertical-middle",
-          "color_text": "#ffffff",
-          "color_bg": "#000000",
-          "gutter_enabled": false
-        }
-      },
-      "1570691202431": {
-        "type": "rich-text",
-        "settings": {
-          "title": "Talk about your brand",
-          "body": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p><p><a href=\"#\">Insert links as well<\/a><\/p>",
-          "text_alignment": "left",
-          "text_size": "large",
-          "image": "",
-          "image_position": "align-left",
-          "image_height": "75vh",
-          "color_bg": "#363636",
-          "color_text": "#ffffff",
-          "gutter_enabled": false
-        }
-      },
-      "1570691463158": {
-        "type": "rich-text",
-        "settings": {
-          "title": "Talk about your brand",
-          "body": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p><p><a href='#'>Insert links as well<\/a><\/p>",
-          "text_alignment": "left",
-          "text_size": "large",
-          "image": "",
-          "image_position": "align-right",
-          "image_height": "75vh",
-          "color_bg": "#f8f8f8",
-          "color_text": "#000000",
-          "gutter_enabled": false
-        }
-      },
-      "1570696971655": {
-        "type": "newsletter",
-        "settings": {
-          "title": "Get stuff. In your email.",
-          "text": "<p><em>Learn about new additions, sales, or whatever we feel like talking about that day. You can at any time withdraw your consent by unsubscribing directly in the newsletter. Read our <a href=\"#\">privacy policy<\/a>.<\/em><\/p>",
-          "color_bg": "#262626",
-          "color_text": "#ffffff"
-        }
-      },
       "list-collections": {
         "type": "list-collections",
         "settings": {
-          "layout": "layout-fulls",
+          "layout": "layout-thirds",
           "alignment": "horizontal-left vertical-top",
           "color_text": "rgba(0,0,0,0)",
           "color_bg": "rgba(0,0,0,0)",
           "display_type": "all",
           "sort": "alphabetical"
-        }
-      },
-      "1570701565393": {
-        "type": "gallery",
-        "blocks": {
-          "1570701565393-5": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "caption": "",
-              "featured": false
-            }
-          },
-          "1570701565393-0": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "caption": "",
-              "featured": false
-            }
-          },
-          "1570701565393-2": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "caption": "",
-              "featured": false
-            }
-          },
-          "1570701565393-3": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "caption": "",
-              "featured": false
-            }
-          },
-          "1570701565393-1": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "caption": "",
-              "featured": false
-            }
-          },
-          "1571990197258": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "caption": "",
-              "featured": false
-            }
-          }
-        },
-        "block_order": [
-          "1570701565393-5",
-          "1570701565393-0",
-          "1570701565393-2",
-          "1570701565393-3",
-          "1570701565393-1",
-          "1571990197258"
-        ],
-        "settings": {
-          "gallery_aspect": "1",
-          "style_mobile": false,
-          "slider_height": "75vh",
-          "lightbox": false,
-          "gutter_enabled": false
         }
       },
       "popup": {
@@ -367,37 +175,9 @@
           "popup_enable": false,
           "newsletter_auto": 10,
           "newsletter_frequent": "week",
-          "image": "",
           "title": "Newsletter",
-          "content": "<p>Stay up to date on the latest product releases, special offers & news by signing up for our newsletter.<\/p><p>Read our <a href='#'>privacy policy<\/a>.<\/p>",
+          "content": "<p>Stay up to date on the latest product releases, special offers &amp; news by signing up for our newsletter.<\/p><p>Read our <a href=\"#\">privacy policy<\/a>.<\/p>",
           "newsletter_enable": true
-        }
-      },
-      "1571989662073": {
-        "type": "image-with-text",
-        "blocks": {
-          "1571989662073-0": {
-            "type": "image",
-            "settings": {
-              "title": "Image with text",
-              "body": "<p>Share your latest products, collections or promotions!<\/p>",
-              "button_label": "",
-              "url": "",
-              "image": ""
-            }
-          }
-        },
-        "block_order": [
-          "1571989662073-0"
-        ],
-        "settings": {
-          "image_height": "100vh",
-          "text_width": "75%",
-          "text_size": "large",
-          "text_alignment": "horizontal-left vertical-top",
-          "color_text": "#000000",
-          "color_bg": "rgba(0,0,0,0)",
-          "gutter_enabled": false
         }
       },
       "text-columns-with-icons": {
@@ -411,17 +191,135 @@
           "color_text": "rgba(0,0,0,0)",
           "color_bg": "rgba(0,0,0,0)"
         }
+      },
+      "faq": {
+        "type": "faq",
+        "blocks": {
+          "02c46820-35dd-4ed2-94fd-7c194dea165d": {
+            "type": "text",
+            "settings": {
+              "title": "TUBE",
+              "body": "<p>“Tube” gear uses vacuum tubes (or “valves”) instead of transistors. A vacuum tube is just that: a glass tube surrounding a vacuum (an area from which all gases have been removed). Vacuum tubes contain electrodes for controlling electron flow and were used in early electronics as a switch or an amplifier. What makes it interesting is that when electrical contacts are put on the ends, you can get a current to flow though that vacuum. Thomas Edison noticed this first in 1883. While fiddling with light bulbs he saw that he could get current to jump from the hot filament to a metal plate at the bottom. What Edison discovered (and it was promptly dubbed the “Edison effect”) was that electrical current doesn’t need a wire to move through. It can travel right through a gas or even a vacuum. The Edison effect, incidentally, is the only piece of scientific work Edison ever did. He was not a scientist but an inventor, a tinkerer. This kind of thinking would be as important as science for the invention of the transistor.<\/p>"
+            }
+          },
+          "d178cbf9-afb4-4100-9919-0c23a47629d7": {
+            "type": "text",
+            "settings": {
+              "title": "SOLID DATE",
+              "body": "<p>Solid-state electronics are semiconductor electronics; electronic equipment using semiconductor devices such as transistors, diodes and integrated circuits (ICs).<\/p><p>The biggest difference between them is that a solid-state amp is driven by current throughout the output devices and a tube is driven by voltage. Voltage alone can’t drive a speaker, hence the reason for needing output transformers. You’ll notice most stereo tube amps have 3 large, heavy objects, typically at the rear. They are a power transformer and two output transformers (one for each channel) that convert the voltage from the output tubes to current at the speaker posts. A solid-state amp typically has a single power transformer and no output transformers. However, a solid-state output transistor and a tube basically do the same thing. One doing it in silicone with current and the other doing it in a glass vacuum with voltage.<\/p>"
+            }
+          },
+          "7de928c5-4ac1-43bc-9411-648abac9336e": {
+            "type": "text",
+            "settings": {
+              "title": "AMPLIFIER (AMP)",
+              "body": "<p>An amplifier put very simply takes the the sound from your source (CD\/Record\/Radio\/Stream) and makes it stronger. “Amplifier” is the generic term used to describe a circuit which produces an increased version of its input signal.<\/p><p>The task of an audio amplifier is to take a small signal and make it bigger without making any other changes in it. This is a demanding task, because a musical sound usually contains several frequencies, all of which must be amplified by the same factor to avoid changing the waveform and hence the quality of the sound. An amplifier which multiplies the amplitudes of all frequencies by the same factor is said to be linear.<\/p><p>Remember, in the audio world, more power isn’t always better sound. Different speakers require different amounts of power.<\/p>"
+            }
+          },
+          "1d16cdc1-f037-4b1d-b09c-5d48568c0b69": {
+            "type": "text",
+            "settings": {
+              "title": "PREAMPLIFIER (PREAMP)",
+              "body": "<p>In an audio system, the Preamplifier (or preamp or just pre) are used to amplify signals from low output analog sources, like your turntable, to line level so that it is strong enough for your amplifier to do its job. The phono part of a preamp we call a “Phono Stage”. The preamp connects to your power amplifier providing voltage gain but no significant current gain. The power amplifier provides the higher current necessary to drive your speakers.<\/p><p>In your stereo system, the Preamp also acts as a source selector, allowing you to quickly switch between your turntable, tuner or digital streaming device (like a Sonos Connect) by the turn of a dial or push of a button. They also typical have fine tuning adjustments like Balance, Presence or Loudness, and Bass and Treble controls.<\/p><p>Although you can connect many sources directly to your amplifier (one at a time of course) and hear them out of your speakers, you’re losing a lot of control without a preamp.<\/p>"
+            }
+          },
+          "31e8004e-51cc-4bc1-93f0-28357fa55eee": {
+            "type": "text",
+            "settings": {
+              "title": "INTEGRATED AMPLIFIER",
+              "body": "<p>An Integrated Amplifier (or just an “Integrated”) is simply an Amplifier and a Preamp together in a single piece of gear.<\/p>"
+            }
+          },
+          "620fcf21-1a61-4095-ac28-8622651aa04a": {
+            "type": "text",
+            "settings": {
+              "title": "TUNER",
+              "body": "<p>A Tuner is a device that picks up radio signals. That’s it.<\/p>"
+            }
+          },
+          "fb64cf0b-3e81-4d5a-a126-e087c1fed2d6": {
+            "type": "text",
+            "settings": {
+              "title": "RECEIVER",
+              "body": "<p>A Receiver is an Amp, Preamp, and Tuner all in one.<\/p>"
+            }
+          },
+          "80c7f7ee-4bb0-4a92-a836-a9a6974acfba": {
+            "type": "text",
+            "settings": {
+              "title": "SOURCE",
+              "body": "<p>Your Source is anything that plays audio media.<\/p><p><strong>Standard Sources are:<\/strong><\/p><p>Tuner<\/p><p>Turntable<\/p><p>Digital Streaming Device (Sonos Connect)<\/p><p>Bluetooth Interface<\/p><p>CD player<\/p><p>Tape Deck<\/p><p>Reel to Reel<\/p>"
+            }
+          },
+          "8324d953-07e3-49ff-a58a-6f835a4a645b": {
+            "type": "text",
+            "settings": {
+              "title": "STEREO",
+              "body": "<p>When a system is “Stereo” it’s referring to its ability to play different sounds in the left speaker than it is in the right. Almost all modern recordings are mastered to take advantage of this and is used to create directionality, perspective and space.<\/p>"
+            }
+          },
+          "f26db07e-10ab-4fa2-a9f7-44d79d9c13d2": {
+            "type": "text",
+            "settings": {
+              "title": "MONO",
+              "body": "<p>Mono systems play the exact same thing out of all speakers. One signal. Many older audio components are mono.<\/p>"
+            }
+          },
+          "7681ced3-4033-4dc2-a241-eb6b238758ed": {
+            "type": "text",
+            "settings": {
+              "title": "MONOBLOCKS",
+              "body": "<p>Monoblocks are (typically) two mono amplifiers used in the same system to allow you to play stereo sound. One amplifies the left channel to drive the left speaker, one amplifies the right channel and drives the right speaker.  Vintage tube amplifiers are very often used in this configuration. If you have a mono tube amp and want to hear stereo recordings how they were meant to be heard, you’ll need two mono amplifiers.<\/p>"
+            }
+          },
+          "4862c3da-b1e5-432f-83e7-a5ebc189ef97": {
+            "type": "text",
+            "settings": {
+              "title": "INTERCONNECTS",
+              "body": "<p>Interconnects are cables that connect your components together. In most systems, these are RCA cables.<\/p><p>There’s a lot of debate around how your cables effect the sound coming out of your speakers. Some people spend thousands (even tens of thousands) on very high end interconnects and speaker wire and swear they hear an appreciable improvement.<\/p><p>Our best recommendation is to buy quality cabling that doesn’t break the bank. If you have a chance to A\/B test them against higher end cables, let your ears be your guide.<\/p><p>If your cables are visible, there are always points given for style. Your listening experience should feed all of your senses.<\/p>"
+            }
+          },
+          "b608f069-8288-4dfd-b8f0-cae50d65115f": {
+            "type": "text",
+            "settings": {
+              "title": "SPEAKER WIRE (DOES IT MAKE A DIFFERENCE?)",
+              "body": "<p>We’d say it does. To a point. Thicker is better. To a point. We recommend 10-14 gauge speaker wire.<\/p><p>There are a few rules to follow:<\/p><p>The longer your speaker wire has to be, the thicker it should be.Your speaker wire should always be the same length for both speakersIf your speaker wire is visible, it should look intentional and elevate the aesthetic, not detract from it.<\/p><p>Another interesting thing to note is that almost all speakers, when you open them up use pretty light gauge wire to run from the terminal to your drivers. So, no matter how thick your speaker wire from your amp is, the signal is still going to have to pas through something very thin before it makes any sound.<\/p><p>But like everything else, trust your ears. If it sounds better to YOU, buy it.<\/p>"
+            }
+          },
+          "bd6a6daf-7519-44c5-8b85-8c9c8259d53d": {
+            "type": "text",
+            "settings": {
+              "title": "SPEAKER THOUGHTS",
+              "body": "<p>Almost everyone starting out will ask “What’s the best sounding speaker?” or “What speaker sounds best with X amp?”. The answer is: Whatever sounds best to YOU.<\/p><p>Speaker selection is completely subject endeavor. Speakers vary wildly in their “voice”. And people, being the unique snowflakes we are, can have vastly differing tastes. It’s always fine to get others opinions, but at the end of the day… buy whatever looks and sounds the best to YOU. Full stop.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "02c46820-35dd-4ed2-94fd-7c194dea165d",
+          "d178cbf9-afb4-4100-9919-0c23a47629d7",
+          "7de928c5-4ac1-43bc-9411-648abac9336e",
+          "1d16cdc1-f037-4b1d-b09c-5d48568c0b69",
+          "31e8004e-51cc-4bc1-93f0-28357fa55eee",
+          "620fcf21-1a61-4095-ac28-8622651aa04a",
+          "fb64cf0b-3e81-4d5a-a126-e087c1fed2d6",
+          "80c7f7ee-4bb0-4a92-a836-a9a6974acfba",
+          "8324d953-07e3-49ff-a58a-6f835a4a645b",
+          "f26db07e-10ab-4fa2-a9f7-44d79d9c13d2",
+          "7681ced3-4033-4dc2-a241-eb6b238758ed",
+          "4862c3da-b1e5-432f-83e7-a5ebc189ef97",
+          "b608f069-8288-4dfd-b8f0-cae50d65115f",
+          "bd6a6daf-7519-44c5-8b85-8c9c8259d53d"
+        ],
+        "settings": {
+          "open_first": false
+        }
+      },
+      "product-story": {
+        "type": "product-story",
+        "settings": {}
       }
     },
-    "content_for_index": [
-      "1570683739738",
-      "1570690376128",
-      "1570691463158",
-      "1570691202431",
-      "1570701565393",
-      "1571989662073",
-      "1570696971655"
-    ]
+    "content_for_index": []
   },
   "presets": {
     "King": {
