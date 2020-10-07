@@ -46,7 +46,6 @@
 																<li>
 																	{% if subchildlink.object.products_count == 0 %}
 																	{% elsif subchildlink.object.products_count == 1%}
-																		<script>console.log({{ subchildlink.object.products[0].handle | json }});</script>
 																		<a href="/products/{{ subchildlink.object.products[0].handle }}" {% if subchildlink.active %} class="selected" {% endif %}><span class="underline-animation">{{ subchildlink.title | escape }}</span></a> 
 																	{% else %}
 																		<a href="{{ subchildlink.url }}" {% if subchildlink.active %} class="selected" {% endif %}><span class="underline-animation">{{ subchildlink.title | escape }}</span></a>

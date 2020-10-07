@@ -1866,7 +1866,7 @@ KING.Search = {
 				  var productSuggestions = response.resources.results.products,
 				  		articleSuggestions = response.resources.results.articles,
 				  		pageSuggestions = response.resources.results.pages,
-				  		collectionSuggestions = response.resources.results.collections;
+				  		collectionSuggestions = [];//response.resources.results.collections;
 
 				  if (productSuggestions.length > 0) {
 
@@ -1892,6 +1892,7 @@ KING.Search = {
 
 					} 
 
+					
 					if ( collectionSuggestions.length > 0 ) {
 						searchDOM += '<span class="search-title">' + window.search_words_collection_results_title + '</span>';
 				  	collectionSuggestions.forEach(function(item, i){
