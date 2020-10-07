@@ -116,6 +116,14 @@
       <div class="product__description {{ section.settings.product_description_truncated }}">
         <div>
           {{ product.description }}
+          <dl>
+            <dt>Condition</dt><dd>{{ product.metafields.global['condition'] }}</dd>
+            <dt>Year</dt><dd>{{ product.metafields.global['year'] }}</dd>
+            <dt>Serial No.</dt><dd>{{ product.metafields.global['serial_num'] }}</dd>
+            <dt>Orig. MSRP</dt><dd>{{ product.metafields.global['msrp']}}</dd>
+            <dt>Specs</dt><dd>{{ product.metafields.global['specs'] }}</dd>
+          </dl>
+          <!-- { { product.metafields.global['longdesc'] } } -->
         </div>
       </div>
 

@@ -1,5 +1,8 @@
 <ul class="sidebar__menu">
 
+
+
+
 	{% for link in menu.links %}
 
 		<li class="{% if link.links != blank %} has-submenu {% endif %}" {% if link.links != blank %} aria-haspopup="true" {% endif %}>
@@ -41,7 +44,13 @@
 															{% for subchildlink in childlink.links %}
 
 																<li>
-																	<a href="{{ subchildlink.url }}" {% if subchildlink.active %} class="selected" {% endif %}><span class="underline-animation">{{ subchildlink.title | escape }}</span></a>
+																	{% if subchildlink.object.products_count == 0 %}
+																	{% elsif subchildlink.object.products_count == 1%}
+																		<script>console.log({{ subchildlink.object.products[0].handle | json }});</script>
+																		<a href="/products/{{ subchildlink.object.products[0].handle }}" {% if subchildlink.active %} class="selected" {% endif %}><span class="underline-animation">{{ subchildlink.title | escape }}</span></a> 
+																	{% else %}
+																		<a href="{{ subchildlink.url }}" {% if subchildlink.active %} class="selected" {% endif %}><span class="underline-animation">{{ subchildlink.title | escape }}</span></a>
+																	{% endif %}
 																</li>
 
 															{% endfor %}
