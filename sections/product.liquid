@@ -94,6 +94,10 @@
                 {% render 'product-quantity' %}
               {% endif %}
 
+              {% if section.settings.show_share %}
+                {% render 'share-popup', title: product.title, url: product.url, image: product.featured_media %}
+              {% endif %}
+
 							<button type="submit" name="add" class="product__add-to-cart button">
 								<span class="add-to-cart__text" data-add-to-cart-text="{% if product.tags contains 'preorder' %} {{ 'products.page.preorder_button' | t }} {% else %} {{ 'products.page.add_to_cart_button' | t }} {% endif %}"> {% if product.tags contains 'preorder' %} {{ 'products.page.preorder_button' | t }} {% else %} {{ 'products.page.add_to_cart_button' | t }} {% endif %} </span>
                 <span class="add-to-cart__symbol">{% render 'theme-symbols', icon: 'cart' %}</span>
@@ -116,6 +120,7 @@
       <div class="product__description {{ section.settings.product_description_truncated }}">
         <div>
           {{ product.description }}
+          <br><br>
           <dl>
             <dt>Condition</dt><dd>{{ product.metafields.global['condition'] }}</dd>
             <dt>Year</dt><dd>{{ product.metafields.global['year'] }}</dd>
@@ -170,10 +175,6 @@
       {% endif %}
 
  		</section> 
-  
-    {% if section.settings.show_share %}
-      {% render 'share-popup', title: product.title, url: product.url, image: product.featured_media %}
-    {% endif %}
 
  	</div>
 
