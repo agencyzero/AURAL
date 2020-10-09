@@ -122,13 +122,13 @@
           {{ product.description }}
           <br><br>
           <dl>
-            <dt>Condition</dt><dd>{{ product.metafields.global['condition'] }}</dd>
-            <dt>Year</dt><dd>{{ product.metafields.global['year'] }}</dd>
-            <dt>Serial No.</dt><dd>{{ product.metafields.global['serial_num'] }}</dd>
-            <dt>Orig. MSRP</dt><dd>{{ product.metafields.global['msrp']}}</dd>
-            <dt>Specs</dt><dd>{{ product.metafields.global['specs'] }}</dd>
+            {% if product.metafields.global['condition'].size >0 %}<dt>Condition</dt><dd>{{ product.metafields.global['condition'] }}</dd>{% endif %}
+            {% if product.metafields.global['year'].size >0 %}<dt>Year</dt><dd>{{ product.metafields.global['year'] }}</dd>{% endif %}
+            {% if product.metafields.global['serial_num'].size >0 %}<dt>Serial No.</dt><dd>{{ product.metafields.global['serial_num'] }}</dd>{% endif %}
+            {% if product.metafields.global['msrp'].size >0 %}<dt>Orig. MSRP</dt><dd>{{ product.metafields.global['msrp']}}</dd>{% endif %}
+            {% if product.metafields.global['specs'].size >0 %}<dt>Specs</dt><dd>{{ product.metafields.global['specs'] }}</dd>{% endif %}
+            {% if product.metafields.global['longdesc'].size >0 %}<dt>Liner Notes</dt><dd>{{ product.metafields.global['longdesc'] }}</dd>{% endif %}
           </dl>
-          <!-- { { product.metafields.global['longdesc'] } } -->
         </div>
       </div>
 

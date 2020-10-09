@@ -1,5 +1,5 @@
 
-{% assign daysago = 5 | abs %}
+{% assign daysago = 30 | abs %}
 {% assign secsago = daysago |  times:86400 | abs %}
 {% assign today = 'now' | date: '%s' | abs %}
 {% assign cutoff = today | minus:secsago | abs %}
@@ -75,19 +75,25 @@
 
     <div class="collection collection--{{ settings.grid_style }} collection--grid mount-collection">
 
+      <!-- min 12 max 28 -->
+      <!-- attempt the 28 most recent products in the last 30 days -->
+      <!-- if we didn't quite make it to 12, fill in with stuff regardless of age -->
+      {% assign i = 0 %}
       {% for product in collection.products %}
         {% assign temp = product.created_at  | date: '%s' | abs %}
-        {% if temp >= cutoff %}
+        {% if temp >= cutoff and i < 28%}
           {% render 'product-item', product: product %}
-        {% else %}
+          {% assign i = i | plus: 1 %}
+        {% elsif i < 12 %}
+          {% render 'product-item', product: product %}
+          {% assign i = i | plus: 1 %}
         {% endif %}
-        <!-- added: {{ product.created_at }} -->
+        <!-- {{product.handle}} added: {{ product.created_at }} -->
       {% else %}
         <p class="no-content-message">{{ 'products.grid.no_products_text' | t }}</p>
       {% endfor %}
 
       <div class="product-item final-cta">
-        That's just what we've added in the last {{ daysago }} days.
         <p><a href="/collections/all" class="button button--solid">SEE ALL THE GEAR</a></p>
       </div>
 

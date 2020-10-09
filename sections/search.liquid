@@ -63,7 +63,7 @@
 							
 							<div class="blog-item__title-holder">
 								<a href="{{ result.url | escape }}" title="{{ result.title | escape }}">
-									<h3 class="blog-item__title h0"><span>{{ result.title | escape }}</span></h3>
+									<h3 class="blog-item__title h1"><span>{{ result.title | escape }}</span></h3>
 								</a>
 							</div>
 
@@ -118,7 +118,7 @@
 	<div class="page-content">
 
 		<div class="page-header">
-			<h1 class="title h0">{{ 'search.page.title' | t }}</h1>
+			<h1 class="title h1">{{ 'search.page.title' | t }}</h1>
 			{% if search.performed and search.results_count == 0 %}
 				<p class="subtitle">{{ 'search.page.no_results' | t: terms: search.terms }}</p>
 			{% else %}

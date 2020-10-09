@@ -3154,24 +3154,35 @@ KING.Product = {
 		$(window).on('resize.zoom', function(){	
 
 			var rf = $(window).width() > 768 ? 1 : 2;
-
+			
 			if ( $image.hasClass('portrait') ) {
 				$image.css('width', $(window).width()*rf);
 				$image.css('height', $(window).width()*rf / $image.data('ratio'));
+				console.log('portrait');
+				console.log('width:'+$(window).width()*rf);
+				console.log('height:'+$(window).width()*rf / $image.data('ratio'));
 			} else {
 
-				$image.css('height', $(window).height()*rf);
 				$image.css('width', $(window).height()*rf * $image.data('ratio'));
+				$image.css('height', $(window).height()*rf);
 
 				if ( $image.width() < $(window).width() ) {
 					$image.css('width', $(window).width()*rf);
 					$image.css('height', $(window).width()*rf / $image.data('ratio'));
+					console.log('smaller than window');
 				}
 
+				console.log('landscape');
+				console.log('width:'+ $(window).height()*rf * $image.data('ratio'));
+				console.log('height:'+ $(window).height()*rf);
 			}
 
 			var x = window.clientX * ( $(window).width() - $image.width() ) / $(window).width();
 			var y = window.clientY * ( $(window).height() - $image.height() ) / $(window).height();
+			console.log(x);
+			console.log(y);
+			console.log('win width:'+$(window).width());
+			console.log('win height:'+$(window).height());
 
 		}).trigger('resize.zoom');
 

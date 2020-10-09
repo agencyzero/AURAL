@@ -4,7 +4,7 @@
 
 	{% form 'customer_login' %}
 
-		<h1 class="title h0">{{ 'customers.login_page.title' | t }}</h1>
+		<h1 class="title h1">{{ 'customers.login_page.title' | t }}</h1>
 
 		<div class="krown-columns-container one-whole">
 
@@ -43,7 +43,7 @@
 
 	<div id="recover_password" style="display: none;">
 
-		<h3 class="title h0">{{ 'customers.login_page.password_reset.title' | t }}</h3>
+		<h3 class="title h1">{{ 'customers.login_page.password_reset.title' | t }}</h3>
 		<p class="subtitle">{{ 'customers.login_page.password_reset.subtitle' | t }}</p>
 
 		{% form 'recover_customer_password' %}
@@ -77,7 +77,7 @@
 
 	{% if shop.checkout.guest_login %}
 
-		<h3 class="title h0" style="margin-top: 2em;">{{ 'customers.login_page.guest_check' | t }}</h3>
+		<h3 class="title h1" style="margin-top: 2em;">{{ 'customers.login_page.guest_check' | t }}</h3>
 
 		{% form 'guest_login' %}
 			<input type="submit" class="button button--solid button--wide" value="{{ 'customers.login_page.guest_button' | t }}">

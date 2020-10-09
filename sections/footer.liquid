@@ -8,9 +8,11 @@
 
         <div class="footer-item footer-text {{ block.settings.size }}">
         
-          {% unless block.settings.title == blank %}
+          {% if block.settings.title contains 720 %}
+             <h4>CALL US // <a href="tel:+17204320373">(720) 432-0373</a></h4>
+          {% elsif block.settings.title != blank %}
             <h4>{{ block.settings.title | escape }}</h4>
-          {% endunless %}
+          {% endif %}
 
           <div class="rte">
             {{ block.settings.content }}
