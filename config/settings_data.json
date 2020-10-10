@@ -350,8 +350,8 @@
       "1602270157085": {
         "type": "newsletter",
         "settings": {
-          "title": "Sign up for our newsletter",
-          "text": "<p><em>We'll&nbsp;make it worth your time, and you can unsubscribe any&nbsp;whenever. We're cool like that. Read our <a href=\"\/pages\/privacy-policy\" title=\"PRIVACY POLICY\">privacy policy<\/a>.<\/em><\/p>",
+          "title": "GET STUFF. IN YOUR EMAIL.",
+          "text": "<p><em>Join our mailing list and be the first to see new gear, special offers, other super duper information, and whatever the hell else we feel like sending. And you can unsubscribe whenever. We're cool like that. Read our <a href=\"\/pages\/privacy-policy\" title=\"PRIVACY POLICY\">privacy policy<\/a>.<\/em><\/p>",
           "color_bg": "#262626",
           "color_text": "#ffffff"
         }
@@ -359,29 +359,30 @@
       "contact-formbuilder": {
         "type": "contact-formbuilder",
         "blocks": {
+          "1602352204507": {
+            "type": "text",
+            "settings": {
+              "label": "Full Name",
+              "required": true
+            }
+          },
           "1602352127434": {
             "type": "email",
             "settings": {
               "label": "Email"
             }
           },
-          "1602352140944": {
-            "type": "body",
-            "settings": {
-              "label": "Message"
-            }
-          },
-          "1602352204507": {
-            "type": "text",
-            "settings": {
-              "label": "Full Name",
-              "required": false
-            }
-          },
           "1602352230169": {
             "type": "text",
             "settings": {
               "label": "Phone Number",
+              "required": false
+            }
+          },
+          "1602352438824": {
+            "type": "text",
+            "settings": {
+              "label": "Business Type",
               "required": false
             }
           },
@@ -397,11 +398,10 @@
               "label-six": ""
             }
           },
-          "1602352438824": {
-            "type": "text",
+          "1602352140944": {
+            "type": "body",
             "settings": {
-              "label": "Business Type",
-              "required": false
+              "label": "Message"
             }
           }
         },
