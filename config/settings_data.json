@@ -66,7 +66,7 @@
       "sidebar": {
         "type": "sidebar",
         "settings": {
-          "logo_src": "shopify:\/\/shop_images\/Aural-Logo_No_Tag_White.png",
+          "logo_src": "shopify:\/\/shop_images\/Aural-Logo_Master_white-lg.png",
           "logo_width": 250,
           "menu_primary": "main-menu",
           "menu_secondary": "",
@@ -154,8 +154,8 @@
           "color_text": "rgba(0,0,0,0)",
           "color_bg": "rgba(0,0,0,0)",
           "show_collection_description_below": false,
-          "sort_enable": false,
-          "tags_enable": false,
+          "sort_enable": true,
+          "tags_enable": true,
           "collection_filtering_type": "by-tags"
         }
       },
@@ -346,9 +346,83 @@
           "tags_enable": false,
           "collection_filtering_type": "by-tags"
         }
+      },
+      "1602270157085": {
+        "type": "newsletter",
+        "settings": {
+          "title": "Sign up for our newsletter",
+          "text": "<p><em>We'll&nbsp;make it worth your time, and you can unsubscribe any&nbsp;whenever. We're cool like that. Read our <a href=\"\/pages\/privacy-policy\" title=\"PRIVACY POLICY\">privacy policy<\/a>.<\/em><\/p>",
+          "color_bg": "#262626",
+          "color_text": "#ffffff"
+        }
+      },
+      "contact-formbuilder": {
+        "type": "contact-formbuilder",
+        "blocks": {
+          "1602352127434": {
+            "type": "email",
+            "settings": {
+              "label": "Email"
+            }
+          },
+          "1602352140944": {
+            "type": "body",
+            "settings": {
+              "label": "Message"
+            }
+          },
+          "1602352204507": {
+            "type": "text",
+            "settings": {
+              "label": "Full Name",
+              "required": false
+            }
+          },
+          "1602352230169": {
+            "type": "text",
+            "settings": {
+              "label": "Phone Number",
+              "required": false
+            }
+          },
+          "1602352277959": {
+            "type": "select",
+            "settings": {
+              "name": "Timeline",
+              "label-one": "-",
+              "label-two": "Yesterday",
+              "label-three": "Next 30 days",
+              "label-four": "30+ days out",
+              "label-five": "Still in the planning phase",
+              "label-six": ""
+            }
+          },
+          "1602352438824": {
+            "type": "text",
+            "settings": {
+              "label": "Business Type",
+              "required": false
+            }
+          }
+        },
+        "block_order": [
+          "1602352204507",
+          "1602352127434",
+          "1602352230169",
+          "1602352438824",
+          "1602352277959",
+          "1602352140944"
+        ],
+        "settings": {
+          "page_position": "top",
+          "title": "Contact Form",
+          "enable_captcha": false
+        }
       }
     },
-    "content_for_index": []
+    "content_for_index": [
+      "1602270157085"
+    ]
   },
   "presets": {
     "King": {
