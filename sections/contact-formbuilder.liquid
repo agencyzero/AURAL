@@ -209,7 +209,7 @@
     {
       "type": "header",
       "content": "Custom Form",
-      "info": "Add form fields with content section below. Tip: Add required Email field and Body field again to change sort position."
+      "info": "Add form fields with content section below. Tip: Email and Message field are required, placed here as examples. Please deliberately add them."
     },
       {
         "type": "text",
@@ -238,12 +238,19 @@
             "label": "Label",
             "default": "Email",
             "info": "The label cannot be left blank."
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Class",
+            "default": "two-thirds",
+            "info": "Suggest: one-third two-thirds one-half one-whole first last"
           }
         ]
       },
       {
         "type": "body",
-        "name": "Body field - required",
+        "name": "Message field - required",
         "limit": 1,
         "settings": [
           {
@@ -252,6 +259,13 @@
             "label": "Label",
             "default": "Message",
             "info": "The label cannot be left blank."
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Class",
+            "default": "one-whole first last",
+            "info": "Suggest: one-third two-thirds one-half one-whole first last"
           }
         ]
       },
@@ -270,8 +284,15 @@
           {
             "type": "checkbox",
             "id": "required",
-            "label": "Required",
+            "label": "Field is Required",
             "default": false
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Class",
+            "default": "one-third",
+            "info": "Suggest: one-third two-thirds one-half one-whole first last"
           }
         ]
       },
@@ -286,6 +307,13 @@
             "label": "Label",
             "default": "Heading",
             "info": "The label cannot be left blank."
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Class",
+            "default": "one-third",
+            "info": "Suggest: one-third two-thirds one-half one-whole first last"
           }
         ]
       },
@@ -304,14 +332,21 @@
           {
             "type": "checkbox",
             "id": "required",
-            "label": "Required",
+            "label": "Field is Required",
             "default": false
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Class",
+            "default": "one-third",
+            "info": "Suggest: one-third two-thirds one-half one-whole first last"
           }
         ]
       },
       {
         "type": "textarea",
-        "name": "Text area",
+        "name": "Additional message field",
         "settings": [
           {
             "type": "textarea",
@@ -323,8 +358,15 @@
           {
             "type": "checkbox",
             "id": "required",
-            "label": "Required",
+            "label": "Field is Required",
             "default": false
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Class",
+            "default": "one-whole",
+            "info": "Suggest: one-third two-thirds one-half one-whole first last"
           }
         ]
       },
@@ -338,6 +380,12 @@
             "default": "Newsletter One",
             "label": "Label",
             "info": "Example: Weekly newsletter. The label cannot be left blank."
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Class",
+            "info": "Suggest: one-third two-thirds one-half one-whole first last"
           }
         ]
       },
@@ -351,6 +399,12 @@
             "default": "Checkbox heading",
             "label": "Label",
             "info": "Example: Subscribe to Newsletters. The label cannot be left blank."
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Class",
+            "info": "Suggest: one-third two-thirds one-half one-whole first last"
           }
         ]
       },
@@ -406,6 +460,12 @@
             "default": "Radio option 6",
             "label": "Option six",
             "info": "Leave blank if not required"
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Class",
+            "info": "Suggest: one-third two-thirds one-half one-whole first last"
           }
         ]
       },
@@ -461,6 +521,13 @@
             "default": "Select option 6",
             "label": "Option six",
             "info": "Leave blank if not required"
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Class",
+            "default": "one-third",
+            "info": "Suggest: one-third two-thirds one-half one-whole first last"
           }
         ]
       }

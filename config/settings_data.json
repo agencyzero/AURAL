@@ -363,27 +363,31 @@
             "type": "text",
             "settings": {
               "label": "Full Name",
-              "required": true
+              "required": true,
+              "class": "one-third first"
             }
           },
           "1602352127434": {
             "type": "email",
             "settings": {
-              "label": "Email"
+              "label": "Email",
+              "class": "two-thirds"
             }
           },
           "1602352230169": {
             "type": "text",
             "settings": {
               "label": "Phone Number",
-              "required": false
+              "required": false,
+              "class": "one-third"
             }
           },
           "1602352438824": {
             "type": "text",
             "settings": {
               "label": "Business Type",
-              "required": false
+              "required": false,
+              "class": "one-third first"
             }
           },
           "1602352277959": {
@@ -395,13 +399,15 @@
               "label-three": "Next 30 days",
               "label-four": "30+ days out",
               "label-five": "Still in the planning phase",
-              "label-six": ""
+              "label-six": "",
+              "class": "one-third last"
             }
           },
           "1602352140944": {
             "type": "body",
             "settings": {
-              "label": "Message"
+              "label": "Message",
+              "class": "one-whole first last"
             }
           }
         },
