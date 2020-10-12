@@ -16,10 +16,16 @@
 <!-- begin form section -->
 	<div>
 	{% form 'contact' %}
+
+    {%- if section.settings.title.size > 0 -%}
+    <h3>{{section.settings.title}}</h3>
+    {%- endif -%}
+
+
 	  {% if form.posted_successfully? %}
 
 	    <p class="note form-success">
-	      {{ 'contact.form.post_success' | t }}
+	      {{ 'general.contact_form.success_message' | t }}
 	    </p>
 	  {% endif %}
 
@@ -30,48 +36,48 @@
 	    {% case block.type %}
 
 	      {% when 'email' %}
-	        <div class="custom-form__block" {{ block.shopify_attributes }}>
-	          <label for="{{ block.settings.label }}" class="label--hidden">{{ block.settings.label }}</label>
+	        <div class="custom-form__block krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
+	          <label for="{{ block.settings.label }}" class="hidden">{{ block.settings.label }}</label>
 	          <input type="email" class="contactFormEmail" id="Form-{{ section.id }}-{{forloop.index0 }}" name="contact[email]" placeholder="{{ block.settings.label }}" autocorrect="off" autocapitalize="off" required/>
 	        </div>
 
 	      {% when 'body' %}
-	        <div class="custom-form__block" {{ block.shopify_attributes }}>
-	          <label for="{{ block.settings.label }}" class="label--hidden">{{ block.settings.label }}</label>
+	        <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
+	          <label for="{{ block.settings.label }}" class="hidden">{{ block.settings.label }}</label>
 	          <textarea rows="10" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormMessage" name="contact[body]" placeholder="{{ block.settings.label }}" required></textarea>
 	        </div>
 
 	      {% when 'text' %}
-	        <div class="custom-form__block" {{ block.shopify_attributes }}>
-	          <label for="{{ block.settings.label }}" class="label--hidden uppercase">{{ block.settings.label }}</label>
+	        <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
+	          <label for="{{ block.settings.label }}" class="hidden uppercase">{{ block.settings.label }}</label>
 	          <input type="text" class="contactFormText" id="Form-{{ section.id }}-{{forloop.index0 }}" name="contact[{{ block.settings.label | escape }}]" placeholder="{{ block.settings.label }}{% if block.settings.required %} (required){% endif %} " autocapitalize="words" value="" {% if block.settings.required %} required{% endif %} />
 	        </div>
 
 	      {% when 'textarea' %}
-	        <div class="custom-form__block" {{ block.shopify_attributes }}>
-	          <label for="{{ block.settings.label }}" class="label--hidden">{{ block.settings.label }}</label>
+	        <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
+	          <label for="{{ block.settings.label }}" class="hidden">{{ block.settings.label }}</label>
 	          <textarea rows="10" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormMessage" name="contact[{{ block.settings.label | escape }}]" placeholder="{{ block.settings.label }}{% if block.settings.required %} (required){% endif %}" {% if block.settings.required %} required{% endif %} ></textarea>
 	        </div>
 
 	      {% when 'telephone' %}
-	        <div class="custom-form__block" {{ block.shopify_attributes }}>
-	          <label for="{{ block.settings.label }}" class="label--hidden">{{ block.settings.label }}</label>
+	        <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
+	          <label for="{{ block.settings.label }}" class="hidden">{{ block.settings.label }}</label>
 	          <input type="tel" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormPhone" name="contact[{{ block.settings.label | escape }}]" placeholder="{{ block.settings.label }}{% if block.settings.required %} (required){% endif %}" pattern="[0-9\-]*" value="" {% if block.settings.required %} required{% endif %} />
 	        </div>
 
 	      {% when 'name' %}
-	        <div class="custom-form__block" {{ block.shopify_attributes }}>
-	          <label for="{{ block.settings.label }}" class="label--hidden uppercase">{{ block.settings.label }}</label>
+	        <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
+	          <label for="{{ block.settings.label }}" class="hidden uppercase">{{ block.settings.label }}</label>
 	          <input type="text" class="contactFormText" id="Form-{{ section.id }}-{{forloop.index0 }}" name="contact[{{ block.settings.label | escape }}]" placeholder="{{ block.settings.label }}{% if block.settings.required %} (required){% endif %}" autocapitalize="words" value="" {% if block.settings.required %} required{% endif %} />
 	        </div>
 
 	      {% when 'textHeading' %}
-	        <div class="custom-form__block" {{ block.shopify_attributes }}>
+	        <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
 	          <label for="{{ block.settings.label }}" class="label uppercase">{{ block.settings.label }}</label>
 	        </div>        
 
 	      {% when 'radio' %}
-	        <div class="custom-form__block" {{ block.shopify_attributes }} style="margin-bottom: 1rem;">
+	        <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }} style="margin-bottom: 1rem;">
 	          <label for="{{ block.settings.label }} "class="label uppercase">{{ block.settings.name }}</label>
 	          {% if block.settings.label-one != blank %}
 	            <input type="radio" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormRadio" name="contact[{{ block.settings.name | escape }}]" value="{{ block.settings.label-one }}"> {{ block.settings.label-one }}</input><br />
@@ -94,22 +100,22 @@
 	        </div>
 
 	      {% when 'checkboxHeading' %}
-	        <div class="custom-form__block" {{ block.shopify_attributes }}>
+	        <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
 	          <label for="{{ block.settings.label }}" class="label uppercase">{{ block.settings.label }}</label>
 	        </div>
 
 	      {% when 'checkbox' %}
-	        <div class="custom-form__block" {{ block.shopify_attributes }}>
-	          <label for="{{ block.settings.label }}" class="label--hidden">{{ block.settings.label }}</label>
+	        <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
+	          <label for="{{ block.settings.label }}" class="hidden">{{ block.settings.label }}</label>
 	          <input type="checkbox" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormCheckbox" name="contact[{{ block.settings.label }}]" value="{{ block.settings.label }}"> {{ block.settings.label }}</input>
 	        </div>
 
 	      {% when 'select' %}
-	        <div class="custom-form__block" {{ block.shopify_attributes }}>
-	          <label for="{{ block.settings.label }}" class="label uppercase">{{ block.settings.name }}</label>
+	        <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
+	          <label for="{{ block.settings.label }}" class="hidden">{{ block.settings.name }}</label>
 	          <select id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormSelect" name="contact[{{ block.settings.name }}]">
 	            {% if block.settings.label-one != blank %}
-	              <option value="{{ block.settings.label-one }}">{{ block.settings.label-one }}</option>
+	              <option value="{{ block.settings.label-one }}" class="selected disabled">{{ block.settings.label-one }}</option>
 	            {% endif %}
 	            {% if block.settings.label-two != blank %}
 	              <option value="{{ block.settings.label-two }}">{{ block.settings.label-two }}</option>
@@ -139,8 +145,6 @@
 	    {% assign types = types | append: block.type  %}
 	  {% endfor %}
 
-	  <!-- <p>TYPES:{{ types }}</p> -->
-
 	  {% unless types contains "email" %}
 	    <label for="{{ block.settings.label }}" class="label">{{ block.settings.label }}</label>
 	    <input type="email" class="contactFormEmail" id="Form-{{ section.id }}" name="contact[email]" placeholder="Email address (required)" autocorrect="off" autocapitalize="off" required>
@@ -158,7 +162,7 @@
 	      </div>
 	  {% endif %}
 
-		<input type="submit" class="btn right uppercase" value="{{ 'general.contact_form.submit_label' | t }}">
+		<input type="submit" class="button button--solid" value="{{ 'general.contact_form.submit_label' | t }}">
 
 	{% endform %}
 
@@ -478,48 +482,48 @@
             "id": "name",
             "default": "Select an option",
             "label": "Instructions",
-            "info": "Example: Choose a delivery location. Instructions cannot be left blank."
+            "info": "Title for the select box, not currently shown in the theme."
           },
           {
             "type": "text",
             "id": "label-one",
             "default": "Select option 1",
-            "label": "Option one",
-            "info": "Example: Home Address"
+            "label": "Default option",
+            "info": "Use to introduce the purpose of the list."
           },
           {
             "type": "text",
             "id": "label-two",
             "default": "Select option 2",
-            "label": "Option two",
+            "label": "Option one",
             "info": "Example: Work Address"
           },
           {
             "type": "text",
             "id": "label-three",
             "default": "Select option 3",
-            "label": "Option three",
+            "label": "Option two",
             "info": "Leave blank if not required"
           },
           {
             "type": "text",
             "id": "label-four",
             "default": "Select option 4",
-            "label": "Option four",
+            "label": "Option three",
             "info": "Leave blank if not required"
           },
           {
             "type": "text",
             "id": "label-five",
             "default": "Select option 5",
-            "label": "Option five",
+            "label": "Option four",
             "info": "Leave blank if not required"
           },
           {
             "type": "text",
             "id": "label-six",
             "default": "Select option 6",
-            "label": "Option six",
+            "label": "Option five",
             "info": "Leave blank if not required"
           },
           {

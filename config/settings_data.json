@@ -356,8 +356,490 @@
           "color_text": "#ffffff"
         }
       },
-      "contact-formbuilder": {
-        "type": "contact-formbuilder",
+      "services-restoration-imagepicker": {
+        "type": "services-restoration-imagepicker",
+        "blocks": {
+          "1502464159620": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-JMI-office1.jpg",
+              "mainImg": false
+            }
+          },
+          "1502464226422": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-Mcintosh-Collection.jpg",
+              "mainImg": false
+            }
+          },
+          "1502464254482": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-Gear1.jpg",
+              "mainImg": false
+            }
+          }
+        },
+        "block_order": [
+          "1502464159620",
+          "1502464226422",
+          "1502464254482"
+        ],
+        "settings": {}
+      },
+      "services-restoration": {
+        "type": "services-restoration",
+        "blocks": {
+          "1400000204507": {
+            "type": "text",
+            "settings": {
+              "label": "Full Name",
+              "required": true,
+              "class": "one-third first"
+            }
+          },
+          "1400000127434": {
+            "type": "email",
+            "settings": {
+              "label": "Email",
+              "class": "two-thirds"
+            }
+          },
+          "1400000230169": {
+            "type": "text",
+            "settings": {
+              "label": "Phone Number",
+              "required": false,
+              "class": "one-third first"
+            }
+          },
+          "1400000438824": {
+            "type": "text",
+            "settings": {
+              "label": "Business Type",
+              "required": false,
+              "class": "one-third"
+            }
+          },
+          "1400000277959": {
+            "type": "select",
+            "settings": {
+              "name": "~Timeline~",
+              "label-one": "Timeline",
+              "label-two": "Yesterday!",
+              "label-three": "Next 30 days",
+              "label-four": "30+ days out",
+              "label-five": "Still in the planning phase",
+              "label-six": "",
+              "class": "one-third last"
+            }
+          },
+          "1400000140944": {
+            "type": "body",
+            "settings": {
+              "label": "Message",
+              "class": "one-whole first last"
+            }
+          }
+        },
+        "block_order": [
+          "1400000204507",
+          "1400000127434",
+          "1400000230169",
+          "1400000438824",
+          "1400000277959",
+          "1400000140944"
+        ],
+        "settings": {
+          "page_position": "top",
+          "title": "Get In touch",
+          "enable_form": true,
+          "enable_captcha": false
+        }
+      },
+      "services-installation-imagepicker": {
+        "type": "services-installation-imagepicker",
+        "blocks": {
+          "1602454081373": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-Neil-Irwin-Mcintosh-system.jpg",
+              "mainImg": false
+            }
+          },
+          "1602453905208": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-Infinity-RSII-Mcintosh_2100_monoblocks.jpg",
+              "mainImg": false
+            }
+          },
+          "1602454068816": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-Mcintosh_BW_Nautilus2.jpg",
+              "mainImg": false
+            }
+          }
+        },
+        "block_order": [
+          "1602454081373",
+          "1602453905208",
+          "1602454068816"
+        ],
+        "settings": {}
+      },
+      "services-installation": {
+        "type": "services-installation",
+        "blocks": {
+          "1602453991596": {
+            "type": "text",
+            "settings": {
+              "label": "Full Name",
+              "required": false,
+              "class": "one-third first"
+            }
+          },
+          "1602453954178": {
+            "type": "email",
+            "settings": {
+              "label": "Email",
+              "class": "one-third"
+            }
+          },
+          "1602454021106": {
+            "type": "text",
+            "settings": {
+              "label": "Phone Number",
+              "required": false,
+              "class": "one-third last"
+            }
+          },
+          "1602453961784": {
+            "type": "body",
+            "settings": {
+              "label": "sm'Details",
+              "class": "one-whole first last"
+            }
+          }
+        },
+        "block_order": [
+          "1602453991596",
+          "1602453954178",
+          "1602454021106",
+          "1602453961784"
+        ],
+        "settings": {
+          "page_position": "top",
+          "title": "Get In Touch",
+          "enable_form": true,
+          "enable_captcha": false
+        }
+      },
+      "services-smarthome-imagepicker": {
+        "type": "services-smarthome-imagepicker",
+        "blocks": {
+          "1402464159620": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-JMI-office1.jpg",
+              "mainImg": false
+            }
+          },
+          "1402464226422": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-Mcintosh-Collection.jpg",
+              "mainImg": false
+            }
+          },
+          "1402464254482": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-Gear1.jpg",
+              "mainImg": false
+            }
+          }
+        },
+        "block_order": [
+          "1402464159620",
+          "1402464226422",
+          "1402464254482"
+        ],
+        "settings": {}
+      },
+      "services-smarthome": {
+        "type": "services-smarthome",
+        "blocks": {
+          "1602463804210": {
+            "type": "text",
+            "settings": {
+              "label": "Full Name",
+              "required": false,
+              "class": "one-third first"
+            }
+          },
+          "1602463720948": {
+            "type": "email",
+            "settings": {
+              "label": "Email",
+              "class": "one-third"
+            }
+          },
+          "1602463793645": {
+            "type": "telephone",
+            "settings": {
+              "label": "Phone Number",
+              "required": false,
+              "class": "one-third last"
+            }
+          },
+          "1602463746958": {
+            "type": "body",
+            "settings": {
+              "label": "Details",
+              "class": "one-whole first last"
+            }
+          }
+        },
+        "block_order": [
+          "1602463804210",
+          "1602463720948",
+          "1602463793645",
+          "1602463746958"
+        ],
+        "settings": {
+          "page_position": "top",
+          "title": "Get In Touch",
+          "enable_form": true,
+          "enable_captcha": false
+        }
+      },
+      "services-curation-imagepicker": {
+        "type": "services-curation-imagepicker",
+        "blocks": {
+          "1602464159620": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-JMI-office1.jpg",
+              "mainImg": false
+            }
+          },
+          "1602464226422": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-Mcintosh-Collection.jpg",
+              "mainImg": false
+            }
+          },
+          "1602464254482": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-Gear1.jpg",
+              "mainImg": false
+            }
+          }
+        },
+        "block_order": [
+          "1602464159620",
+          "1602464226422",
+          "1602464254482"
+        ],
+        "settings": {}
+      },
+      "services-curation": {
+        "type": "services-curation",
+        "blocks": {
+          "1602464045412": {
+            "type": "text",
+            "settings": {
+              "label": "Full Name",
+              "required": false,
+              "class": "one-third first"
+            }
+          },
+          "1602464026524": {
+            "type": "email",
+            "settings": {
+              "label": "Email",
+              "class": "two-thirds last"
+            }
+          },
+          "1602464070588": {
+            "type": "telephone",
+            "settings": {
+              "label": "Phone Number",
+              "required": false,
+              "class": "one-third first"
+            }
+          },
+          "1602464082796": {
+            "type": "text",
+            "settings": {
+              "label": "Budget & Goals",
+              "required": false,
+              "class": "two-thirds"
+            }
+          },
+          "1602464117017": {
+            "type": "body",
+            "settings": {
+              "label": "Additional Details",
+              "class": "one-whole first last"
+            }
+          }
+        },
+        "block_order": [
+          "1602464045412",
+          "1602464026524",
+          "1602464070588",
+          "1602464082796",
+          "1602464117017"
+        ],
+        "settings": {
+          "page_position": "top",
+          "title": "Get In Touch",
+          "enable_form": true,
+          "enable_captcha": false
+        }
+      },
+      "services-recapping-imagepicker": {
+        "type": "services-recapping-imagepicker",
+        "blocks": {
+          "1552464159620": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-JMI-office1.jpg",
+              "mainImg": false
+            }
+          },
+          "1552464226422": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-Mcintosh-Collection.jpg",
+              "mainImg": false
+            }
+          },
+          "1552464254482": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-Gear1.jpg",
+              "mainImg": false
+            }
+          }
+        },
+        "block_order": [
+          "1552464159620",
+          "1552464226422",
+          "1552464254482"
+        ],
+        "settings": {}
+      },
+      "services-recapping": {
+        "type": "services-recapping",
+        "blocks": {
+          "1400001204507": {
+            "type": "text",
+            "settings": {
+              "label": "Full Name",
+              "required": true,
+              "class": "one-third first"
+            }
+          },
+          "1400001127434": {
+            "type": "email",
+            "settings": {
+              "label": "Email",
+              "class": "two-thirds"
+            }
+          },
+          "1400001230169": {
+            "type": "text",
+            "settings": {
+              "label": "Phone Number",
+              "required": false,
+              "class": "one-third first"
+            }
+          },
+          "1400001438824": {
+            "type": "text",
+            "settings": {
+              "label": "Business Type",
+              "required": false,
+              "class": "one-third"
+            }
+          },
+          "1400001277959": {
+            "type": "select",
+            "settings": {
+              "name": "~Timeline~",
+              "label-one": "Timeline",
+              "label-two": "Yesterday!",
+              "label-three": "Next 30 days",
+              "label-four": "30+ days out",
+              "label-five": "Still in the planning phase",
+              "label-six": "",
+              "class": "one-third last"
+            }
+          },
+          "1400001140944": {
+            "type": "body",
+            "settings": {
+              "label": "Message",
+              "class": "one-whole first last"
+            }
+          }
+        },
+        "block_order": [
+          "1400001204507",
+          "1400001127434",
+          "1400001230169",
+          "1400001438824",
+          "1400001277959",
+          "1400001140944"
+        ],
+        "settings": {
+          "page_position": "top",
+          "title": "Get In Touch",
+          "enable_form": true,
+          "enable_captcha": false
+        }
+      },
+      "services-consulting-imagepicker": {
+        "type": "services-consulting-imagepicker",
+        "blocks": {
+          "1542464159620": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-JMI-office1.jpg",
+              "mainImg": false
+            }
+          },
+          "1542464226422": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-Mcintosh-Collection.jpg",
+              "mainImg": false
+            }
+          },
+          "1542464254482": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-Gear1.jpg",
+              "mainImg": false
+            }
+          }
+        },
+        "block_order": [
+          "1542464159620",
+          "1542464226422",
+          "1542464254482"
+        ],
+        "settings": {}
+      },
+      "services-consulting": {
+        "type": "services-consulting",
         "blocks": {
           "1602352204507": {
             "type": "text",
@@ -379,7 +861,7 @@
             "settings": {
               "label": "Phone Number",
               "required": false,
-              "class": "one-third"
+              "class": "one-third first"
             }
           },
           "1602352438824": {
@@ -387,15 +869,15 @@
             "settings": {
               "label": "Business Type",
               "required": false,
-              "class": "one-third first"
+              "class": "one-third"
             }
           },
           "1602352277959": {
             "type": "select",
             "settings": {
-              "name": "Timeline",
-              "label-one": "-",
-              "label-two": "Yesterday",
+              "name": "~Timeline~",
+              "label-one": "Timeline",
+              "label-two": "Yesterday!",
               "label-three": "Next 30 days",
               "label-four": "30+ days out",
               "label-five": "Still in the planning phase",
@@ -421,7 +903,212 @@
         ],
         "settings": {
           "page_position": "top",
-          "title": "Contact Form",
+          "title": "Get In Touch",
+          "enable_form": true,
+          "enable_captcha": false
+        }
+      },
+      "services-repair-imagepicker": {
+        "type": "services-repair-imagepicker",
+        "blocks": {
+          "1602467163137": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-JMI-office2.jpg",
+              "mainImg": false
+            }
+          },
+          "1602467175748": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-JBL-L100-estoration.jpg",
+              "mainImg": false
+            }
+          },
+          "1602467182553": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-Mcintosh-Collection.jpg",
+              "mainImg": false
+            }
+          }
+        },
+        "block_order": [
+          "1602467163137",
+          "1602467175748",
+          "1602467182553"
+        ],
+        "settings": {}
+      },
+      "services-repair": {
+        "type": "services-repair",
+        "blocks": {
+          "1400002204507": {
+            "type": "text",
+            "settings": {
+              "label": "Full Name",
+              "required": true,
+              "class": "one-third first"
+            }
+          },
+          "1400002127434": {
+            "type": "email",
+            "settings": {
+              "label": "Email",
+              "class": "two-thirds"
+            }
+          },
+          "1400002230169": {
+            "type": "text",
+            "settings": {
+              "label": "Phone Number",
+              "required": false,
+              "class": "one-third first"
+            }
+          },
+          "1400002438824": {
+            "type": "text",
+            "settings": {
+              "label": "Business Type",
+              "required": false,
+              "class": "one-third"
+            }
+          },
+          "1400002277959": {
+            "type": "select",
+            "settings": {
+              "name": "~Timeline~",
+              "label-one": "Timeline",
+              "label-two": "Yesterday!",
+              "label-three": "Next 30 days",
+              "label-four": "30+ days out",
+              "label-five": "Still in the planning phase",
+              "label-six": "",
+              "class": "one-third last"
+            }
+          },
+          "1400002140944": {
+            "type": "body",
+            "settings": {
+              "label": "Message",
+              "class": "one-whole first last"
+            }
+          }
+        },
+        "block_order": [
+          "1400002204507",
+          "1400002127434",
+          "1400002230169",
+          "1400002438824",
+          "1400002277959",
+          "1400002140944"
+        ],
+        "settings": {
+          "page_position": "top",
+          "title": "Get In Touch",
+          "enable_form": true,
+          "enable_captcha": false
+        }
+      },
+      "services-reclothing-imagepicker": {
+        "type": "services-reclothing-imagepicker",
+        "blocks": {
+          "1532464159620": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-JMI-office1.jpg",
+              "mainImg": false
+            }
+          },
+          "1532464226422": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-Mcintosh-Collection.jpg",
+              "mainImg": false
+            }
+          },
+          "1532464254482": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-Gear1.jpg",
+              "mainImg": false
+            }
+          }
+        },
+        "block_order": [
+          "1532464159620",
+          "1532464226422",
+          "1532464254482"
+        ],
+        "settings": {}
+      },
+      "services-reclothing": {
+        "type": "services-reclothing",
+        "blocks": {
+          "1400003204507": {
+            "type": "text",
+            "settings": {
+              "label": "Full Name",
+              "required": true,
+              "class": "one-third first"
+            }
+          },
+          "1400003127434": {
+            "type": "email",
+            "settings": {
+              "label": "Email",
+              "class": "two-thirds"
+            }
+          },
+          "1400003230169": {
+            "type": "text",
+            "settings": {
+              "label": "Phone Number",
+              "required": false,
+              "class": "one-third first"
+            }
+          },
+          "1400003438824": {
+            "type": "text",
+            "settings": {
+              "label": "Business Type",
+              "required": false,
+              "class": "one-third"
+            }
+          },
+          "1400003277959": {
+            "type": "select",
+            "settings": {
+              "name": "~Timeline~",
+              "label-one": "Timeline",
+              "label-two": "Yesterday!",
+              "label-three": "Next 30 days",
+              "label-four": "30+ days out",
+              "label-five": "Still in the planning phase",
+              "label-six": "",
+              "class": "one-third last"
+            }
+          },
+          "1400003140944": {
+            "type": "body",
+            "settings": {
+              "label": "Message",
+              "class": "one-whole first last"
+            }
+          }
+        },
+        "block_order": [
+          "1400003204507",
+          "1400003127434",
+          "1400003230169",
+          "1400003438824",
+          "1400003277959",
+          "1400003140944"
+        ],
+        "settings": {
+          "page_position": "top",
+          "title": "Get In Touch",
+          "enable_form": true,
           "enable_captcha": false
         }
       }
@@ -935,7 +1622,7 @@
             "show_on_product": true,
             "show_on_collection": true,
             "show_on_blog": false,
-            "show_on_regular": false,
+            "show_on_regular": true,
             "color_text": "#262626",
             "color_bg": "#f5f5f5"
           }
