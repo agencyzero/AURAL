@@ -1,0 +1,18 @@
+<!-- page.formbuilder.liquid -->
+{% include 'atb' zone:'Top' %}
+<div class="page-content" data-section-id="{{ section.id }}">
+
+  {% render 'breadcrumb' %}
+
+  <h1 class="title h1">{{ page.title }}</h1>
+
+  <div class="rte svcGrid">
+    <div class="copy">{{ page.content }}</div>
+    {% section 'services-installation-imagepicker' %}
+  </div>
+
+
+
+{% section 'services-installation' %}
+
+</div>

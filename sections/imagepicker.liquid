@@ -1,0 +1,33 @@
+<!-- imagepicker.liquid -->
+
+{% schema %}
+{
+	"name": "Images",
+	"class": "grid_aural gallery",
+	"max_blocks": 3,
+	"blocks": [
+		{
+			"type": "image",
+			"name": "Image",
+			"settings": [
+				{
+					"id": "imagep",
+					"type": "image_picker",
+					"label": "Image"
+				},
+				{
+					"type": "checkbox",
+					"id": "mainImg",
+					"label": "Set as primary",
+					"default": false
+				}
+			]
+		}
+	]
+}
+{% endschema %}
+
+
+	{% for block in section.blocks %}
+		<div class="grid__item" style="background-image:url({{ block.settings.imagep | img_url: '840x'}})"></div>
+	{% endfor %}
