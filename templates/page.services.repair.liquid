@@ -1,6 +1,6 @@
 <!-- page.formbuilder.liquid -->
 {% include 'atb' zone:'Top' %}
-<div class="page-content" data-section-id="{{ section.id }}">
+<div class="services page-content" data-section-id="{{ section.id }}">
 
   {% render 'breadcrumb' %}
 
@@ -8,12 +8,11 @@
 
 
   <div class="rte svcGrid">
-    <div class="copy">{{ page.content }}</div>
-    <div class="gallery">{% section 'services-repair-imagepicker' %}</div>
+    <div class="copy">
+    	<div>{{ page.content }}</div>
+    	{% section 'services-repair' %}
+    </div>
+    {% section 'services-repair-imagepicker' %}
   </div>
-
-
-
-{% section 'services-repair' %}
 
 </div>

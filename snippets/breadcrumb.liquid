@@ -15,9 +15,27 @@
 				
 				{% if template contains 'collections' %}
 					{% comment %}<span class="breadcrumb__current">{{ 'collections.title' | t }}</span>{% endcomment %}
+				{% elsif template contains 'services' %}
+					<span class="breadcrumb__separator">/</span>
+					<span class="breadcrumb__link"><a href="#">Services</a></span>
+				{% elsif template contains 'history' %}
+					<span class="breadcrumb__separator">/</span>
+					<span class="breadcrumb__link"><a href="#">History of the Brands</a></span>
+				{% elsif template contains 'about' %}
+					<span class="breadcrumb__separator">/</span>
+					<span class="breadcrumb__link"><a href="#">About</a></span>
+				{% elsif template contains 'consign' %}
+					<span class="breadcrumb__separator">/</span>
+					<span class="breadcrumb__link"><a href="#">Sales & Consignment</a></span>
+				{% elsif template contains 'contact' %}
+					<span class="breadcrumb__separator">/</span>
+					<span class="breadcrumb__link"><a href="#">Contact</a></span>
+				{% elsif template contains 'faq' %}
+					<span class="breadcrumb__separator">/</span>
+					<span class="breadcrumb__link"><a href="#">Getting Started</a></span>
 				{% else %}
 					<span class="breadcrumb__separator">/</span>
-					<span class="breadcrumb__link"><a href="{{ routes.all_products_collection_url }}">Gear</a></span>
+					<span class="breadcrumb__link"><a href="{{ routes.all_products_collection_url }}">Shop</a></span>
 				{% endif %}
 			{% endunless %}
 
@@ -28,7 +46,7 @@
 					{% comment %}<span class="breadcrumb__current">{{ collection.title | escape }}</span>{% endcomment %}
 				{% else %}
 					<span class="breadcrumb__separator">/</span>
-					<span class="breadcrumb__link"><a href="{{ routes.all_products_collection_url }}">Gear</a></span>
+					<span class="breadcrumb__link"><a href="{{ routes.all_products_collection_url }}">Shop</a></span>
 
 					<span class="breadcrumb__separator">/</span>
 					<span class="breadcrumb__link">
@@ -42,8 +60,10 @@
 			{% elsif product %}
 
 				<span class="breadcrumb__separator">/</span>
-				<span class="breadcrumb__link"><a href="{{ routes.all_products_collection_url }}">Gear</a></span>
+				<span class="breadcrumb__link"><a href="{{ routes.all_products_collection_url }}">Shop</a></span>
 
+				<span class="breadcrumb__separator">/</span>
+				<span class="breadcrumb__link">{{ product.vendor | link_to_vendor  }}</span>
 				{% comment %}<span class="breadcrumb__separator">/</span>
 				<span class="breadcrumb__link"><a href="{{ routes.collections_url }}">{{ 'collections.title' | t }}</a></span>{%endcomment%}
 

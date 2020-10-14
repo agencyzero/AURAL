@@ -1,5 +1,5 @@
 
-{% assign daysago = 30 | abs %}
+{% assign daysago = 7 | abs %}
 {% assign secsago = daysago |  times:86400 | abs %}
 {% assign today = 'now' | date: '%s' | abs %}
 {% assign cutoff = today | minus:secsago | abs %}
@@ -94,7 +94,7 @@
       {% endfor %}
 
       <div class="product-item final-cta">
-        <p><a href="/collections/all" class="button button--solid">SEE ALL THE GEAR</a></p>
+        <p><a href="/collections/all" class="button button--solid">SEE EVERYTHING</a></p>
       </div>
 
     </div>

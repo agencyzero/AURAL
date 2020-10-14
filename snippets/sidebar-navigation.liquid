@@ -24,14 +24,14 @@
 
 								{% for childlink in link.links %}
 
-									<li class="{% if childlink.links != blank %} has-submenu has-second-submenu {% endif %}" {% if childlink.links != blank %} aria-haspopup="true" {% endif %}>
+									<li class="{% if childlink.links != blank or childlink.title contains "BRAND"%} has-submenu has-second-submenu {% endif %}" {% if childlink.links != blank  or childlink.title contains "BRAND"%} aria-haspopup="true" {% endif %}>
 
-										<a href="{% if childlink.links != blank %}javascript: void(0){% else %}{{ childlink.url }}{% endif %}" {% if childlink.active or childlink.child_active %} class="selected" {% endif %}>
+										<a href="{% if childlink.links != blank  or childlink.title contains "BRAND"%}javascript: void(0){% else %}{{ childlink.url }}{% endif %}" {% if childlink.active or childlink.child_active %} class="selected" {% endif %}>
 											<span style="flex: 1;"><span class="underline-animation">{{ childlink.title | escape }}</span></span>
-											{% if childlink.links != blank %} {% render 'theme-symbols', icon: 'arrow' %} {% endif %}
+											{% if childlink.links != blank  or childlink.title contains "BRAND"%} {% render 'theme-symbols', icon: 'arrow' %} {% endif %}
 										</a>
 
-										{% if childlink.links != blank %}
+										{% if childlink.links != blank or childlink.title contains "BRAND" %}
 											
 											<div class="sidebar__submenu sidebar__submenu--second" aria-expanded="false">
 
@@ -41,18 +41,35 @@
 
 														<ul>
 
-															{% for subchildlink in childlink.links %}
+															{% if childlink.title contains "BY BRAND" %}
+																{% for vendor in shop.vendors %}
+																	{% assign vendor_handle = vendor | handleize %}
+																	{% assign vendor_product_count = collections[vendor_handle].products_count %}
+																	<li class="brand">
+																		{% if vendor_product_count == 0 %}
+																		{% elsif vendor_product_count == 1%}
+																			<a href="/products/{{ collections[vendor_handle].products[0].handle }}" {% if subchildlink.active %} class="selected" {% endif %}><span class="underline-animation">{{ vendor | escape }}</span></a> 
+																		{% else %}
+																			<a href="/collections/{{ vendor_handle }}" {% if subchildlink.active %} class="selected" {% endif %}><span class="underline-animation">{{ vendor | escape }}</span></a>
+																		{% endif %}
+																	</li>
 
-																<li>
-																	{% if subchildlink.object.products_count == 0 %}
-																	{% elsif subchildlink.object.products_count == 1%}
-																		<a href="/products/{{ subchildlink.object.products[0].handle }}" {% if subchildlink.active %} class="selected" {% endif %}><span class="underline-animation">{{ subchildlink.title | escape }}</span></a> 
-																	{% else %}
-																		<a href="{{ subchildlink.url }}" {% if subchildlink.active %} class="selected" {% endif %}><span class="underline-animation">{{ subchildlink.title | escape }}</span></a>
-																	{% endif %}
-																</li>
+																{% endfor %}
 
-															{% endfor %}
+															{% else %}
+																{% for subchildlink in childlink.links %}
+
+																	<li class="{{childlink.title}}">
+																		{% if subchildlink.object.products_count == 0 %}
+																		{% elsif subchildlink.object.products_count == 1%}
+																			<a href="/products/{{ subchildlink.object.products[0].handle }}" {% if subchildlink.active %} class="selected" {% endif %}><span class="underline-animation">{{ subchildlink.title | escape }}</span></a> 
+																		{% else %}
+																			<a href="{{ subchildlink.url }}" {% if subchildlink.active %} class="selected" {% endif %}><span class="underline-animation">{{ subchildlink.title | escape }}</span></a>
+																		{% endif %}
+																	</li>
+
+																{% endfor %}
+															{% endif %}
 
 														</ul>
 
