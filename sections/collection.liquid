@@ -4,7 +4,7 @@
 
     {% render 'breadcrumb' %}
 
-    <h1 class="collection-header__title h1">{{ collection.title | escape }}</h1>
+    <h1 class="collection-header__title h1">{% if collection.title == "Products" %}All The Gear {% else %}{{ collection.title | escape }}{% endif %}</h1>
 
     {% unless collection.description == blank %}
       {% unless section.settings.show_collection_description_below == true %}

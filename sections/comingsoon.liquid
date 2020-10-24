@@ -1,0 +1,85 @@
+{%- comment -%} imagepicker.liquid {%- endcomment -%}
+{% schema %}
+{
+	"name": "Coming Soon",
+	"class": "comingsoon-list",
+	"blocks": [
+		{
+			"type": "Item",
+			"name": "Item",
+			"settings": [
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Title",
+					"info":"optional"
+				},
+				{
+					"id": "type",
+					"type": "select",
+					"label": "Category",
+					"default": "component",
+					"options": [
+						{ "value": "component", "label": "Components" },
+						{ "value": "speaker", "label": "Speakers" }
+					]
+				},
+				{
+					"type": "html",
+					"id": "desc",
+					"label": "Item Description",
+					"info":"optional"
+				},
+				{
+					"type": "text",
+					"id": "date",
+					"label": "Estimated Arrival",
+					"info":"optional"
+				},
+				{
+					"type": "text",
+					"id": "link",
+					"label": "Blog Post",
+					"info":"optional, just use a good link ;-)"
+				},
+				{
+					"id": "imagep",
+					"type": "image_picker",
+					"label": "Item Image",
+					"info":"optional"
+				}
+				
+			]
+
+		}
+	]
+}
+{% endschema %}
+
+{%- comment -%} {%- endcomment -%}
+{%- assign theSpeakers = "" -%}
+{%- assign notSpeakers = "" -%}
+{%- for block in section.blocks -%}
+	{%- comment -%}{{block.settings.imagep}} {%- endcomment -%}
+	{% capture temp %}
+		<div class="comingsoon-item">
+			<h2 class="h2">{{block.settings.title}} </h2>
+			{% if block.settings.desc.size > 1 %}<p class="desc">{{block.settings.desc}}</p>{% endif %}
+			{% if block.settings.date.size > 1 %}<p class="arrival"><i>Expected:</i> {{block.settings.date}}</p>{% endif %}
+			{% if block.settings.link.size > 0 %}<p class="link"><a href="{{block.settings.link}}">More Info</a></p>{% endif %}
+		</div>
+	{% endcapture %}
+	{%- if block.settings.type != "speaker" -%}
+		{%- assign notSpeakers = notSpeakers | append: temp -%}
+	{%- else -%}
+		{%- assign theSpeakers = theSpeakers | append: temp -%}
+	{%- endif -%}
+{%- endfor -%}
+<div class="comingsoon-col">
+	<h2 class="h2 comingsoon-item-title">Components</h2>
+	{{ notSpeakers }}
+</div>
+<div class="comingsoon-col">
+	<h2 class="h2 comingsoon-item-title">Speakers</h2>
+	{{ theSpeakers }}
+</div>

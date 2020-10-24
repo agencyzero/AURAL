@@ -2,7 +2,7 @@
 
   {% assign variant = product.selected_or_first_available_variant %}
 
-	<div class="product__text rte">
+	<div class="product__text rte aural_{{ product.vendor | handleize }}">
 
     <div class="desktop-breadcrumb">{% render 'breadcrumb' %}</div>
 
@@ -109,6 +109,8 @@
 
               <span class="variant-quantity"></span>
 
+              <div class="aural_quiz"><a href="mailto:{{shop.email}}?subject=Question: {{ product.title | url_encode | upcase }}&body=(from: {{ shop.url}}{{ product.url }} )%0d%0a%0d%0a%0d%0a" class="button button--solid button--minor">I've Got Questions</a></div>
+
             </div>
 
 					{% endform %}
@@ -120,14 +122,17 @@
       <div class="product__description {{ section.settings.product_description_truncated }}">
         <div>
           {{ product.description }}
-          <br><br>
-          <dl>
-            {% if product.metafields.global['condition'].size >0 %}<dt>Condition</dt><dd>{{ product.metafields.global['condition'] }}</dd>{% endif %}
-            {% if product.metafields.global['year'].size >0 %}<dt>Year</dt><dd>{{ product.metafields.global['year'] }}</dd>{% endif %}
-            {% if product.metafields.global['serial_num'].size >0 %}<dt>Serial No.</dt><dd>{{ product.metafields.global['serial_num'] }}</dd>{% endif %}
-            {% if product.metafields.global['msrp'].size >0 %}<dt>Orig. MSRP</dt><dd>{{ product.metafields.global['msrp']}}</dd>{% endif %}
-            {% if product.metafields.global['specs'].size >0 %}<dt>Specs</dt><dd>{{ product.metafields.global['specs'] }}</dd>{% endif %}
-            {% if product.metafields.global['longdesc'].size >0 %}<dt>Liner Notes</dt><dd>{{ product.metafields.global['longdesc'] }}</dd>{% endif %}
+          <dl class="metadata">
+            {% if product.metafields.global['year'].size >0 %}<dt>Production</dt><dd class="aural_year">{{ product.metafields.global['year'] }}</dd>{% endif %}
+            {% if product.metafields.global['condition'].size >0 %}<dt>Condition</dt><dd class="aural_cond">{{ product.metafields.global['condition'] }}</dd>{% endif %}
+            {% if product.metafields.global['restorations'].size >0 %}<dt>Restorations</dt><dd class="aural_year">{{ product.metafields.global['restorations'] }}</dd>{% endif %}
+            {% if product.metafields.global['customizations'].size >0 %}<dt>Conversions</dt><dd class="aural_year">{{ product.metafields.global['customizations'] }}</dd>{% endif %}
+            {% if product.metafields.global['modifications'].size >0 %}<dt>Custom Work</dt><dd class="aural_year">{{ product.metafields.global['modifications'] }}</dd>{% endif %}
+            {% if product.metafields.global['provenance'].size >0 %}<dt>Provenance</dt><dd class="aural_year">{{ product.metafields.global['provenance'] }}</dd>{% endif %}
+            {% if product.metafields.global['serial_num'].size >0 %}<dt>Serial No.</dt><dd class="aural_serial">{{ product.metafields.global['serial_num'] }}</dd>{% endif %}
+            {% if product.metafields.global['msrp'].size >0 %}<dt>Orig. MSRP</dt><dd class="aural_msrp">{{ product.metafields.global['msrp']}}</dd>{% endif %}
+            {% if product.metafields.global['specs'].size >0 %}<dt>Specs</dt><dd class="aural_specs">{{ product.metafields.global['specs'] }}</dd>{% endif %}
+            {% if product.metafields.global['linernotes'].size >0 %}<dt>Liner Notes</dt><dd class="aural_long linernotes">{{ product.metafields.global['linernotes'] }}</dd>{% endif %}
           </dl>
         </div>
       </div>
@@ -267,6 +272,24 @@
     </style>
   </div>
 {% endif %}
+
+<script type="text/javascript">
+  $('.product__add-to-cart').hover(      
+    function(){
+      var ti = setTimeout(() => hoverIntent($(this)), 250);
+      $( this ).mouseleave(function() {
+        clearTimeout(ti);
+      });
+    }, 
+    function(){
+      $('.aural_quiz').stop( true, true ).animate({opacity:1},{queue:false,duration:500});
+    }
+  );
+  function hoverIntent(){
+    console.log ('animating');
+    $('.aural_quiz').stop( true, true ).animate({opacity:0},{queue:false,duration:1000});
+  }
+</script>
 
 {% if section.settings.hide_variants %}
 

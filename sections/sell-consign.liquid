@@ -1,0 +1,637 @@
+{% schema %}
+  {
+    "name": "Sales & Consignment",
+    "class": "consignment",
+    "settings": [
+    {
+      "type": "header",
+      "content": "Sales content"
+    },
+    {
+      "type": "text",
+      "id": "selltitle",
+      "label": " Title"
+    },
+    {
+      "type": "html",
+      "id": "sellbody",
+      "label": "Intro Copy"
+    },
+    {
+      "type": "header",
+      "content": "Consign content"
+    },
+    {
+      "type": "text",
+      "id": "contitle",
+      "label": " Title"
+    },
+    {
+      "type": "html",
+      "id": "conbody",
+      "label": "Intro Copy"
+    },
+    {
+      "type": "header",
+      "content": "Custom Form",
+      "info": "Add form fields with content section below. Tip: Email and Message field are required, placed here as examples. Please deliberately add them."
+    },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Contact Form",
+        "info": "Leave blank to remove heading."
+      },
+          {
+            "type": "checkbox",
+            "id": "enable_form",
+            "label": "Show the form",
+            "default": false
+          },
+          {
+            "type": "checkbox",
+            "id": "enable_captcha",
+            "label": "Use math captcha",
+            "default": false
+          }
+
+    ],
+    "blocks": [
+      {
+        "type": "email",
+        "name": "Email field - required",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "label",
+            "label": "Label",
+            "default": "Email",
+            "info": "The label cannot be left blank."
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Class",
+            "default": "two-thirds",
+            "info": "Suggest: one-third two-thirds one-half one-whole first last"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide",
+            "label": "Temporarily hide",
+            "default": false
+          }
+        ]
+      },
+      {
+        "type": "body",
+        "name": "Message field - required",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "label",
+            "label": "Label",
+            "default": "Message",
+            "info": "The label cannot be left blank."
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Class",
+            "default": "one-whole first last",
+            "info": "Suggest: one-third two-thirds one-half one-whole first last"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide",
+            "label": "Temporarily hide",
+            "default": false
+          }
+        ]
+      },
+
+      {
+        "type": "text",
+        "name": "Text field",
+        "settings": [
+          {
+            "type": "text",
+            "id": "label",
+            "label": "Label",
+            "default": "Full Name",
+            "info": "Use for any single line form input. The label cannot be left blank."
+          },
+          {
+            "type": "checkbox",
+            "id": "required",
+            "label": "Field is Required",
+            "default": false
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Class",
+            "default": "one-third",
+            "info": "Suggest: one-third two-thirds one-half one-whole first last"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide",
+            "label": "Temporarily hide",
+            "default": false
+          }
+        ]
+      },
+
+      {
+        "type": "textHeading",
+        "name": "Heading field",
+        "settings": [
+          {
+            "type": "text",
+            "id": "label",
+            "label": "Label",
+            "default": "Heading",
+            "info": "The label cannot be left blank."
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Class",
+            "default": "one-third",
+            "info": "Suggest: one-third two-thirds one-half one-whole first last"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide",
+            "label": "Temporarily hide",
+            "default": false
+          }
+        ]
+      },
+
+      {
+        "type": "telephone",
+        "name": "Telephone field",
+        "settings": [
+          {
+            "type": "text",
+            "id": "label",
+            "label": "Label",
+            "default": "Phone Number",
+            "info": "The label cannot be left blank."
+          },
+          {
+            "type": "checkbox",
+            "id": "required",
+            "label": "Field is Required",
+            "default": false
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Class",
+            "default": "one-third",
+            "info": "Suggest: one-third two-thirds one-half one-whole first last"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide",
+            "label": "Temporarily hide",
+            "default": false
+          }
+        ]
+      },
+      {
+        "type": "textarea",
+        "name": "Additional message field",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "label",
+            "label": "Label",
+            "default": "Enter your message",
+            "info": "Use for multi-line form input. The label cannot be left blank."
+          },
+          {
+            "type": "checkbox",
+            "id": "required",
+            "label": "Field is Required",
+            "default": false
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Class",
+            "default": "one-whole",
+            "info": "Suggest: one-third two-thirds one-half one-whole first last"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide",
+            "label": "Temporarily hide",
+            "default": false
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "name": "Single checkbox",
+        "settings": [
+          {
+            "type": "text",
+            "id": "label",
+            "default": "Newsletter One",
+            "label": "Label",
+            "info": "Example: Weekly newsletter. The label cannot be left blank."
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Class",
+            "info": "Suggest: one-third two-thirds one-half one-whole first last"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide",
+            "label": "Temporarily hide",
+            "default": false
+          }
+        ]
+      },
+      {
+        "type": "checkboxHeading",
+        "name": "Checkbox heading",
+        "settings": [
+          {
+            "type": "text",
+            "id": "label",
+            "default": "Checkbox heading",
+            "label": "Label",
+            "info": "Example: Subscribe to Newsletters. The label cannot be left blank."
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Class",
+            "info": "Suggest: one-third two-thirds one-half one-whole first last"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide",
+            "label": "Temporarily hide",
+            "default": false
+          }
+        ]
+      },
+      {
+        "type": "radio",
+        "name": "Radio group",
+        "settings": [
+          {
+            "type": "text",
+            "id": "name",
+            "default": "Pick an option",
+            "label": "Heading",
+            "info": "Example: Choose an option. Heading cannot be left blank."
+          },
+          {
+            "type": "text",
+            "id": "label-one",
+            "default": "Radio option 1",
+            "label": "Option one",
+            "info": "Example: Option 1"
+          },
+          {
+            "type": "text",
+            "id": "label-two",
+            "default": "Radio option 2",
+            "label": "Option two",
+            "info": "Example: Option 2"
+          },
+          {
+            "type": "text",
+            "id": "label-three",
+            "default": "Radio option 3",
+            "label": "Option three",
+            "info": "Leave blank if not required"
+          },
+          {
+            "type": "text",
+            "id": "label-four",
+            "default": "Radio option 4",
+            "label": "Option four",
+            "info": "Leave blank if not required"
+          },
+          {
+            "type": "text",
+            "id": "label-five",
+            "default": "Radio option 5",
+            "label": "Option five",
+            "info": "Blank if not required"
+          },
+          {
+            "type": "text",
+            "id": "label-six",
+            "default": "Radio option 6",
+            "label": "Option six",
+            "info": "Leave blank if not required"
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Class",
+            "info": "Suggest: one-third two-thirds one-half one-whole first last"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide",
+            "label": "Temporarily hide",
+            "default": false
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "name": "Select group",
+        "settings": [
+          {
+            "type": "text",
+            "id": "name",
+            "default": "Select an option",
+            "label": "Instructions",
+            "info": "Title for the select box, not currently shown in the theme."
+          },
+          {
+            "type": "text",
+            "id": "label-one",
+            "default": "Select option 1",
+            "label": "Default option",
+            "info": "Use to introduce the purpose of the list."
+          },
+          {
+            "type": "text",
+            "id": "label-two",
+            "default": "Select option 2",
+            "label": "Option one",
+            "info": "Example: Work Address"
+          },
+          {
+            "type": "text",
+            "id": "label-three",
+            "default": "Select option 3",
+            "label": "Option two",
+            "info": "Leave blank if not required"
+          },
+          {
+            "type": "text",
+            "id": "label-four",
+            "default": "Select option 4",
+            "label": "Option three",
+            "info": "Leave blank if not required"
+          },
+          {
+            "type": "text",
+            "id": "label-five",
+            "default": "Select option 5",
+            "label": "Option four",
+            "info": "Leave blank if not required"
+          },
+          {
+            "type": "text",
+            "id": "label-six",
+            "default": "Select option 6",
+            "label": "Option five",
+            "info": "Leave blank if not required"
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Class",
+            "default": "one-third",
+            "info": "Suggest: one-third two-thirds one-half one-whole first last"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide",
+            "label": "Temporarily hide",
+            "default": false
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Contact Form",
+        "category": "Form",
+        "blocks": [
+          {
+            "type": "email"
+          },
+          {
+            "type": "body"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{%- comment -%} {%- endif -%}{%- endcomment -%}
+<div class="rte sidebyside">
+	
+	<div class="grid-el">
+		<h3>{{ section.settings.selltitle }}</h3>
+		<div class="intro">{{ section.settings.sellbody }}</div>
+	</div>
+	<div class="grid-el">
+		<h3>{{ section.settings.contitle }}</h3>
+		<div class="intro">{{ section.settings.conbody }}</div>
+	</div>
+	<div class="grid-el wide">
+		
+			{%- if section.settings.enable_form -%}
+			 <div class="form">
+
+			  {% form 'contact' %}
+
+			    {%- if section.settings.title.size > 0 -%}
+			    <h3>{{section.settings.title}}</h3>
+			    {%- endif -%}
+
+
+			    {% if form.posted_successfully? %}
+
+			      <p class="note form-success">
+			        {{ 'general.contact_form.success_message' | t }}
+			      </p>
+			    {% else %}
+			    <label class="noseeum" for="auralId"></label>
+				<input class="noseeum"
+				  type="text"
+				  id="auralId"
+				  name="contact[pg]"
+				  value="{{ page.url }}"
+				/>
+
+			    {{ form.errors | default_errors }}
+
+			    {% for block in section.blocks %}
+			      {% if block.settings.hide == false %}
+			      {% case block.type %}
+
+			        {% when 'email' %}
+			          <div class="custom-form__block krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
+			            <label for="{{ block.settings.label }}" class="hidden">{{ block.settings.label }}</label>
+			            <input type="email" class="contactFormEmail" id="Form-{{ section.id }}-{{forloop.index0 }}" name="contact[email]" placeholder="{{ block.settings.label }}" autocorrect="off" autocapitalize="off" required/>
+			          </div>
+
+			        {% when 'body' %}
+			          <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
+			            <label for="{{ block.settings.label }}" class="hidden">{{ block.settings.label }}</label>
+			            <textarea rows="10" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormMessage" name="contact[body]" placeholder="{{ block.settings.label }}" required></textarea>
+			          </div>
+
+			        {% when 'text' %}
+			          <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
+			            <label for="{{ block.settings.label }}" class="hidden uppercase">{{ block.settings.label }}</label>
+			            <input type="text" class="contactFormText" id="Form-{{ section.id }}-{{forloop.index0 }}" name="contact[{{ block.settings.label | escape }}]" placeholder="{{ block.settings.label }}{% if block.settings.required %} (required){% endif %} " autocapitalize="words" value="" {% if block.settings.required %} required{% endif %} />
+			          </div>
+
+			        {% when 'textarea' %}
+			          <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
+			            <label for="{{ block.settings.label }}" class="hidden">{{ block.settings.label }}</label>
+			            <textarea rows="10" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormMessage" name="contact[{{ block.settings.label | escape }}]" placeholder="{{ block.settings.label }}{% if block.settings.required %} (required){% endif %}" {% if block.settings.required %} required{% endif %} ></textarea>
+			          </div>
+
+			        {% when 'telephone' %}
+			          <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
+			            <label for="{{ block.settings.label }}" class="hidden">{{ block.settings.label }}</label>
+			            <input type="tel" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormPhone" name="contact[{{ block.settings.label | escape }}]" placeholder="{{ block.settings.label }}{% if block.settings.required %} (required){% endif %}" pattern="[0-9\-]*" value="" {% if block.settings.required %} required{% endif %} />
+			          </div>
+
+			        {% when 'name' %}
+			          <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
+			            <label for="{{ block.settings.label }}" class="hidden uppercase">{{ block.settings.label }}</label>
+			            <input type="text" class="contactFormText" id="Form-{{ section.id }}-{{forloop.index0 }}" name="contact[{{ block.settings.label | escape }}]" placeholder="{{ block.settings.label }}{% if block.settings.required %} (required){% endif %}" autocapitalize="words" value="" {% if block.settings.required %} required{% endif %} />
+			          </div>
+
+			        {% when 'textHeading' %}
+			          <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
+			            <label for="{{ block.settings.label }}" class="label uppercase">{{ block.settings.label }}</label>
+			          </div>        
+
+			        {% when 'radio' %}
+			          <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }} style="margin-bottom: 1rem;">
+			            <label for="{{ block.settings.label }} "class="label uppercase">{{ block.settings.name }}</label>
+			            {% if block.settings.label-one != blank %}
+			              <input type="radio" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormRadio" name="contact[{{ block.settings.name | escape }}]" value="{{ block.settings.label-one }}"> {{ block.settings.label-one }}</input><br />
+			            {% endif %}
+			            {% if block.settings.label-two != blank %}
+			              <input type="radio" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormRadio" name="contact[{{ block.settings.name | escape }}]" value="{{ block.settings.label-two }}"> {{ block.settings.label-two }}</input><br />
+			            {% endif %}
+			            {% if block.settings.label-three != blank %}
+			              <input type="radio" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormRadio" name="contact[{{ block.settings.name | escape }}]" value="{{ block.settings.label-three }}"> {{ block.settings.label-three }}</input><br />
+			            {% endif %}
+			            {% if block.settings.label-four != blank %}
+			              <input type="radio" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormRadio" name="contact[{{ block.settings.name | escape }}]" value="{{ block.settings.label-four }}"> {{ block.settings.label-four }}</input><br />
+			            {% endif %}
+			            {% if block.settings.label-five != blank %}
+			              <input type="radio" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormRadio" name="contact[{{ block.settings.name | escape }}]" value="{{ block.settings.label-five }}"> {{ block.settings.label-five }}</input><br />
+			            {% endif %}
+			            {% if block.settings.label-six != blank %}
+			              <input type="radio" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormRadio" name="contact[{{ block.settings.name | escape }}]" value="{{ block.settings.label-six }}"> {{ block.settings.label-six }}</input><br />
+			            {% endif %}
+			          </div>
+
+			        {% when 'checkboxHeading' %}
+			          <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
+			            <label for="{{ block.settings.label }}" class="label uppercase">{{ block.settings.label }}</label>
+			          </div>
+
+			        {% when 'checkbox' %}
+			          <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
+			            <label for="{{ block.settings.label }}" class="hidden">{{ block.settings.label }}</label>
+			            <input type="checkbox" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormCheckbox" name="contact[{{ block.settings.label }}]" value="{{ block.settings.label }}"> {{ block.settings.label }}</input>
+			          </div>
+
+			        {% when 'select' %}
+			          <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
+			            <label for="{{ block.settings.label }}" class="hidden">{{ block.settings.name }}</label>
+			            <select id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormSelect" name="contact[{{ block.settings.name }}]">
+			              {% if block.settings.label-one != blank %}
+			                <option value="{{ block.settings.label-one }}" class="selected disabled">{{ block.settings.label-one }}</option>
+			              {% endif %}
+			              {% if block.settings.label-two != blank %}
+			                <option value="{{ block.settings.label-two }}">{{ block.settings.label-two }}</option>
+			              {% endif %}
+			              {% if block.settings.label-three != blank %}
+			                <option value="{{ block.settings.label-three }}">{{ block.settings.label-three }}</option>
+			              {% endif %}
+			              {% if block.settings.label-four != blank %}
+			                <option value="{{ block.settings.label-four }}">{{ block.settings.label-four }}</option>
+			              {% endif %}
+			              {% if block.settings.label-five != blank %}
+			                <option value="{{ block.settings.label-five }}">{{ block.settings.label-five }}</option>
+			              {% endif %}
+			              {% if block.settings.label-six != blank %}
+			                <option value="{{ block.settings.label-six }}">{{ block.settings.label-six }}</option>
+			              {% endif %}
+
+			            </select>
+			          </div>
+			        {% else %}
+			      {% endcase %}
+			      {% endif %}
+			    {% endfor %}
+
+			    {% assign types = '' %}
+			    {% for block in section.blocks %}
+			      {% assign types = types | append: block.type  %}
+			    {% endfor %}
+
+			    {% comment %}
+			    {% unless types contains "email" %}
+			      <label for="{{ block.settings.label }}" class="label">{{ block.settings.label }}</label>
+			      <input type="email" class="contactFormEmail" id="Form-{{ section.id }}" name="contact[email]" placeholder="Email address (required)" autocorrect="off" autocapitalize="off" required>
+			    {% endunless  %}
+
+			    {% unless types contains "body" %}
+			      <label for="{{ block.settings.label }}" class="label">{{ block.settings.label }}</label>
+			      <textarea rows="10" id="Form-{{ section.id }}" class="contactFormMessage" name="contact[body]" placeholder="Message (required)" required></textarea>
+			    {% endunless  %}
+			    {% endcomment %}
+
+
+
+			    {%- if section.settings.enable_captcha -%}
+			        <div class="captcha">
+			            How much is: <input type="text" readonly="readonly" id="question"/>
+			            Answer:* <input type="text" id="answer"/>
+			        </div>
+			    {% endif %}
+
+			    <input type="submit" class="button button--solid" value="{{ 'general.contact_form.submit_label' | t }}">
+			    {% endif %}
+			  {% endform %}
+
+			  </div>
+			  <!-- end form section  -->
+			{%- endif -%}
+
+			  {%- if section.settings.page_position == 'below' -%}      
+			  <div class="rte" style="margin-top: 5rem;">
+			    {{ page.content }}
+			  </div>
+			  {% endif %} 
+
+
+
+
+
+
+	</div>	
+</div>

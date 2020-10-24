@@ -35,6 +35,11 @@
 
 	{{ 'theme.scss.css' | asset_url | stylesheet_tag }}
 	{{ 'aural.css' | asset_url | stylesheet_tag }}
+	<style>
+		.collection--overlay .product-item__caption::before {
+		    background-color: {% render 'color_to_rgba', color: settings.body_accent, alpha: '0.8' %};
+		}
+	</style>
 
 	{{ content_for_header }}
 	
@@ -74,7 +79,7 @@
 
 </head>
 
-<body id="{{ page_title | handle }}" class="{% if customer %} customer-logged-in {% endif %} template-{{ template.name }} template-{{ template | replace: '.', ' ' | handle }} no-touch clearfix">
+<body id="{{ page_title | handle }}" class="aural {% if customer %} customer-logged-in {% endif %} template-{{ template.name }} template-{{ template | replace: '.', ' ' | handle }} no-touch clearfix">
 	
 	{% section 'announcement-bar' %}
 
@@ -161,9 +166,75 @@
 		{% capture content %}{% include 'quickview' %}{% endcapture %}
 		var content = {{ content | json }};
 		
+		var isBreakPoint = function (bp) {
+			var bps = [320, 480, 768, 948, 1024, 1025, 1200, 1366, 1750],
+			w = $(window).width(),
+			min, max
+			for (var i = 0, l = bps.length; i < l; i++) {
+				if (bps[i] === bp) {
+					min = bps[i-1] || 0
+					max = bps[i]
+				break
+				}
+			}
+			return w > min && w <= max
+		}
 
+		// main onload handler
 		var eargasm = function (){
-			console.log( "ready!" );
+			$('#content').hide().fadeIn('slow');
+			var maxlogo;
+			var minlogo;
+			if (isBreakPoint(320)){
+				$( "body" ).addClass( "aural-320" );
+				$( "body" ).addClass( "aural-mobile" );
+			} else if (isBreakPoint(480)){
+				$( "body" ).addClass( "aural-480" );
+				$( "body" ).addClass( "aural-mobile" );
+			} else if (isBreakPoint(768)){
+				$( "body" ).addClass( "aural-768" );
+				$( "body" ).addClass( "aural-mobile" );
+			} else if (isBreakPoint(948)){
+				$( "body" ).addClass( "aural-948" );
+				$( "body" ).addClass( "aural-mobile" );
+			} else if (isBreakPoint(1024)){
+				$( "body" ).addClass( "aural-1024" );
+			} else if (isBreakPoint(1025)){
+				minlogo = '50px!important';
+				maxlogo = '65px';
+				$( "body" ).addClass( "aural-1025" );
+			} else if (isBreakPoint(1200)){
+				minlogo = '4vw!important';
+				maxlogo = '5.2vw';
+				$( "body" ).addClass( "aural-1200" );
+			} else if (isBreakPoint(1366)){
+				$( "body" ).addClass( "aural-1366" );
+			} else if (isBreakPoint(1750)){
+				minlogo = '75px!important';
+				maxlogo = '90px';
+				$( "body" ).addClass( "aural-1750" );
+			}
+			$(".logo a").css("max-height", maxlogo);
+			setTimeout(
+				function() 
+				{
+					console.log('foo...');
+					$(".logo a").removeAttr("style");
+					console.log('bar!');
+				}, 2000
+			);
+			// look for dupe ids and re-sequence?
+			$('[id]').each(function(){
+  				var ids = $('[id="'+this.id+'"]');
+  				if(ids.length>1 && ids[0]==this){
+    				console.warn('Multiple IDs #'+this.id);
+    				// $(this).prop('id', 'newID');
+    				// $(this).attr('id', 'newID');
+  				}
+			});
+			$('.collection .overlay').on('click', function(){
+		        console.log( $(this).data('target') );
+		    });
 		};
 		if(
 			document.readyState === "complete" ||
@@ -174,6 +245,7 @@
 			document.addEventListener("DOMContentLoaded", eargasm);
 		}
 		
+
 	</script>
 
 	<noscript><style type="text/css">.ll-fallback{position:absolute;top:0;left:0;width:100%;height:100%;background-size:cover;background-position:center;background-repeat:no-repeat;z-index:99}#shopify-section-popup{display:none!important}.product-gallery--slider{height:auto}video,iframe,model-viewer{opacity:1!important;position:absolute !important;top:0;left:0;width:100%;height:100%;}</style></noscript>

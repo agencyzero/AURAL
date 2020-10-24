@@ -33,6 +33,11 @@
 				{% elsif template contains 'faq' %}
 					<span class="breadcrumb__separator">/</span>
 					<span class="breadcrumb__link"><a href="#">Getting Started</a></span>
+				{% elsif template contains 'comingsoon' %}
+					<span class="breadcrumb__separator">/</span>
+					<span class="breadcrumb__link"><a href="{{ routes.all_products_collection_url }}">Shop</a></span>
+					<span class="breadcrumb__separator">/</span>
+					<span class="breadcrumb__link">Coming Soon</span>
 				{% else %}
 					<span class="breadcrumb__separator">/</span>
 					<span class="breadcrumb__link"><a href="{{ routes.all_products_collection_url }}">Shop</a></span>

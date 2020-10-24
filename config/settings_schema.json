@@ -12,28 +12,6 @@
     "settings": [
       {
         "type": "header",
-        "content": "Sidebar"
-      },
-      {
-        "type": "color",
-        "id": "sidebar_bg",
-        "label": "Background",
-        "default": "#ffffff"
-      },
-      {
-        "type": "color",
-        "id": "sidebar_txt",
-        "label": "Text",
-        "default": "#000000"
-      },
-      {
-        "type": "color",
-        "id": "sidebar_accent",
-        "label": "Links",
-        "default": "#ff0000"
-      },
-      {
-        "type": "header",
         "content": "Body"
       },
       {
@@ -52,7 +30,101 @@
         "type": "color",
         "id": "body_accent",
         "label": "Links",
-        "default": "#ff0000"
+        "default": "#FA6B0F"
+      },
+      {
+        "type": "header",
+        "content": "Sidebar"
+      },
+      {
+        "type": "color",
+        "id": "sidebar_bg",
+        "label": "Background",
+        "default": "#FA6B0F"
+      },
+      {
+        "type": "color",
+        "id": "sidebar_txt",
+        "label": "Text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "sidebar_accent",
+        "label": "Links",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Secondary Nav"
+      },
+      {
+        "type": "color",
+        "id": "secondary_bg",
+        "label": "Background",
+        "default": "#FB8237"
+      },
+      {
+        "type": "color",
+        "id": "secondary_txt",
+        "label": "Text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "secondary_accent",
+        "label": "Links",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Tertiary Nav"
+      },
+      {
+        "type": "color",
+        "id": "tertiary_bg",
+        "label": "Background",
+        "default": "#FB8F4B"
+      },
+      {
+        "type": "color",
+        "id": "tertiary_txt",
+        "label": "Text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "tertiary_accent",
+        "label": "Links",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Accents"
+      },
+      {
+        "type": "color",
+        "id": "accent_one",
+        "label": "primary",
+        "default": "#3d3d3d"
+      },
+      {
+        "type": "color",
+        "id": "accent_two",
+        "label": "secondary",
+        "default": "#878787"
+      },
+      {
+        "type": "color",
+        "id": "accent_thr",
+        "label": "tertiary",
+        "default": "#b7b7b7"
+      },
+      {
+        "type": "color",
+        "id": "accent_txt",
+        "label": "text over accents",
+        "default": "#ffffff"
       },
       {
         "type": "header",
@@ -62,7 +134,7 @@
         "type": "color",
         "id": "footer_bg",
         "label": "Background",
-        "default": "#1a1a1a"
+        "default": "#3d3d3d"
       },
       {
         "type": "color",
@@ -74,7 +146,7 @@
         "type": "color",
         "id": "footer_accent",
         "label": "Links",
-        "default": "#909090"
+        "default": "#ffffff"
       }
     ]
   },

@@ -15,13 +15,22 @@
       <p class="note form-success">
         {{ 'general.contact_form.success_message' | t }}
       </p>
+
     {% else %}
 
+    <label class="noseeum" for="auralId"></label>
+				<input class="noseeum"
+				  type="text"
+				  id="auralId"
+				  name="contact[pg]"
+				  value="{{ page.url }}"
+				/>
 
-    {{ form.errors | default_errors }}
+			    {{ form.errors | default_errors }}
 
     {% for block in section.blocks %}
 
+      {% if block.settings.hide == false %}
       {% case block.type %}
 
         {% when 'email' %}
@@ -126,7 +135,7 @@
           </div>
         {% else %}
       {% endcase %}
-
+      {% endif %}
     {% endfor %}
 
     {% assign types = '' %}
@@ -157,6 +166,7 @@
 
     <input type="submit" class="button button--solid" value="{{ 'general.contact_form.submit_label' | t }}">
     {% endif %}
+
   {% endform %}
 
   </div>
@@ -174,8 +184,8 @@
 
 {% schema %}
   {
-    "name": "Consulting Form",
-    "class": "index-section",
+    "name": "Installation Form",
+    "class": "index-section service-form",
     "settings": [
     {
       "type": "header",
@@ -207,7 +217,7 @@
           {
             "type": "checkbox",
             "id": "enable_form",
-            "label": "Uncheck to hide the form",
+            "label": "Show the form",
             "default": false
           },
           {
@@ -237,6 +247,12 @@
             "label": "Class",
             "default": "two-thirds",
             "info": "Suggest: one-third two-thirds one-half one-whole first last"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide",
+            "label": "Temporarily hide",
+            "default": false
           }
         ]
       },
@@ -258,6 +274,12 @@
             "label": "Class",
             "default": "one-whole first last",
             "info": "Suggest: one-third two-thirds one-half one-whole first last"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide",
+            "label": "Temporarily hide",
+            "default": false
           }
         ]
       },
@@ -285,6 +307,12 @@
             "label": "Class",
             "default": "one-third",
             "info": "Suggest: one-third two-thirds one-half one-whole first last"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide",
+            "label": "Temporarily hide",
+            "default": false
           }
         ]
       },
@@ -306,6 +334,12 @@
             "label": "Class",
             "default": "one-third",
             "info": "Suggest: one-third two-thirds one-half one-whole first last"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide",
+            "label": "Temporarily hide",
+            "default": false
           }
         ]
       },
@@ -333,6 +367,12 @@
             "label": "Class",
             "default": "one-third",
             "info": "Suggest: one-third two-thirds one-half one-whole first last"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide",
+            "label": "Temporarily hide",
+            "default": false
           }
         ]
       },
@@ -359,6 +399,12 @@
             "label": "Class",
             "default": "one-whole",
             "info": "Suggest: one-third two-thirds one-half one-whole first last"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide",
+            "label": "Temporarily hide",
+            "default": false
           }
         ]
       },
@@ -378,6 +424,12 @@
             "id": "class",
             "label": "Class",
             "info": "Suggest: one-third two-thirds one-half one-whole first last"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide",
+            "label": "Temporarily hide",
+            "default": false
           }
         ]
       },
@@ -397,6 +449,12 @@
             "id": "class",
             "label": "Class",
             "info": "Suggest: one-third two-thirds one-half one-whole first last"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide",
+            "label": "Temporarily hide",
+            "default": false
           }
         ]
       },
@@ -458,6 +516,12 @@
             "id": "class",
             "label": "Class",
             "info": "Suggest: one-third two-thirds one-half one-whole first last"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide",
+            "label": "Temporarily hide",
+            "default": false
           }
         ]
       },
@@ -520,6 +584,12 @@
             "label": "Class",
             "default": "one-third",
             "info": "Suggest: one-third two-thirds one-half one-whole first last"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide",
+            "label": "Temporarily hide",
+            "default": false
           }
         ]
       }

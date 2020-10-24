@@ -1,0 +1,7 @@
+{%- comment -%} 
+params: color, alpha 
+{% render 'color_to_rgba', color: my_variable, alpha: '0.5' %}
+{%- endcomment -%}
+{%- capture rgb -%}{{ color | color_to_rgb }}{%- endcapture -%}
+{%- assign tail = alpha | prepend: ', ' | append: ')' -%}
+{{ rgb | replace: 'rgb', 'rgba' | replace: ')', tail }}

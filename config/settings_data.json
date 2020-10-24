@@ -59,8 +59,8 @@
     "checkout_sidebar_background_color": "#fafafa",
     "checkout_heading_font": "Helvetica Neue",
     "checkout_body_font": "Helvetica Neue",
-    "checkout_accent_color": "#2a9dcc",
-    "checkout_button_color": "#2a9dcc",
+    "checkout_accent_color": "#fa6b0f",
+    "checkout_button_color": "#5fc5ee",
     "checkout_error_color": "#ff6d6d",
     "sections": {
       "sidebar": {
@@ -388,22 +388,15 @@
         ],
         "settings": {}
       },
-      "services-restoration": {
-        "type": "services-restoration",
+      "services-restoration-form": {
+        "type": "services-restoration-form",
         "blocks": {
           "1400000204507": {
             "type": "text",
             "settings": {
               "label": "Full Name",
               "required": true,
-              "class": "one-third first"
-            }
-          },
-          "1400000127434": {
-            "type": "email",
-            "settings": {
-              "label": "Email",
-              "class": "two-thirds"
+              "class": "one-half first"
             }
           },
           "1400000230169": {
@@ -411,44 +404,37 @@
             "settings": {
               "label": "Phone Number",
               "required": false,
-              "class": "one-third first"
+              "class": "one-half last"
+            }
+          },
+          "1400000127434": {
+            "type": "email",
+            "settings": {
+              "label": "Email",
+              "class": "one-whole first last"
             }
           },
           "1400000438824": {
             "type": "text",
             "settings": {
-              "label": "Business Type",
+              "label": "Speaker Make\/Model",
               "required": false,
-              "class": "one-third"
-            }
-          },
-          "1400000277959": {
-            "type": "select",
-            "settings": {
-              "name": "~Timeline~",
-              "label-one": "Timeline",
-              "label-two": "Yesterday!",
-              "label-three": "Next 30 days",
-              "label-four": "30+ days out",
-              "label-five": "Still in the planning phase",
-              "label-six": "",
-              "class": "one-third last"
+              "class": "one-whole first last"
             }
           },
           "1400000140944": {
             "type": "body",
             "settings": {
-              "label": "Message",
+              "label": "Tell Us More",
               "class": "one-whole first last"
             }
           }
         },
         "block_order": [
           "1400000204507",
-          "1400000127434",
           "1400000230169",
+          "1400000127434",
           "1400000438824",
-          "1400000277959",
           "1400000140944"
         ],
         "settings": {
@@ -490,22 +476,15 @@
         ],
         "settings": {}
       },
-      "services-installation": {
-        "type": "services-installation",
+      "services-installation-form": {
+        "type": "services-installation-form",
         "blocks": {
           "1602453991596": {
             "type": "text",
             "settings": {
               "label": "Full Name",
               "required": false,
-              "class": "one-third first"
-            }
-          },
-          "1602453954178": {
-            "type": "email",
-            "settings": {
-              "label": "Email",
-              "class": "one-third"
+              "class": "one-half first"
             }
           },
           "1602454021106": {
@@ -513,21 +492,28 @@
             "settings": {
               "label": "Phone Number",
               "required": false,
-              "class": "one-third last"
+              "class": "one-half last"
+            }
+          },
+          "1602453954178": {
+            "type": "email",
+            "settings": {
+              "label": "Email",
+              "class": "one-whole first last"
             }
           },
           "1602453961784": {
             "type": "body",
             "settings": {
-              "label": "sm'Details",
+              "label": "Tell Us More",
               "class": "one-whole first last"
             }
           }
         },
         "block_order": [
           "1602453991596",
-          "1602453954178",
           "1602454021106",
+          "1602453954178",
           "1602453961784"
         ],
         "settings": {
@@ -569,22 +555,15 @@
         ],
         "settings": {}
       },
-      "services-smarthome": {
-        "type": "services-smarthome",
+      "services-smarthome-form": {
+        "type": "services-smarthome-form",
         "blocks": {
           "1602463804210": {
             "type": "text",
             "settings": {
               "label": "Full Name",
               "required": false,
-              "class": "one-third first"
-            }
-          },
-          "1602463720948": {
-            "type": "email",
-            "settings": {
-              "label": "Email",
-              "class": "one-third"
+              "class": "one-half first"
             }
           },
           "1602463793645": {
@@ -592,21 +571,28 @@
             "settings": {
               "label": "Phone Number",
               "required": false,
-              "class": "one-third last"
+              "class": "one-half last"
+            }
+          },
+          "1602463720948": {
+            "type": "email",
+            "settings": {
+              "label": "Email",
+              "class": "one-whole first last"
             }
           },
           "1602463746958": {
             "type": "body",
             "settings": {
-              "label": "Details",
+              "label": "Tell Us More",
               "class": "one-whole first last"
             }
           }
         },
         "block_order": [
           "1602463804210",
-          "1602463720948",
           "1602463793645",
+          "1602463720948",
           "1602463746958"
         ],
         "settings": {
@@ -648,22 +634,15 @@
         ],
         "settings": {}
       },
-      "services-curation": {
-        "type": "services-curation",
+      "services-curation-form": {
+        "type": "services-curation-form",
         "blocks": {
           "1602464045412": {
             "type": "text",
             "settings": {
               "label": "Full Name",
               "required": false,
-              "class": "one-third first"
-            }
-          },
-          "1602464026524": {
-            "type": "email",
-            "settings": {
-              "label": "Email",
-              "class": "two-thirds last"
+              "class": "one-half first"
             }
           },
           "1602464070588": {
@@ -671,7 +650,14 @@
             "settings": {
               "label": "Phone Number",
               "required": false,
-              "class": "one-third first"
+              "class": "one-half last"
+            }
+          },
+          "1602464026524": {
+            "type": "email",
+            "settings": {
+              "label": "Email",
+              "class": "one-whole first last"
             }
           },
           "1602464082796": {
@@ -679,21 +665,21 @@
             "settings": {
               "label": "Budget & Goals",
               "required": false,
-              "class": "two-thirds"
+              "class": "one-whole first last"
             }
           },
           "1602464117017": {
             "type": "body",
             "settings": {
-              "label": "Additional Details",
+              "label": "Tell Us More",
               "class": "one-whole first last"
             }
           }
         },
         "block_order": [
           "1602464045412",
-          "1602464026524",
           "1602464070588",
+          "1602464026524",
           "1602464082796",
           "1602464117017"
         ],
@@ -736,22 +722,15 @@
         ],
         "settings": {}
       },
-      "services-recapping": {
-        "type": "services-recapping",
+      "services-recapping-form": {
+        "type": "services-recapping-form",
         "blocks": {
           "1400001204507": {
             "type": "text",
             "settings": {
               "label": "Full Name",
               "required": true,
-              "class": "one-third first"
-            }
-          },
-          "1400001127434": {
-            "type": "email",
-            "settings": {
-              "label": "Email",
-              "class": "two-thirds"
+              "class": "one-half first"
             }
           },
           "1400001230169": {
@@ -759,44 +738,37 @@
             "settings": {
               "label": "Phone Number",
               "required": false,
-              "class": "one-third first"
+              "class": "one-half last"
+            }
+          },
+          "1400001127434": {
+            "type": "email",
+            "settings": {
+              "label": "Email",
+              "class": "one-whole first last"
             }
           },
           "1400001438824": {
             "type": "text",
             "settings": {
-              "label": "Business Type",
+              "label": "Speaker Make\/Model",
               "required": false,
-              "class": "one-third"
-            }
-          },
-          "1400001277959": {
-            "type": "select",
-            "settings": {
-              "name": "~Timeline~",
-              "label-one": "Timeline",
-              "label-two": "Yesterday!",
-              "label-three": "Next 30 days",
-              "label-four": "30+ days out",
-              "label-five": "Still in the planning phase",
-              "label-six": "",
-              "class": "one-third last"
+              "class": "one-whole first last"
             }
           },
           "1400001140944": {
             "type": "body",
             "settings": {
-              "label": "Message",
+              "label": "Tell Us More",
               "class": "one-whole first last"
             }
           }
         },
         "block_order": [
           "1400001204507",
-          "1400001127434",
           "1400001230169",
+          "1400001127434",
           "1400001438824",
-          "1400001277959",
           "1400001140944"
         ],
         "settings": {
@@ -829,31 +801,72 @@
               "imagep": "shopify:\/\/shop_images\/Gallery-Gear1.jpg",
               "mainImg": false
             }
+          },
+          "1602787603549": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-JBL-L100-ClientIMage.jpg",
+              "mainImg": false
+            }
+          },
+          "1602787626960": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-Infinity-RSII-Mcintosh_2100_monoblocks.jpg",
+              "mainImg": false
+            }
+          },
+          "1602788591621": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-JMI-livingroom1.jpg",
+              "mainImg": false
+            }
+          },
+          "1602788604928": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-JBL-L100-estoration.jpg",
+              "mainImg": false
+            }
+          },
+          "1602788612645": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-JMI-office2.jpg",
+              "mainImg": false
+            }
+          },
+          "1602788622219": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/Gallery-Dahlquist-M905-restoration.jpg",
+              "mainImg": false
+            }
           }
         },
         "block_order": [
           "1542464159620",
           "1542464226422",
-          "1542464254482"
+          "1542464254482",
+          "1602787603549",
+          "1602787626960",
+          "1602788591621",
+          "1602788604928",
+          "1602788612645",
+          "1602788622219"
         ],
         "settings": {}
       },
-      "services-consulting": {
-        "type": "services-consulting",
+      "services-consulting-form": {
+        "type": "services-consulting-form",
         "blocks": {
           "1602352204507": {
             "type": "text",
             "settings": {
               "label": "Full Name",
               "required": true,
-              "class": "one-third first"
-            }
-          },
-          "1602352127434": {
-            "type": "email",
-            "settings": {
-              "label": "Email",
-              "class": "two-thirds"
+              "class": "one-half first"
             }
           },
           "1602352230169": {
@@ -861,7 +874,14 @@
             "settings": {
               "label": "Phone Number",
               "required": false,
-              "class": "one-third first"
+              "class": "one-half last"
+            }
+          },
+          "1602352127434": {
+            "type": "email",
+            "settings": {
+              "label": "Email",
+              "class": "one-whole first last"
             }
           },
           "1602352438824": {
@@ -869,7 +889,7 @@
             "settings": {
               "label": "Business Type",
               "required": false,
-              "class": "one-third"
+              "class": "one-half first"
             }
           },
           "1602352277959": {
@@ -882,21 +902,21 @@
               "label-four": "30+ days out",
               "label-five": "Still in the planning phase",
               "label-six": "",
-              "class": "one-third last"
+              "class": "one-half last"
             }
           },
           "1602352140944": {
             "type": "body",
             "settings": {
-              "label": "Message",
+              "label": "Tell Us More",
               "class": "one-whole first last"
             }
           }
         },
         "block_order": [
           "1602352204507",
-          "1602352127434",
           "1602352230169",
+          "1602352127434",
           "1602352438824",
           "1602352277959",
           "1602352140944"
@@ -940,22 +960,15 @@
         ],
         "settings": {}
       },
-      "services-repair": {
-        "type": "services-repair",
+      "services-repair-form": {
+        "type": "services-repair-form",
         "blocks": {
           "1400002204507": {
             "type": "text",
             "settings": {
               "label": "Full Name",
               "required": true,
-              "class": "one-third first"
-            }
-          },
-          "1400002127434": {
-            "type": "email",
-            "settings": {
-              "label": "Email",
-              "class": "two-thirds"
+              "class": "one-half first"
             }
           },
           "1400002230169": {
@@ -963,44 +976,37 @@
             "settings": {
               "label": "Phone Number",
               "required": false,
-              "class": "one-third first"
+              "class": "one-half last"
+            }
+          },
+          "1400002127434": {
+            "type": "email",
+            "settings": {
+              "label": "Email",
+              "class": "one-whole first last"
             }
           },
           "1400002438824": {
             "type": "text",
             "settings": {
-              "label": "Business Type",
+              "label": "Component Make\/Model",
               "required": false,
-              "class": "one-third"
-            }
-          },
-          "1400002277959": {
-            "type": "select",
-            "settings": {
-              "name": "~Timeline~",
-              "label-one": "Timeline",
-              "label-two": "Yesterday!",
-              "label-three": "Next 30 days",
-              "label-four": "30+ days out",
-              "label-five": "Still in the planning phase",
-              "label-six": "",
-              "class": "one-third last"
+              "class": "one-whole first last"
             }
           },
           "1400002140944": {
             "type": "body",
             "settings": {
-              "label": "Message",
+              "label": "Tell Us More",
               "class": "one-whole first last"
             }
           }
         },
         "block_order": [
           "1400002204507",
-          "1400002127434",
           "1400002230169",
+          "1400002127434",
           "1400002438824",
-          "1400002277959",
           "1400002140944"
         ],
         "settings": {
@@ -1042,22 +1048,15 @@
         ],
         "settings": {}
       },
-      "services-reclothing": {
-        "type": "services-reclothing",
+      "services-reclothing-form": {
+        "type": "services-reclothing-form",
         "blocks": {
           "1400003204507": {
             "type": "text",
             "settings": {
               "label": "Full Name",
               "required": true,
-              "class": "one-third first"
-            }
-          },
-          "1400003127434": {
-            "type": "email",
-            "settings": {
-              "label": "Email",
-              "class": "two-thirds"
+              "class": "one-half first"
             }
           },
           "1400003230169": {
@@ -1065,45 +1064,109 @@
             "settings": {
               "label": "Phone Number",
               "required": false,
-              "class": "one-third first"
+              "class": "one-half last"
+            }
+          },
+          "1400003127434": {
+            "type": "email",
+            "settings": {
+              "label": "Email",
+              "class": "one-whole first last"
             }
           },
           "1400003438824": {
             "type": "text",
             "settings": {
-              "label": "Business Type",
+              "label": "Speaker Make\/Model",
               "required": false,
-              "class": "one-third"
-            }
-          },
-          "1400003277959": {
-            "type": "select",
-            "settings": {
-              "name": "~Timeline~",
-              "label-one": "Timeline",
-              "label-two": "Yesterday!",
-              "label-three": "Next 30 days",
-              "label-four": "30+ days out",
-              "label-five": "Still in the planning phase",
-              "label-six": "",
-              "class": "one-third last"
+              "class": "one-whole first last"
             }
           },
           "1400003140944": {
             "type": "body",
             "settings": {
-              "label": "Message",
+              "label": "Tell Us More",
               "class": "one-whole first last"
             }
           }
         },
         "block_order": [
           "1400003204507",
-          "1400003127434",
           "1400003230169",
+          "1400003127434",
           "1400003438824",
-          "1400003277959",
           "1400003140944"
+        ],
+        "settings": {
+          "page_position": "top",
+          "title": "Get In Touch",
+          "enable_form": true,
+          "enable_captcha": false
+        }
+      },
+      "related-products-by-handle": {
+        "type": "related-products-by-handle",
+        "settings": {
+          "show_related_products": true,
+          "exclusions": "frontpage,all,types,brands",
+          "related_title": "Available Products"
+        }
+      },
+      "services-default-imagepicker": {
+        "type": "services-default-imagepicker",
+        "blocks": {
+          "1602805826134": {
+            "type": "image",
+            "settings": {
+              "imagep": "shopify:\/\/shop_images\/lifestyle-VasePhoto-2767x2075.jpg",
+              "mainImg": false
+            }
+          }
+        },
+        "block_order": [
+          "1602805826134"
+        ],
+        "settings": {}
+      },
+      "services-default-form": {
+        "type": "services-default-form",
+        "blocks": {
+          "1602805844794": {
+            "type": "email",
+            "settings": {
+              "label": "Email",
+              "class": "one-whole first last"
+            }
+          },
+          "1602805887286": {
+            "type": "text",
+            "settings": {
+              "label": "Full Name",
+              "required": false,
+              "class": "one-half first"
+            }
+          },
+          "1602805890919": {
+            "type": "body",
+            "settings": {
+              "label": "Message",
+              "class": "one-whole first last"
+            }
+          },
+          "1602805897933": {
+            "type": "telephone",
+            "settings": {
+              "label": "Phone Number",
+              "required": false,
+              "class": "one-half last"
+            }
+          }
+        },
+        "block_order": [
+          "1602805887286",
+          "1602805897933",
+          "1602805844794",
+          "1602805890919"
         ],
         "settings": {
           "page_position": "top",

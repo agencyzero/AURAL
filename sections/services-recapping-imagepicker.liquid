@@ -1,9 +1,9 @@
-<!-- imagepicker.liquid -->
+{%- comment -%} imagepicker.liquid {%- endcomment -%}
 {% schema %}
 {
-	"name": "Images",
-	"class": "grid_aural gallery",
-	"max_blocks": 3,
+	"name": "Recapping Images",
+	"class": "hidden",
+	"max_blocks": 9,
 	"blocks": [
 		{
 			"type": "image",
@@ -15,24 +15,23 @@
 					"label": "Image"
 				},
 				{
+		            "type": "text",
+		            "id": "alt",
+		            "label": "Alt Text",
+		            "default": "mid century modern audio experts"
+		        },
+		        {
 					"type": "checkbox",
-					"id": "mainImg",
-					"label": "Set as primary",
+					"id": "hideImg",
+					"label": "Temporarily hide",
 					"default": false
 				}
+		        
 			]
 		}
 	]
 }
 {% endschema %}
 
-
-{% for block in section.blocks %}
-	<div class="grid__item lifestyle">
-		<div class="grid__subgrid">
-			<div class="grid__subgrid-el" style="background-image:url({{ block.settings.imagep | img_url: '840x'}})">
-			</div>
-		</div>
-	</div>
-{% endfor %}
-
+{%- comment -%} output for consumption as a variable; major delim ~~ and minor delim *{%- endcomment -%}
+~~{%- for block in section.blocks -%}{%- if block.settings.hideImg == false -%}{{block.settings.imagep}}*{%- endif -%}{%- endfor -%}~~

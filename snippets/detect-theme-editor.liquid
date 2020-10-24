@@ -1,0 +1,23 @@
+{%- comment -%}
+<!-- detect-theme-editor.liquid -->
+  http://freakdesign.com.au/blogs/news/get-the-url-querystring-values-with-liquid-in-shopify
+  Capture the content for header containing the tracking data
+{%- endcomment -%}
+{%- capture contentForQuerystring -%}{{- content_for_header -}}{%- endcapture -%}
+{%- comment -%}Use string splitting to pull the value from content_for_header and apply some string clean up{%- endcomment -%}
+{%- assign pageUrl = contentForQuerystring | split:'"pageurl":"' | last
+  | split:'"'
+  | first
+  | split:'.myshopify.com'
+  | last
+  | replace:'\/','/'
+  | replace:'%20',' '
+  | replace:'\u0026','&'
+  | strip
+-%}
+{%- comment -%}When in the theme editor, the pageUrl variable is malformed/empty{%- endcomment -%}
+{%- if pageUrl contains page.handle -%}
+{%- comment -%}print this delimiter ~~ so that we can strip the warapper injected by the frontend{%- endcomment -%}~~
+{%- else -%}
+{%- comment -%}do nothing so that we can use the component in the admin{%- endcomment -%}
+{%- endif -%}

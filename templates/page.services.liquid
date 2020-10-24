@@ -1,0 +1,95 @@
+<!-- page.formbuilder.liquid -->
+
+{% include 'atb' zone:'Top' %}
+<div class="svc2 svc3 services page-content" data-section-id="{{ section.id }}">
+
+
+	{%- comment -%}
+		switch on page handle to set up sections.
+		frmService is placed in the page, unmodified.
+		imagepicker is pulled in as a string for use later, but we spit it out now display:hidden for the theme editor
+	{%- endcomment -%}
+	{% if page.handle == 'setup-installation' %}
+		{% capture imagepicker %}{% section 'services-installation-imagepicker' %}{% endcapture %}
+		{% capture frmService %}{% section 'services-installation-form' %}{% endcapture %}
+	
+	{% elsif page.handle == 'smart-home-integration'  %}
+		{% capture imagepicker %}{% section 'services-smarthome-imagepicker' %}{% endcapture %}
+		{% capture frmService %}{% section 'services-smarthome-form' %}{% endcapture %}
+	
+	{% elsif page.handle == 'system-curation'  %}
+		{% capture imagepicker %}{% section 'services-curation-imagepicker' %}{% endcapture %}
+		{% capture frmService %}{% section 'services-curation-form' %}{% endcapture %}
+	
+	{% elsif page.handle == 'vintage-audio-repair'  %}
+		{% capture imagepicker %}{% section 'services-repair-imagepicker' %}{% endcapture %}
+		{% capture frmService %}{% section 'services-repair-form' %}{% endcapture %}
+	
+	{% elsif page.handle == 'custom-speaker-restoration'  %}
+		{% capture imagepicker %}{% section 'services-restoration-imagepicker' %}{% endcapture %}
+		{% capture frmService %}{% section 'services-restoration-form' %}{% endcapture %}
+	
+	{% elsif page.handle == 'commercial-consulting'  %}
+		{% capture imagepicker %}{% section 'services-consulting-imagepicker' %}{% endcapture %}
+		{% capture frmService %}{% section 'services-consulting-form' %}{% endcapture %}
+	
+	{% elsif page.handle == 'speaker-grill-reclothing'  %}
+		{% capture imagepicker %}{% section 'services-reclothing-imagepicker' %}{% endcapture %}
+		{% capture frmService %}{% section 'services-reclothing-form' %}{% endcapture %}
+	
+	{% elsif page.handle == 'crossover-recapping'  %}
+		{% capture imagepicker %}{% section 'services-recapping-imagepicker' %}{% endcapture %}
+		{% capture frmService %}{% section 'services-recapping-form' %}{% endcapture %}
+	{% else %}
+		{% capture imagepicker %}{% section 'services-default-imagepicker' %}{% endcapture %}
+		{% capture frmService %}{% section 'services-default-form' %}{% endcapture %}
+	{% endif %}
+	{%- comment -%}
+		Set up the images array!
+		remember that string we called 
+	{%- endcomment -%}
+		{{ imagepicker }}
+	{%- comment -%}
+		? well, we expect that str to have a double-tilde inside the injected div tags, giving a nice hug to the string we want
+	{%- endcomment -%}
+	{%- assign gallery = imagepicker | split: '~~' -%}
+	{%- assign images = gallery[1] | trim | split: '*' -%}
+
+
+	{% render 'breadcrumb' %}
+	<h1 class="title h1">{{ page.title }}</h1>
+
+	<div class="shopify-section gallery grid_aural">
+
+	    <div class="grid__item copy">
+			<div class="grid__subgrid center">
+				<div class="grid__subgrid-el content">
+					{{ page.content }}
+				</div>
+			</div>
+		</div>
+		<div class="grid__item form copy">
+			<div class="grid__subgrid center">
+				<div class="grid__subgrid-el content">
+					{{ frmService }}
+				</div>
+			</div>
+		</div>
+
+{%- for img in images -%}
+	{%- comment -%} our path is here, but for some reason, shopify will not honor the img_url filter–only asset_url and file_url will handle. file_url injects an additional files/ dir to the path, so let's split {%- endcomment -%} 
+	{%- assign imgat = images[forloop.index0] | split: '/' -%}
+
+	{%- if img.size > 1 -%}
+		<div class="grid__item lifestyle">
+			<div class="grid__subgrid">
+				<div class="grid__subgrid-el" style="background-image:url({{ imgat[1] | strip | file_url }})">
+				</div>
+			</div>
+		</div>
+	{%- endif -%}
+{%- endfor -%}
+
+
+	</div>
+</div>

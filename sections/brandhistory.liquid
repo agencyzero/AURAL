@@ -1,0 +1,118 @@
+{%- comment -%}  {%- endcomment -%}
+{% schema %}
+{
+	"name": "History Content",
+	"class": "history",
+	"blocks": [
+		{
+			"type": "Item",
+			"name": "Brand",
+			"settings": [
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Brand",
+					"info": "Use full name, please. Will be used to alphabetically sort PREV and NEXT buttons in history"
+				},
+				{
+					"type": "text",
+					"id": "heading",
+					"label": "Page Heading",
+					"info": "If set, this will override the title set in the Shopify page editor (admin)"
+				},
+				{
+					"type": "text",
+					"id": "link",
+					"label": "Source",
+					"info":"accepts any number of fully qualified urls, delimited by |"
+				},
+				{
+					"type": "html",
+					"id": "desc",
+					"label": "Brand History",
+					"info": "This will be used instead of any body copy set in the Shopify page editor (admin)"
+				},
+				{
+					"id": "imagep",
+					"type": "image_picker",
+					"label": "Brand Logo"
+				},
+				{
+					"type": "text",
+					"id": "alt",
+					"label": "Alt text",
+					"default":"vintage audio brand logo"
+				},
+				{
+					"type": "page",
+					"id": "handle",
+					"label": "Assign to page:"
+				}
+				
+			]
+
+		}
+	]
+}
+{% endschema %}
+
+{%- comment -%} {%- endcomment -%}
+{%- assign hasContent = false -%}
+{%- assign brands = section.blocks | map:'settings' -%}
+{%- assign idxPrev = 0 -%}
+{%- assign idxNext = 0 -%}
+{%- assign limit = brands.size | minus: 1 -%}
+
+{%- for this in brands -%}
+	{%- assign i = forloop.index0 -%}
+	{%- assign idxPrev = i | minus: 1 -%}
+	{%- assign idxNext = i | plus: 1 -%}
+
+
+	{%- if page.handle == this.handle -%}
+		{%- assign hasContent = true -%}
+		<h1 class="title h1">{%- if this.heading.size > 0 -%}{{ this.heading }}{%- else -%}{{ page.title }}{%- endif -%}</h1>
+
+		<div class="rte">
+		{%- assign links = this.link | split: "|" -%}
+		{%- if this.imagep.size > 0 -%}
+			<div class="image"><img src="{{ this.imagep | img_url: 'x100' }}"></div>
+		{%- endif -%}			
+			<div class="byline">
+			
+			{%- for link in links -%}
+				<span>
+					{%- if forloop.index0 == 0 -%}
+					Source{%- if links.size > 1 -%}s{%- endif -%}:
+					{%- endif -%}
+					<a href="{{ links[forloop.index0] }}">{{ links[forloop.index0] }}</a>
+				</span>
+			{%- endfor -%}
+			</div>
+		{%- if this.desc.size > 0 -%}
+			<div class="desc">{{ this.desc }}</div>
+		{%- else -%}
+			{{ page.content }}
+		{%- endif -%}
+			<div class="paging">
+				{%- if i == 0 -%}{%- comment -%} first in list {%- endcomment -%}
+					<a class="prev" href="{{ brands[limit].handle }}">PREV</a>
+					<a class="next" href="{{ brands[idxNext].handle }}">NEXT</a>
+				{%- elsif i == limit -%}{%- comment -%} last in list {%- endcomment -%}
+					<a class="prev" href="{{ brands[idxPrev].handle }}">PREV</a>
+					<a class="next" href="{{ brands[0].handle }}">NEXT</a>
+				{%- else -%}
+					<a class="prev" href="{{ brands[idxPrev].handle }}">PREV</a>
+					<a class="next" href="{{ brands[idxNext].handle }}">NEXT</a>
+				{%- endif -%}
+			</div>
+		</div>
+	{%- endif -%}
+{%- endfor -%}
+{%- if hasContent == false -%}
+		<h1 class="title h1">{{ page.title }}</h1>
+
+		<div class="rte">
+			{{ page.content }}
+		</div>
+{%- endif -%}

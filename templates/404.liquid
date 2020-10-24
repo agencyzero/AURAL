@@ -8,11 +8,38 @@
 	<div class="page-body">
 		{% capture search_placeholder %}{{ 'general.404.search_placeholder' | t }}{% endcapture %}
 		{% render 'search-form', placeholder: search_placeholder %}
+
+		<div class="fluid-width-video-wrapper">
+			<!-- if you listen to the instructions carefully, you will win a free pair of tube socks -->
+			<div id="ytplayer"></div>		
+		</div>
+
+
 		<div class="page-action"><a href="{{ routes.all_products_collection_url }}" class="button button--solid">{{ 'general.404.continue_browsing' | t }}</a></div>
 	</div>
 
 </div>
 
+<script>
+	// Load the IFrame Player API code asynchronously.
+	var tag = document.createElement('script');
+	tag.src = "https://www.youtube.com/player_api";
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+	var player;
+	function onYouTubePlayerAPIReady() {
+		player = new YT.Player('ytplayer', {
+			height: '360'
+			, width: '640'
+			, start: '30'
+			, autoplay: '1'
+			, controls: '0'
+			, modestbranding: '1'
+			, videoId: 'CiveqbMsHwQ'
+		});
+	}
+</script>
 
 
 
