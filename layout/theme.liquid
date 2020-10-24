@@ -91,14 +91,14 @@
 
 			{{ content_for_layout }}
 
-			{% section 'text-columns-with-icons' %}
+			{%- comment -%} {% section 'text-columns-with-icons' %}{%- endcomment -%}
 			{% section 'footer' %}
 
 		</main>
 
 	</div>
 
-	{% section 'popup' %}
+	{%- comment -%} {% section 'popup' %}{%- endcomment -%}
 
 	<script type="text/javascript">
 
@@ -218,11 +218,10 @@
 			setTimeout(
 				function() 
 				{
-					console.log('foo...');
 					$(".logo a").removeAttr("style");
-					console.log('bar!');
 				}, 2000
 			);
+
 			// look for dupe ids and re-sequence?
 			$('[id]').each(function(){
   				var ids = $('[id="'+this.id+'"]');
@@ -232,8 +231,15 @@
     				// $(this).attr('id', 'newID');
   				}
 			});
-			$('.collection .overlay').on('click', function(){
-		        console.log( $(this).data('target') );
+
+			// homepage collection action
+			$('.home .collection').on('click', function(){
+				var t = $(this).data('target');
+		        if(t.indexOf('http')){
+		        	document.location = t;
+		        }else{
+		        	window.open(t);
+		        }
 		    });
 		};
 		if(

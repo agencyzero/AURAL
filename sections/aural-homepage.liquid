@@ -37,6 +37,18 @@
         "label": "Heading"
       },
       {
+        "type": "text",
+        "id": "ok-news",
+        "label": "Success H1",
+        "default": "You have great taste."
+      },
+      {
+        "type": "text",
+        "id": "success-news",
+        "label": "Success Msg",
+        "default": "Thanks for signing up!"
+      },
+      {
         "type": "html",
         "id": "body-news",
         "label": "Body"
@@ -237,10 +249,10 @@
       </div>
     </div>
     
-    <div class="grid__item collection">
+    <div class="grid__item collection" data-target="{{ collA.url }}">
       <div class="grid__subgrid sflex">
         <div class="grid__subgrid-el" style="background-image:url({{ collA.image | img_url: '840x' }});">
-          <div class="overlay" data-target="{{ collA.url }}">
+          <div class="overlay" >
             <div class="detail">
               <h2>
                 <a href="{{ collA.url }}">{{collA.title}}</a>
@@ -269,10 +281,10 @@
       </div>
     </div>
 
-    <div class="grid__item collection">
+    <div class="grid__item collection" data-target="{{ collB.url }}">
       <div class="grid__subgrid sflex" >
         <div class="grid__subgrid-el" style="background-image:url({{ collB.image | img_url: '840x' }});">
-          <div class="overlay" data-target="{{ collB.url }}">
+          <div class="overlay" >
             <div class="detail">
               <h2>
                 <a href="{{ collB.url }}">{{collB.title}}</a>
@@ -285,10 +297,10 @@
       </div>
     </div>  
 
-    <div class="grid__item collection apparel">
+    <div class="grid__item collection apparel" data-target="{{ section.settings.url-apparel }}">
       <div class="grid__subgrid sflex" >
         <div class="grid__subgrid-el" style="background-image:url({{ section.settings.img-apparel | img_url: '840x' }});">
-          <div class="overlay" data-target="{{ section.settings.url-apparel }}">
+          <div class="overlay" >
             <div class="detail">
               <h2>
                 <a href="{{ section.settings.url-apparel }}">{{section.settings.h1-apparel}}</a>
@@ -319,12 +331,13 @@
 
         <div class="grid__subgrid-el subscribe" style="background:{{ section.settings.bg-news }};color:{{ section.settings.fg-news }};width:100%;">
           <!-- *~*~*~*~*~*~* FORM *~*~*~*~*~*~* -->
-          <div class="content-section">
-            {% unless section.settings.h1-news == blank %}
-              <h3 class="newsletter__title h1">{{ section.settings.h1-news | escape }}</h3>
-            {% endunless %}
-            <div class="newsletter__form">
-              {% form 'customer' %}
+          {% form 'customer' %}
+            <div class="content-section">
+              {% unless section.settings.h1-news == blank %}
+                <h3 class="newsletter__title h1">{%- if form.posted_successfully? -%}{{ section.settings.ok-news | escape }}{%- else -%}{{ section.settings.h1-news | escape }}{%- endif -%}</h3>
+              {% endunless %}
+              <div class="newsletter__form">
+              
                 {% render 'form-errors', form: form %}
                 {% if form.posted_successfully? %}
                   <span class="alert alert--success">{{ 'general.newsletter.confirmation' | t }}</span>
@@ -337,12 +350,13 @@
                     </button>
                   </div>
                 {% endif %}
-              {% endform %}
+             
+              </div>
+              {% if form.posted_successfully? %}{% else %}
+                <div class="newsletter__text rte">{{ section.settings.body-news }}</div>
+              {% endif %}
             </div>
-            {% unless section.settings.body-news == blank %}
-              <div class="newsletter__text rte">{{ section.settings.body-news }}</div>
-            {% endunless %}
-          </div>
+          {% endform %}
           <!-- *~*~*~*~*~*~* / FORM *~*~*~*~*~*~* -->
         </div>
 
