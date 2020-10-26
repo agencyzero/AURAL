@@ -832,9 +832,6 @@ img.white{
 .grid_aural .grid__item.copy.form{
     background-color:/* #b7b7b7*/{{ settings.accent_thr }};
 }
-.grid_aural .grid__item.copy .grid__subgrid{
-
-}
 .grid_aural .grid__item.form .grid__subgrid{
 	text-align:left;
 }
@@ -844,57 +841,6 @@ img.white{
     justify-items: center;
     text-align: center;
 }
-.services.page-content{
-	margin:0%;
-	padding:0 0 0 0;
-	max-width:100%;
-	width:100%;
-}
-.services .breadcrumb {
-    margin-top: 41px;
-    margin-left: 16px;
-}
-.copy .text {
-    padding-bottom: 16px;
-}
-.services .service-form .contact-form{
-	margin-top:0px;
-}
-.grid__item.form {
-    background-color:/* #b7b7b7*/{{ settings.accent_thr }};
-}
-.services .service-form {
-    /*padding: 16px;*/
-}
-.services input, .services textarea, .services select {
-    transition: all 500ms linear;
-    border: none;
-    background: #fff;
-    color: #000;
-}
-.services input:focus
-, .services textarea:focus
-, .services select:focus 
-{
-    background: #fff;
-}
-.services .grid_aural .grid__item .content h3{
-	display:none;
-}
-.services *:focus {
-    box-shadow: none!important;
-}
-.services .krown-column-container input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]){
-    box-shadow:none!important;
-}
-.services .button{
-	border:none!important;
-}
-.services h1.title.h1 {
-    margin-bottom: -8px;
-    margin-left: 16px;
-}
-
 
 
 /*coming soon*/
@@ -1033,7 +979,8 @@ i {
 
 /* responsive */
 
-.aural-mobile .page-content, .article__content {
+.aural-mobile .page-content
+, .aural-mobile .article__content {
     margin: 30px 0 0 0;
     padding: 0 25px;
     display: inline;
@@ -1043,7 +990,6 @@ i {
 ,.aural-1024 .grid__item.copy .grid__subgrid{
 	overflow-y:scroll;
 }
-
 .touch.template-index .collection--overlay .product-item__caption {
     margin-top: 0;
     color: #000000;
@@ -1066,9 +1012,6 @@ i {
     opacity: 1;
     z-index: -1;
 }
-
-
-
 
 @media screen and (max-width:980px){
 	.grid_aural{
@@ -1210,6 +1153,35 @@ i {
 	}
 
 	/*services*/
+	.svc .grid__item.form {
+	    background-color:none;
+	}
+	.svc .grid__item.copy {
+	    background-color: none;
+	}
+	.svc h1.title.h1 {
+	    margin-top: 40px;
+	    margin-bottom: 1em;
+	}
+	.svc .contact-form {
+	    margin-top: 0px;
+	}
+	.svc .service-form h3{
+		display:none;
+	}
+	.svc .lifestyle .grid__subgrid-el::before {
+	    content: "";
+	    padding-top: calc(4/5 * 100%);
+	    display: block;
+	}
+	.svc .lifestyle .grid__subgrid-el{
+		margin-top:16px;
+		background: 50% no-repeat;
+	    background-size: cover;
+	}
+	.aural-mobile .svc.page-content{
+		padding:0 16px;
+	}
 
 
 	/*sell/consign*/
@@ -1220,6 +1192,13 @@ i {
 }
 .sflex{
 		display: flex!important;
+}
+
+
+@media screen and (min-width:980px){
+	.svc .grid_svc{
+		display: grid;
+	}
 }
 
 
