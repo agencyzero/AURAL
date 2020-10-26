@@ -31,6 +31,7 @@
 	<link rel="canonical" href="{{ canonical_url }}">
 
 	<link rel="preload" as="style" href="{{ 'theme.scss.css' | asset_url }}">
+	<link rel="preload" as="style" href="{{ 'aural.css' | asset_url }}">
 	<link rel="preconnect" href="//fonts.shopifycdn.com">
 
 	{{ 'theme.scss.css' | asset_url | stylesheet_tag }}
@@ -155,16 +156,16 @@
 	<span class="cart-overlay-background"></span>
 	<span class="menu-overlay-background"></span>
 
-	<script type="text/javascript" src="{{ 'theme.orig.js' | asset_url }}"></script>
+	<script type="text/javascript" src="{{ 'theme.min.js' | asset_url }}"></script>
 
 	{{ '//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css' | stylesheet_tag }}
 	{{ '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css' | stylesheet_tag }}
-	{{ 'quickview.scss.css' | asset_url | stylesheet_tag }}
+	{%comment%}{{ 'quickview.scss.css' | asset_url | stylesheet_tag }}{%endcomment%}
 	{{ '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js' | script_tag }}
-	{{ 'quickview.js' | asset_url | script_tag }}
+	{%comment%}{{ 'quickview.js' | asset_url | script_tag }}{%endcomment%}
 	<script>
-		{% capture content %}{% include 'quickview' %}{% endcapture %}
-		var content = {{ content | json }};
+		{%comment%}{% capture content %}{% include 'quickview' %}{% endcapture %}
+		var content = {{ content | json }};{%endcomment%}
 		
 		var isBreakPoint = function (bp) {
 			var bps = [320, 480, 768, 948, 1024, 1025, 1200, 1366, 1750],
