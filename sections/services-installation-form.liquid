@@ -18,13 +18,11 @@
 
     {% else %}
 
-    <label class="noseeum" for="auralId"></label>
-				<input class="noseeum"
-				  type="text"
-				  id="auralId"
-				  name="contact[pg]"
-				  value="{{ page.url }}"
-				/>
+        <input type="hidden"
+			  id="auralId"
+			  name="contact[pg]"
+			  value="{{ page.url }}"
+			/>
 
 			    {{ form.errors | default_errors }}
 

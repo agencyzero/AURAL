@@ -469,9 +469,9 @@
 			        {{ 'general.contact_form.success_message' | t }}
 			      </p>
 			    {% else %}
-			    <label class="noseeum" for="auralId"></label>
-				<input class="noseeum"
-				  type="text"
+			    
+				<input 
+				  type="hidden"
 				  id="auralId"
 				  name="contact[pg]"
 				  value="{{ page.url }}"
@@ -593,20 +593,6 @@
 			      {% assign types = types | append: block.type  %}
 			    {% endfor %}
 
-			    {% comment %}
-			    {% unless types contains "email" %}
-			      <label for="{{ block.settings.label }}" class="label">{{ block.settings.label }}</label>
-			      <input type="email" class="contactFormEmail" id="Form-{{ section.id }}" name="contact[email]" placeholder="Email address (required)" autocorrect="off" autocapitalize="off" required>
-			    {% endunless  %}
-
-			    {% unless types contains "body" %}
-			      <label for="{{ block.settings.label }}" class="label">{{ block.settings.label }}</label>
-			      <textarea rows="10" id="Form-{{ section.id }}" class="contactFormMessage" name="contact[body]" placeholder="Message (required)" required></textarea>
-			    {% endunless  %}
-			    {% endcomment %}
-
-
-
 			    {%- if section.settings.enable_captcha -%}
 			        <div class="captcha">
 			            How much is: <input type="text" readonly="readonly" id="question"/>
@@ -626,12 +612,7 @@
 			  <div class="rte" style="margin-top: 5rem;">
 			    {{ page.content }}
 			  </div>
-			  {% endif %} 
-
-
-
-
-
+			  {% endif %}
 
 	</div>	
 </div>
