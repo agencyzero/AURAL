@@ -187,6 +187,7 @@ span.variant-quantity { /* hide inventory notes */
 }
 h1.collection-header__title.h1, h1.title.h1{
     margin-top: 40px;
+    margin-bottom:1em;
 }
 h1.title.is404 {
     margin-top: 0!important;
@@ -1189,6 +1190,9 @@ i {
 
 
 @media screen and (min-width:981px){
+	.svc.page-content{
+		padding:0 16px;
+	}
 	.svc .grid_svc{
 		display: grid;
 		/*align-items: center;
@@ -1259,4 +1263,15 @@ i {
 	.svc .grid_svc .lifestyle:nth-of-type(4) .grid__subgrid-el::before{content:none;}
 }
 
-
+@media screen and (min-width:1280px){
+	.svc.page-content{
+		max-width:100%;
+		width:100%;
+	}
+}
+@media screen and (min-width:1600px){
+	.grid__subgrid-el.content {
+	    color: white;
+	    padding: 3vw 20%;
+	}
+}
