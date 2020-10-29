@@ -6753,7 +6753,10 @@ KING.Search = {
                     q: a,
                     resources: {
                         type: "product,collection" + ("true" == window.predictive_search_include_pages ? ",page" : "") + ("true" == window.predictive_search_include_articles ? ",article" : ""),
-                        limit: 4
+                        limit: 4,
+                        "options": {
+                          "fields": "title,product_type,tag,vendor,variants.title"
+                        }
                     }
                 }).done(function(e) {
                     var s = e.resources.results.products
