@@ -1,7 +1,7 @@
 <!-- page.formbuilder.liquid -->
 
 {% include 'atb' zone:'Top' %}
-<div class=" svc page-content" data-section-id="{{ section.id }}">
+<div class="auralgrid svc {{page.handle}} page-content" data-section-id="{{ section.id }}">
 
 
 	{%- comment -%}
@@ -59,12 +59,13 @@
 	{% render 'breadcrumb' %}
 	<h1 class="title h1">{{ page.title }}</h1>
 
-	<div class="shopify-section grid_svc">
+	<div class="shopify-section grid_pg">
 
 	    <div class="grid__item copy">
 			<div class="grid__subgrid center">
 				<div class="grid__subgrid-el content">
 					{{ page.content }}
+					<a class="phone" href="tel:+17204320373">(720) 432-0373</a>
 				</div>
 			</div>
 		</div>
