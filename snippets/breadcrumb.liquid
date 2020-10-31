@@ -9,6 +9,22 @@
 			<span class="breadcrumb__separator">/</span>
 			<span class="breadcrumb__current">{{ 'search.page.results' | t: terms: terms }}</span>
 
+		{% elsif page.handle contains 'customer-service' %}
+
+			<span class="breadcrumb__separator">/</span>
+			<span class="breadcrumb__link"><a href="/pages/customer-service">Customer Service</a></span>
+
+		{% elsif page.handle contains 'terms-and-conditions'
+			 or  page.handle contains 'privacy-policy'
+			 or  page.handle contains 'shipping'
+		%}
+
+			<span class="breadcrumb__separator">/</span>
+			<span class="breadcrumb__link"><a href="/pages/customer-service">Customer Service</a></span>
+			<span class="breadcrumb__separator">/</span>
+			<span class="breadcrumb__link">{{ page.title | downcase | capitalize}}</span>
+
+
 		{% else %}
 		
 			{% unless template contains 'product' %}
@@ -33,6 +49,9 @@
 				{% elsif template contains 'faq' %}
 					<span class="breadcrumb__separator">/</span>
 					<span class="breadcrumb__link"><a href="#">Getting Started</a></span>
+				{% elsif template contains 'museum' %}
+					<span class="breadcrumb__separator">/</span>
+					<span class="breadcrumb__link"><a href="/pages/wtf">About</a></span>
 				{% elsif template contains 'comingsoon' %}
 					<span class="breadcrumb__separator">/</span>
 					<span class="breadcrumb__link"><a href="{{ routes.all_products_collection_url }}">Shop</a></span>
