@@ -1,0 +1,41 @@
+{%- comment -%} imagepicker.liquid {%- endcomment -%}
+{% schema %}
+{
+	"name": "The McIntosh Museum",
+	"class": "hidden",
+	"blocks": [
+		{
+			"type": "image",
+			"name": "Image",
+			"settings": [
+				{
+					"id": "imagep",
+					"type": "image_picker",
+					"label": "Image"
+				},
+				{
+		            "type": "text",
+		            "id": "alt",
+		            "label": "Alt Text",
+		            "default": " from the McIntosh Tube Amp Museum"
+		        },
+		        {
+		            "type": "text",
+		            "id": "link",
+		            "label": "link (optional)"
+		        },
+		        {
+					"type": "checkbox",
+					"id": "hideImg",
+					"label": "Temporarily hide",
+					"default": false
+				}
+		        
+			]
+		}
+	]
+}
+{% endschema %}
+
+{%- comment -%} output for consumption as a variable; major delim ~~ and minor delim *{%- endcomment -%}
+~~{%- for block in section.blocks -%}{%- if block.settings.hideImg == false -%}{{block.settings.imagep}}*{%- endif -%}{%- endfor -%}~~

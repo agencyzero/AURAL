@@ -1,0 +1,53 @@
+<!-- page.museum.liquid -->
+
+{% include 'atb' zone:'Top' %}
+<div class="auralgrid museum page-content" data-section-id="{{ section.id }}">
+
+
+	{%- comment -%}
+		imagepicker is pulled in as a string for use later, but we spit it out now display:hidden for the theme editor
+	{%- endcomment -%}
+	{% capture imagepicker %}{% section 'museum' %}{% endcapture %}
+
+	{%- comment -%}
+		Set up the images array!
+		remember that string we called 
+	{%- endcomment -%}
+		{{ imagepicker }}
+	{%- comment -%}
+		? well, we expect that str to have a double-tilde inside the injected div tags, giving a nice hug to the string we want
+	{%- endcomment -%}
+	{%- assign gallery = imagepicker | split: '~~' -%}
+	{%- assign images = gallery[1] | trim | split: '*' -%}
+
+
+	{% render 'breadcrumb' %}
+	<h1 class="title h1">{{ page.title }}</h1>
+
+	<div class="shopify-section grid_pg">
+
+	    <div class="grid__item copy">
+			<div class="grid__subgrid center">
+				<div class="grid__subgrid-el content">
+					{{ page.content }}
+				</div>
+			</div>
+		</div>
+
+{%- for img in images -%}
+	{%- comment -%} our path is here, but for some reason, shopify will not honor the img_url filter–only asset_url and file_url will handle. file_url injects an additional files/ dir to the path, so let's split  {%- endcomment -%} 
+	{%- assign imgat = images[forloop.index0] | split: '/' -%}
+
+	{%- if img.size > 1 -%}
+		<div class="grid__item lifestyle">
+			<div class="grid__subgrid">
+				<div class="grid__subgrid-el" style="background-image:url({{ imgat[1] | strip | file_url }})">
+				</div>
+			</div>
+		</div>
+	{%- endif -%}
+{%- endfor -%}
+
+
+	</div>
+</div>
