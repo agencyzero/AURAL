@@ -26,12 +26,12 @@
 
 									<li class="{% if childlink.links != blank or childlink.title contains "BRAND"%} has-submenu has-second-submenu {% endif %}" {% if childlink.links != blank  or childlink.title contains "BRAND"%} aria-haspopup="true" {% endif %}>
 
-										<a href="{% if childlink.links != blank  or childlink.title contains "BRAND"%}javascript: void(0){% else %}{{ childlink.url }}{% endif %}" {% if childlink.active or childlink.child_active %} class="selected" {% endif %}>
+										<a href="{% if childlink.links != blank  or childlink.title contains "BRAND"%}javascript: void(0){% else %}{{ childlink.url }}{% endif %}" {% if childlink.active or childlink.child_active %} class="selected" {% endif %} {% if childlink.url contains "http" %} target="_blank" {% endif %}>
 											<span style="flex: 1;"><span class="underline-animation">{{ childlink.title | escape }}</span></span>
 											{% if childlink.links != blank  or childlink.title contains "BRAND"%} {% render 'theme-symbols', icon: 'arrow' %} {% endif %}
 										</a>
 
-										{% if childlink.links != blank or childlink.title contains "BRAND" %}
+										{% if childlink.links != blank %}
 											
 											<div class="sidebar__submenu sidebar__submenu--second" aria-expanded="false">
 
