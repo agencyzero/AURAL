@@ -2,24 +2,32 @@
 	
 	<div class="page-header">
 		<h1 class="title h1 is404">{{ 'general.404.title' | t }}</h1>
-		<p class="subtitle">{{ 'general.404.subtitle' | t }}</p>
+		<p class="subtitle">Where's that confounded bridge?</p>
 	</div>
 
 	<div class="page-body">
 		{% capture search_placeholder %}{{ 'general.404.search_placeholder' | t }}{% endcapture %}
 		{% render 'search-form', placeholder: search_placeholder %}
 
-		<div class="fluid-width-video-wrapper">
-			<!-- if you listen to the instructions carefully, you will win a free pair of tube socks -->
-			<div id="ytplayer"></div>		
-		</div>
-
+		<p></p><img src="https://cdn.shopify.com/s/files/1/0478/4884/9576/files/page-not-found.jpg?v=1604087597" alt="Page not found.">
 
 		<div class="page-action"><a href="{{ routes.all_products_collection_url }}" class="button button--solid">{{ 'general.404.continue_browsing' | t }}</a></div>
 	</div>
 
 </div>
 
+
+
+{%comment%}
+
+{{ 'general.404.subtitle' | t }}
+
+
+
+		<div class="fluid-width-video-wrapper">
+			<!-- if you listen to the instructions carefully, you will win a free pair of tube socks -->
+			<div id="ytplayer"></div>		
+		</div>
 <script>
 	// Load the IFrame Player API code asynchronously.
 	var tag = document.createElement('script');
@@ -40,8 +48,7 @@
 		});
 	}
 </script>
-
-
+{% endcomment %}
 
 
 
