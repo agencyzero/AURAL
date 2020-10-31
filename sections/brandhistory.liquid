@@ -77,7 +77,14 @@
 		{%- assign links = this.link | split: "|" -%}
 		{%- if this.imagep.size > 0 -%}
 			<div class="image"><img src="{{ this.imagep | img_url: 'x100' }}"></div>
-		{%- endif -%}			
+		{%- endif -%}
+
+		{%- if this.desc.size > 0 -%}
+			<div class="desc">{{ this.desc }}</div>
+		{%- else -%}
+			{{ page.content }}
+		{%- endif -%}
+
 			<div class="byline">
 			
 			{%- for link in links -%}
@@ -89,11 +96,7 @@
 				</span>
 			{%- endfor -%}
 			</div>
-		{%- if this.desc.size > 0 -%}
-			<div class="desc">{{ this.desc }}</div>
-		{%- else -%}
-			{{ page.content }}
-		{%- endif -%}
+
 			<div class="paging">
 				{%- if i == 0 -%}{%- comment -%} first in list {%- endcomment -%}
 					<a class="prev" href="{{ brands[limit].handle }}">PREV</a>
