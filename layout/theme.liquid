@@ -156,7 +156,7 @@
 	<span class="cart-overlay-background"></span>
 	<span class="menu-overlay-background"></span>
 
-	<script type="text/javascript" src="{{ 'theme.js' | asset_url }}"></script>
+	<script type="text/javascript" src="{{ 'theme.min.js' | asset_url }}"></script>
 
 	{{ '//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css' | stylesheet_tag }}
 	{{ '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css' | stylesheet_tag }}
@@ -209,6 +209,8 @@
 				maxlogo = '5.2vw';
 				$( "body" ).addClass( "aural-1200" );
 			} else if (isBreakPoint(1366)){
+				minlogo = '4vw!important';
+				maxlogo = '5.2vw';
 				$( "body" ).addClass( "aural-1366" );
 			} else if (isBreakPoint(1750)){
 				minlogo = '75px!important';
@@ -220,7 +222,7 @@
 				function() 
 				{
 					$(".logo a").removeAttr("style");
-				}, 2000
+				}, 3000
 			);
 
 			// look for dupe ids and re-sequence?
