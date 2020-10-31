@@ -1859,7 +1859,10 @@ KING.Search = {
 				  "q": query,
 				  "resources": {
 				    "type": "product,collection" + ( window.predictive_search_include_pages == "true" ? ",page" : "" ) + ( window.predictive_search_include_articles == "true" ? ",article" : "" ),
-				    "limit": 4
+				    "limit": 4,
+					"options": {
+						"fields": "title,product_type,tag,vendor,variants.title"
+					}
 				  }
 				}).done((function(response) {
 
