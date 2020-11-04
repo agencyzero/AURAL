@@ -58,6 +58,14 @@
 }
 
 /******************************************************* theme overrides */
+.alert.alert--success {
+    background: white;
+    font-variant: all-petite-caps;
+    font-size: 2.2em;
+    font-family: 'Oswald';
+    color: #fa6;
+    padding: 0.5em 1em 0.8em 0;
+}
 sup {
     line-height: 2em;
 }
@@ -290,6 +298,27 @@ div#shopify-section-footer {
 .product__description dd p{
 	margin:0;
 }
+.product__description dd.aural_work ul {
+    list-style-type: none;
+    margin: 0;
+}
+.product__description dd.aural_work ul li {
+    padding: 0 0 0 0.8em;
+    text-indent: -0.7em;
+}
+.product__description dd.aural_work ul li:before {
+content: "\2713";
+    color: #e3e3e3;
+    position: relative;
+    left: -4px;
+}
+.product__description dd.aural_work p+ul li {
+    padding: 0px 0 0 1.7em;
+    text-indent: -0.7em;
+}
+.product__description dd.aural_work ul+p {
+    padding: 1em 0 0 0;
+}
 .product__description dd.linernotes p.src{
     font-variant: all-petite-caps;
     font-style: oblique;
@@ -308,14 +337,19 @@ div#shopify-section-footer {
 ,.product__description dd.aural_msrp p.intro {
     padding: 0.6em 0 0 0;
 }
-.product__description dd.aural_specs .heading 
-,.product__description dd.aural_msrp .heading  {
+.product__description dd .heading {
+    margin: 0px 32px 0 0;
+    padding: 16px 0 5px 0;
+    background: #fff;
+    font-family: 'Oswald';
+    border-bottom: 1px solid #eee;
+}
+.product__description dd.aural_msrp .heading  {
     font-weight:bold;
     margin-top: 0.4em;
     margin-bottom: -0.5em;
 }
-.product__description dd.aural_specs .heading:not(:first-child)
-,.product__description dd.aural_msrp .heading:not(:first-child){
+.product__description dd .heading:not(:first-child){
 	margin-top:.9em;
 }
 .product__description dd.aural_specs span.attr
@@ -398,6 +432,37 @@ a.button.button--solid {
 	background:{{ settings.sidebar_bg }}/* #fa6b0f */!important;
 }
 
+/*******************************************************  cart elements*/
+.aural .sidebar__cart .cart__title {
+    padding-top: 45px;
+    padding-bottom: 30px;
+    z-index: 999;
+    top: 0;
+    background: {{ settings.secondary_bg }};
+    border: 0;
+}
+.aural div#cart {
+    text-transform: uppercase;
+}
+.aural .sidebar__cart div#cart {
+    background: {{ settings.secondary_bg }};
+}
+.aural .sidebar__cart div#cart .qty 
+, .aural .sidebar__cart #ViewCart
+, .aural .sidebar__cart div#cart textarea{
+    display: none!important;
+    visibility: hidden;
+}
+.aural .sidebar__cart a.remove:hover svg {
+    stroke: white;
+}
+.aural .sidebar__cart .cart-item .thumbnail {
+    display: block;
+    width: unset;
+    min-width: 100px;
+    height: 80px;
+    padding-top: 10px;
+}
 
 /******************************************************* home grid setup, second pass*/
 .grid_aural {
@@ -1000,14 +1065,7 @@ i {
 
 
 
-.alert.alert--success {
-    background: white;
-    font-variant: all-petite-caps;
-    font-size: 2.2em;
-    font-family: 'Oswald';
-    color: #fa6;
-    padding: 0.5em 1em 0.8em 0;
-}
+
 
 
 /* responsive */
