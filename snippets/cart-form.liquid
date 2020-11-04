@@ -19,12 +19,12 @@
 		      <div id="item-{{ item.id }}" class="cart-item" data-title="{{ item.product.title | escape }} {% unless item.product.has_only_default_variant %} ({{ item.variant.title | escape }}) {% endunless %}">
 
 		        <a href="{{ item.url | within: collections.all }}" class="thumbnail">
-		        	<figure class="lazy-image" data-ratio style="padding-top: 120%">
+		        	<figure class="lazy-image">
 		        		<img 
-		        			src="{{ item.image | img_url: '100x120', crop: 'center' }}" alt="{{ item.title | escape }}"
+		        			src="{{ item.image | img_url: '100x80'}}" alt="{{ item.title | escape }}"
 		        			srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-									data-srcset="{{ item.image | img_url: '100x120', crop: 'center' }} 100w, {{ item.image | img_url: '200x240', crop: 'center' }} 200w"
-									data-sizes="auto" class="lazyload"
+									data-srcset="{{ item.image | img_url: '100x80', crop: 'center' }} 100w, {{ item.image | img_url: '200x160', crop: 'center' }} 200w"
+									sizes="100px" class="lazyload"
 								/>
 							</figure>
 		        </a>
