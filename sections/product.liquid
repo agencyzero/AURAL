@@ -109,6 +109,8 @@
 
               <span class="variant-quantity"></span>
 
+              <div class="aural_quiz"><a href="mailto:{{shop.email}}?subject=Trade-in%20Inquiry&body=(Toward: {{ shop.url}}{{ product.url }} )%0d%0a%0d%0a%0d%0a%0d%0aMake:%0d%0aModel:%0d%0aCondition:%0d%0a%0d%0aPlease%20attach%20at%20least%203%20proper%20photographs.%0d%0a%0d%0aWe%20appreciate%20your%20interest,%20and%20will%20quickly%20consider%20your%20offer." class="button button--solid button--minor">I have a Trade</a></div>
+
               <div class="aural_quiz"><a href="mailto:{{shop.email}}?subject=Question: {{ product.title | url_encode | upcase }}&body=(from: {{ shop.url}}{{ product.url }} )%0d%0a%0d%0a%0d%0a" class="button button--solid button--minor">I've Got Questions</a></div>
 
             </div>
