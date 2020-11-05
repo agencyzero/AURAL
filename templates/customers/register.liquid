@@ -1,4 +1,8 @@
-<div class="page-content">
+{% if shop.customer_accounts_enabled and customer %}
+	<script>window.location = "/account";</script>
+{% endif %}
+
+<div class="page-content myacct">
 
 	<h1 class="title h1">{{ 'customers.register_page.title' | t }}</h1>
 

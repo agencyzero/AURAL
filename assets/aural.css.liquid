@@ -58,13 +58,27 @@
 }
 
 /******************************************************* theme overrides */
-.alert.alert--success {
+
+.alert.alert--success,
+.alert.alert--error {
     background: white;
     font-variant: all-petite-caps;
     font-size: 2.2em;
     font-family: 'Oswald';
     color: #fa6;
     padding: 0.5em 1em 0.8em 0;
+}
+.alert.alert--error{
+	padding: 0 1em 0 0;
+	margin:0;
+}
+.alert.alert--error:first-of-type {
+    padding-top: 0.5em;
+	margin-bottom:0;
+}
+.alert.alert--error:last-of-type {
+    padding-bottom: 0.8em;
+    margin-bottom:18px;
 }
 sup {
     line-height: 2em;
@@ -1064,6 +1078,48 @@ i {
 }
 
 
+/*customer accounts section*/
+.button--outline, .delete-address{
+	text-transform:uppercase;
+}
+.page-content.myacct {
+    margin-top: 64px;
+    margin-bottom: 50px;
+}
+a.minor.button {
+    border: 0;
+    color: #b7b7b7;
+    background-color: #eee;
+    margin-left: 3px;
+}
+.order-table a {
+    width: 100%;
+    display: block;
+}
+em.body-size-lesser-than-normal {
+    position: relative;
+    bottom: 20px;
+    left: 13px;
+}
+em.body-size-lesser-than-normal a {
+    color:#b7b7b7;
+}
+.template-login .login-actions div a {
+    font-family: "Open Sans",sans-serif;
+    line-height: 1;
+    height: 55px;
+    line-height: 53px;
+    font-weight: 600;
+    padding: 0 25px;
+    transition: all 150ms linear, width 0ms;
+    cursor: pointer;
+    display: inline-block;
+    -webkit-appearance: none;
+    border-radius: 0;
+    background-color: #eee;
+    text-transform: uppercase;
+    color: #b7b7b7;
+}
 
 
 

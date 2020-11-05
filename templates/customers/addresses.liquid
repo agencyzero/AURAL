@@ -1,13 +1,16 @@
-<div class="page-content">
+<div class="page-content myacct">
 
 	<header class="page-title">
 		<div>
-			<h1 class="title h1">{{ 'customers.addresses_page.title' | t }}</h1>
-			<span class="subtitle">{{ 'customers.addresses_page.subtitle' | t }}</span>
+			<h1 class="title h1">Manage {{ 'customers.addresses_page.subtitle' | t }}</h1>
+			<a href="#add_address" class="button button--solid button--wide mfp-link">{{ 'customers.addresses_page.add_address_link' | t }}</a>
 		</div>
-  	{% if shop.customer_accounts_enabled and customer %}
-			<a class="button button--outline" href="{{ routes.account_logout_url }}">{{ 'customers.login_page.form_logout_button' | t }}</a>
+		<div style="display:flex">
+			<a href="/account" class="button button--solid">Account</a>
+  		{% if shop.customer_accounts_enabled and customer %}
+			<a class="minor button button--outline" href="{{ routes.account_logout_url }}">{{ 'customers.login_page.form_logout_button' | t }}</a>
 		{% endif %}
+		</div>
 	</header>
 
 	{% paginate customer.addresses by 4 %}
@@ -112,10 +115,6 @@
 		{% endif %}
 
 	{% endpaginate %}
-
-	<br />
-
-	<a href="#add_address" class="button button--solid button--wide mfp-link">{{ 'customers.addresses_page.add_address_link' | t }}</a>
 
 	<div id="add_address" class="mfp-hide address-popup">
 

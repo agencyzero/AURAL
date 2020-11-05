@@ -1,16 +1,19 @@
-<div class="page-content">
+<div class="page-content myacct">
 
 	<header class="page-title">
-		<div>
-			<h1 class="title h1">{{ 'customers.orders_page.title' | t }}</h1>
-			<span class="subtitle">{{ 'customers.orders_page.subtitle' | t }} {{ order.name }}</span>
+    <div>
+      <h1 class="title h1">{{ 'customers.orders_page.subtitle' | t }} {{ order.name }}</h1>
+      <p>{{ 'customers.orders_page.placed_order' | t }} <strong>{{ order.created_at | date: "%B %d, %Y %I:%M%p" }}</strong></p>
     </div>
-  	{% if shop.customer_accounts_enabled and customer %}
-			<a class="button button--outline" href="{{ routes.account_logout_url }}">{{ 'customers.login_page.form_logout_button' | t }}</a>
-		{% endif %}
-	</header>
+    <div style="display:flex">
+      <a href="/account" class="button button--solid">Account</a>
+      {% if shop.customer_accounts_enabled and customer %}
+      <a class="minor button button--outline" href="{{ routes.account_logout_url }}">{{ 'customers.login_page.form_logout_button' | t }}</a>
+    {% endif %}
+    </div>
+  </header>
 
-	<p>{{ 'customers.orders_page.placed_order' | t }} <strong>{{ order.created_at | date: "%B %d, %Y %I:%M%p" }}</strong></p>
+	
 
   {% if order.cancelled %}
     <div class="errors">

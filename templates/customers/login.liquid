@@ -1,4 +1,8 @@
-<div class="page-content">
+{% if shop.customer_accounts_enabled and customer %}
+	<script>window.location = "/account";</script>
+{% endif %}
+
+<div class="page-content myacct">
 	
 	{% render 'form-errors', form: form %}
 
@@ -20,20 +24,17 @@
 					<label for="customer_password" class="hidden">{{ 'customers.login_page.form_password_label' | t }}</label>
 					<input type="password" value="" name="customer[password]" id="customer_password" placeholder="{{ 'customers.login_page.form_password_label' | t }}" {% if form.errors contains "password" %} class="error"{% endif %}>
 				</div>
+				<span style="display: block;"><em class="body-size-lesser-than-normal"><a href="#recover" onclick="showRecoverPasswordForm();return false;">{{ 'customers.login_page.forgot_password_check' | t }}</a></em></span>
+					
 			{% endif %}
 
-			<div class="login-actions">
-
-				<input type="submit" class="button button--solid button--wide" value="{{ 'customers.login_page.form_login_button' | t }}" style="margin-right:20px">
-
-				<div style="text-align: right;">
-					{% if form.password_needed %}
-						<span style="display: block;"><em class="body-size-lesser-than-normal"><a href="#recover" onclick="showRecoverPasswordForm();return false;">{{ 'customers.login_page.forgot_password_check' | t }}</a></em></span>
-					{% endif %}
-					<span style="display: block;"><strong>{{ 'customers.login_page.new_customer_button' | t | customer_register_link }}</strong></span>
-				</div>
-
-			</div>
+			<header class="page-title">
+				<div style="display:flex">
+					<input type="submit" class="button button--solid button--wide" value="{{ 'customers.login_page.form_login_button' | t }}" style="margin-right:20px"></div>
+		  		<div style="display:flex">
+		  			<a class="minor button button--outline" href="{{ routes.account_register_url }}">New Customer</a>
+		  		</div>
+			</header>
 
 		</div>
 
