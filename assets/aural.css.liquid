@@ -133,36 +133,36 @@ b{
 }
 /*buttons*/
 .button--solid, .shopify-challenge__button, .shopify-payment-button__button--unbranded, #spr-form .spr-button-primary, .project__text .rte.style-links a {
-    background: {{ settings.sidebar_bg }}/* #fa6b0f *//* */!important;
-    color: /*#fff*/{{ settings.sidebar_txt }}!important;
+    background: {{ settings.sidebar_bg }};
+    color: {{ settings.sidebar_txt }};
     text-transform:uppercase;
 }
 .no-touch .button--solid:hover, .no-touch .shopify-challenge__button:hover, .no-touch .shopify-payment-button__button--unbranded:hover, .no-touch #spr-form .spr-button-primary:hover, #spr-form .no-touch .spr-button-primary:hover, .no-touch .project__text .rte.style-links a:hover, .project__text .rte.style-links .no-touch a:hover {
     border-color: transparent;
-    background: /*#000*/{{ settings.accent_one }}!important;
-    color: /*#fff*/{{ settings.sidebar_txt }}!important;
+    background: {{ settings.accent_one }}!important;
+    color: {{ settings.sidebar_txt }}!important;
 }
 
 /*white bg with grey text rev on rollover*/
 .product__form .button--minor{
-	background-color:/*#fff*/{{ settings.body_bg }}!important;
-	color:/*#878787*/{{ settings.accent_two }}!important;
+	background-color:{{ settings.body_bg }}
+	color:/*#878787*/{{ settings.accent_two }};
 	width:100%;
 }
 .product__form .button--minor:hover{
-	background-color:/*#b7b7b7*/{{ settings.accent_thr }}!important;
-	color:#fff!important;
+	background-color:{{ settings.accent_thr }};
+	color:#fff;
 }
 
 /* orange buttons with white text */
 .product__form .button--minor{
-	background-color:/*#FB8F4B*/{{ settings.tertiary_bg }}!important;
-	color:/*#fff*/{{ settings.tertiary_txt }}!important;
+	background-color:{{ settings.tertiary_bg }};
+	color:{{ settings.tertiary_txt }};
 	width:100%;
 }
 .product__form .button--minor:hover{
-	background-color:/* #fa6b0f */{{ settings.sidebar_bg }}!important;
-	color:/*#fff*/{{ settings.tertiary_txt }}!important;
+	background-color:{{ settings.sidebar_bg }}!important;
+	color:{{ settings.tertiary_txt }};
 }
 .aural_quiz{
 	width:100%;
@@ -1098,6 +1098,9 @@ a.minor.button {
 .order-table a {
     width: 100%;
     display: block;
+}
+.order-table a:hover {
+    color: #fa6b10;
 }
 em.body-size-lesser-than-normal {
     position: relative;
