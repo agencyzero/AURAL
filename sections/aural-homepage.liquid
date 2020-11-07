@@ -46,7 +46,7 @@
         "type": "text",
         "id": "success-news",
         "label": "Success Msg",
-        "default": "Thanks for signing up!"
+        "default": "Nom. Nom. Nom. Emails are delicious. "
       },
       {
         "type": "html",
@@ -303,10 +303,10 @@
           <div class="overlay" >
             <div class="detail">
               <h2>
-                <a href="{{ section.settings.url-apparel }}">{{section.settings.h1-apparel}}</a>
+                <a href="#">{{section.settings.h1-apparel}}</a>
               </h2>
               <p class="qty">{{ section.settings.txt-apparel }}</p> 
-              <a href="{{ section.settings.url-apparel }}" class="btn cta">EXPLORE</a>
+              <a href="#" class="btn cta">EXPLORE</a>
             </div>
           </div>
         </div>
@@ -352,7 +352,7 @@
                 {% endif %}
              
               </div>
-              {% if form.posted_successfully? %}{% else %}
+              {% if form.posted_successfully? or form.errors %}{% else %}
                 <div class="newsletter__text rte">{{ section.settings.body-news }}</div>
               {% endif %}
             </div>

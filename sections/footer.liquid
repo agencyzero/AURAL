@@ -179,9 +179,21 @@
   
       {% if section.settings.show_payment_icons and shop.enabled_payment_types != empty %}
         <div class="footer-icons">
-          {% for type in shop.enabled_payment_types %}
-            {{ type | payment_type_svg_tag }}
-          {% endfor %}
+          {%comment%}{ % for type in shop.enabled_payment_types % }
+            {  type | payment_type_svg_tag } }
+          { % endfor % }
+          {%endcomment%}
+          <span class="carded icon-applepay "></span>
+          <span class="wrapped icon-mastercard"></span>
+          <span class="wrapped icon-visa"></span>
+          <span class="wrapped icon-discover"></span>
+          <span class="wrapped icon-diners"></span>
+          <span class="wrapped icon-jcb "></span>
+          <span class="wrapped icon-paypal"></span>
+          <span class="carded icon-venmo "></span>
+          <span class="carded icon-shopify"></span>
+          <span class="carded icon-googlepay "></span>
+
         </div>
       {% endif %}
       
