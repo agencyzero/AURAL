@@ -75,7 +75,9 @@
     <div class="collection collection--{{ settings.grid_style }} collection--grid mount-collection">
 
       {% for product in collection.products %}
-        {% render 'product-item', product: product %}
+        {% unless product.handle == 'test' %}
+          {% render 'product-item', product: product %}
+        {% endunless %}
       {% else %}
         <p class="no-content-message">{{ 'products.grid.no_products_text' | t }}</p>
       {% endfor %}

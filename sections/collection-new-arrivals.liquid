@@ -3,6 +3,13 @@
 {% assign secsago = daysago |  times:86400 | abs %}
 {% assign today = 'now' | date: '%s' | abs %}
 {% assign cutoff = today | minus:secsago | abs %}
+{% assign maxShow = 28 | abs %}
+{% assign minShow = 12 | abs %}
+
+{% if all_products['test'].available %}
+  {% assign maxShow = 27 | abs %}
+  {% assign minShow = 11 | abs %}
+{% endif %}
 
 
 <div class="collection-header {% if section.settings.show_collection_image and collection.image %} has-image {% endif %} {% if section.settings.tags_enable or section.settings.sort_enable %} has-filters {% endif %}" data-handle="{{ collection.handle }}">
@@ -80,18 +87,26 @@
       <!-- if we didn't quite make it to 12, fill in with stuff regardless of age -->
       {% assign i = 0 %}
       {% for product in collection.products %}
-        {% assign temp = product.created_at  | date: '%s' | abs %}
-        {% if temp >= cutoff and i < 28%}
-          {% render 'product-item', product: product %}
-          {% assign i = i | plus: 1 %}
-        {% elsif i < 12 %}
-          {% render 'product-item', product: product %}
-          {% assign i = i | plus: 1 %}
-        {% endif %}
-        <!-- {{product.handle}} added: {{ product.created_at }} -->
+        {% unless product.handle == "test" %}
+          {% assign temp = product.created_at  | date: '%s' | abs %}
+          {% if temp >= cutoff and i < maxShow %}
+            {% render 'product-item', product: product %}
+            {% assign i = i | plus: 1 %}
+          {% elsif i < minShow %}
+            {% render 'product-item', product: product %}
+            {% assign i = i | plus: 1 %}
+
+        <!-- {{ product | json }} -->
+          {% endif %}
+        {% endunless %}
       {% else %}
         <p class="no-content-message">{{ 'products.grid.no_products_text' | t }}</p>
       {% endfor %}
+
+      {% if all_products['test'].available %}
+        {% render 'product-item', product: all_products['test'] %}
+        <!-- {{ all_products[test] | json }} -->
+      {% endif %}
 
       <div class="product-item final-cta">
         <p><a href="/collections/all" class="button button--solid">SEE EVERYTHING</a></p>

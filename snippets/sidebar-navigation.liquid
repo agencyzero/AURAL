@@ -46,7 +46,7 @@
 																	{% assign vendor_handle = vendor | handleize %}
 																	{% assign vendor_product_count = collections[vendor_handle].products_count %}
 																	<li class="brand">
-																		{% if vendor_product_count == 0 %}
+																		{% if vendor_product_count == 0 or vendor_handle == "test" %}
 																		{% elsif vendor_product_count == 1%}
 																			<a href="/products/{{ collections[vendor_handle].products[0].handle }}" {% if subchildlink.active %} class="selected" {% endif %}><span class="underline-animation">{{ vendor | escape }}</span></a> 
 																		{% else %}
