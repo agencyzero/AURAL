@@ -46,7 +46,7 @@
         "type": "text",
         "id": "success-news",
         "label": "Success Msg",
-        "default": "Nom. Nom. Nom. Emails are delicious. "
+        "default": "Nom. Nom. Nom. Emails are delicious."
       },
       {
         "type": "html",
@@ -340,7 +340,7 @@
               
                 {% render 'form-errors', form: form %}
                 {% if form.posted_successfully? %}
-                  <span class="alert alert--success">{{ 'general.newsletter.confirmation' | t }}</span>
+                  <span class="alert alert--success">{{ section.settings.success-news }}</span>
                 {% else %}
                   <div>
                     <input type="hidden" name="contact[tags]" value="newsletter">
