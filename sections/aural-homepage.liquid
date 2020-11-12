@@ -168,7 +168,7 @@
       {
         "type": "coll",
         "name": "Collections",
-        "limit": 2,
+        "limit": 3,
         "settings": [
           {
             "type":      "collection",
@@ -198,7 +198,8 @@
 {%- assign arrProd = arrProd | split: ',' -%}
 {%- assign arrColl = arrColl | split: ',' -%}
 {%- assign collA = collections[ arrColl[1] ]-%}
-{% assign collB = collections[ arrColl[2] ]%}
+{%- assign collB = collections[ arrColl[2] ]-%}
+{%- assign collC = collections[ arrColl[3] ]-%}
 
 
 <style>
@@ -242,12 +243,21 @@
       </div>
     </div>
     
-    <div class="grid__item lifestyle">
-      <div class="grid__subgrid sflex">
-        <div class="grid__subgrid-el  lifestyle-records" style="background-color:{{section.settings.bg-lifestyle}};background-image:url({{ section.settings.lifestyle-b | img_url: '840x' }});">
+    <div class="grid__item collection apparel" data-target="{{ section.settings.url-apparel }}">
+      <div class="grid__subgrid sflex" >
+        <div class="grid__subgrid-el" style="background-image:url({{ section.settings.img-apparel | img_url: '840x' }});">
+          <div class="overlay" >
+            <div class="detail">
+              <h2>
+                <a href="#">{{section.settings.h1-apparel}}</a>
+              </h2>
+              <p class="qty">{{ section.settings.txt-apparel }}</p> 
+              <a href="#" class="btn cta">EXPLORE</a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </div>  
     
     <div class="grid__item collection" data-target="{{ collA.url }}">
       <div class="grid__subgrid sflex">
@@ -281,6 +291,22 @@
       </div>
     </div>
 
+    <div class="grid__item collection" data-target="{{ collC.url }}">
+      <div class="grid__subgrid sflex" >
+        <div class="grid__subgrid-el" style="background-image:url({{ collC.image | img_url: '840x' }});">
+          <div class="overlay" >
+            <div class="detail">
+              <h2>
+                <a href="{{ collC.url }}">{{collC.title}}</a>
+              </h2>
+              <p class="qty">({{ collC.products_count }} Items)</p> 
+              <a href="{{ collC.url }}" class="btn cta">EXPLORE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+
     <div class="grid__item collection" data-target="{{ collB.url }}">
       <div class="grid__subgrid sflex" >
         <div class="grid__subgrid-el" style="background-image:url({{ collB.image | img_url: '840x' }});">
@@ -291,22 +317,6 @@
               </h2>
               <p class="qty">({{ collB.products_count }} Items)</p> 
               <a href="{{ collB.url }}" class="btn cta">EXPLORE</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>  
-
-    <div class="grid__item collection apparel" data-target="{{ section.settings.url-apparel }}">
-      <div class="grid__subgrid sflex" >
-        <div class="grid__subgrid-el" style="background-image:url({{ section.settings.img-apparel | img_url: '840x' }});">
-          <div class="overlay" >
-            <div class="detail">
-              <h2>
-                <a href="#">{{section.settings.h1-apparel}}</a>
-              </h2>
-              <p class="qty">{{ section.settings.txt-apparel }}</p> 
-              <a href="#" class="btn cta">EXPLORE</a>
             </div>
           </div>
         </div>
@@ -342,7 +352,7 @@
                 {% if form.posted_successfully? %}
                   <span class="alert alert--success">{{ section.settings.success-news }}</span>
                 {% else %}
-                  <div>
+                  <div class="singlefield">
                     <input type="hidden" name="contact[tags]" value="newsletter">
                     <input type="email" class="newsletter__input" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter.email_label' | t }}" name="contact[email]" id="Email" aria-label="{{ 'general.newsletter.email_label' | t }}" autocorrect="off" autocapitalize="off">
                     <button type="submit" class="newsletter__submit" id="Subscribe" aria-label="{{ 'general.newsletter.submit_label' | t }}">
