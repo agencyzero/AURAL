@@ -498,25 +498,25 @@
 			        {% when 'text' %}
 			          <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
 			            <label for="{{ block.settings.label }}" class="hidden uppercase">{{ block.settings.label }}</label>
-			            <input type="text" class="contactFormText" id="Form-{{ section.id }}-{{forloop.index0 }}" name="contact[{{ block.settings.label | escape }}]" placeholder="{{ block.settings.label }}{% if block.settings.required %} (required){% endif %} " autocapitalize="words" value="" {% if block.settings.required %} required{% endif %} />
+			            <input type="text" class="contactFormText" id="Form-{{ section.id }}-{{forloop.index0 }}" name="contact[{{ block.settings.label | escape }}]" placeholder="{{ block.settings.label }}{% if block.settings.required %}{% endif %} " autocapitalize="words" value="" required />
 			          </div>
 
 			        {% when 'textarea' %}
 			          <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
 			            <label for="{{ block.settings.label }}" class="hidden">{{ block.settings.label }}</label>
-			            <textarea rows="10" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormMessage" name="contact[{{ block.settings.label | escape }}]" placeholder="{{ block.settings.label }}{% if block.settings.required %} (required){% endif %}" {% if block.settings.required %} required{% endif %} ></textarea>
+			            <textarea rows="10" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormMessage" name="contact[{{ block.settings.label | escape }}]" placeholder="{{ block.settings.label }}{% if block.settings.required %}{% endif %}" {% if block.settings.required %}{% endif %} ></textarea>
 			          </div>
 
 			        {% when 'telephone' %}
 			          <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
 			            <label for="{{ block.settings.label }}" class="hidden">{{ block.settings.label }}</label>
-			            <input type="tel" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormPhone" name="contact[{{ block.settings.label | escape }}]" placeholder="{{ block.settings.label }}{% if block.settings.required %} (required){% endif %}" pattern="[0-9\-]*" value="" {% if block.settings.required %} required{% endif %} />
+			            <input type="tel" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormPhone" name="contact[{{ block.settings.label | escape }}]" placeholder="{{ block.settings.label }}{% if block.settings.required %}{% endif %}" pattern="[0-9\-]*" value="" required />
 			          </div>
 
 			        {% when 'name' %}
 			          <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
 			            <label for="{{ block.settings.label }}" class="hidden uppercase">{{ block.settings.label }}</label>
-			            <input type="text" class="contactFormText" id="Form-{{ section.id }}-{{forloop.index0 }}" name="contact[{{ block.settings.label | escape }}]" placeholder="{{ block.settings.label }}{% if block.settings.required %} (required){% endif %}" autocapitalize="words" value="" {% if block.settings.required %} required{% endif %} />
+			            <input type="text" class="contactFormText" id="Form-{{ section.id }}-{{forloop.index0 }}" name="contact[{{ block.settings.label | escape }}]" placeholder="{{ block.settings.label }}{% if block.settings.required %}{% endif %}" autocapitalize="words" value="" required />
 			          </div>
 
 			        {% when 'textHeading' %}
@@ -559,9 +559,10 @@
 			          </div>
 
 			        {% when 'select' %}
-			          <div class="custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
+			          <div class="auralselect custom-form__block  krown-column-container {{ block.settings.class }}" {{ block.shopify_attributes }}>
 			            <label for="{{ block.settings.label }}" class="hidden">{{ block.settings.name }}</label>
-			            <select id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormSelect" name="contact[{{ block.settings.name }}]">
+			            <select required id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormSelect" name="contact[{{ block.settings.name }}]">
+                    <option value="">Choose One</option>
 			              {% if block.settings.label-one != blank %}
 			                <option value="{{ block.settings.label-one }}" class="selected disabled">{{ block.settings.label-one }}</option>
 			              {% endif %}
