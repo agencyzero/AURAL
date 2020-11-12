@@ -1,3 +1,48 @@
+{%- if template.name == "indexxx" -%} 
+<div class="grid_aural">
+  <div class="grid__item triple">
+      <div class="grid__subgrid">
+
+        <div class="grid__subgrid-el lifestyle" style="background-color:{{section.settings.bg-lifestyle}};">
+          <img class="{{section.settings.class-c}}" src="{{ section.settings.lifestyle-c | img_url: '840x' }}" alt="{{ section.settings.alt-c }}">
+        </div>
+
+        <div class="grid__subgrid-el subscribe" style="background:{{ section.settings.bg-news }};color:{{ section.settings.fg-news }};width:100%;">
+          <!-- *~*~*~*~*~*~* FORM *~*~*~*~*~*~* -->
+          {% form 'customer' %}
+            <div class="content-section">
+              {% unless section.settings.h1-news == blank %}
+                <h3 class="newsletter__title h1">{%- if form.posted_successfully? -%}{{ section.settings.ok-news | escape }}{%- else -%}{{ section.settings.h1-news | escape }}{%- endif -%}</h3>
+              {% endunless %}
+              <div class="newsletter__form">
+              
+                {% render 'form-errors', form: form %}
+                {% if form.posted_successfully? %}
+                  <span class="alert alert--success">{{ section.settings.success-news }}</span>
+                {% else %}
+                  <div>
+                    <input type="hidden" name="contact[tags]" value="newsletter">
+                    <input type="email" class="newsletter__input" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter.email_label' | t }}" name="contact[email]" id="Email" aria-label="{{ 'general.newsletter.email_label' | t }}" autocorrect="off" autocapitalize="off">
+                    <button type="submit" class="newsletter__submit" id="Subscribe" aria-label="{{ 'general.newsletter.submit_label' | t }}">
+                      <span aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-long' %}</span>
+                    </button>
+                  </div>
+                {% endif %}
+             
+              </div>
+              {% if form.posted_successfully? or form.errors %}{% else %}
+                <div class="newsletter__text rte">{{ section.settings.body-news }}</div>
+              {% endif %}
+            </div>
+          {% endform %}
+          <!-- *~*~*~*~*~*~* / FORM *~*~*~*~*~*~* -->
+        </div>
+      </div>
+    </div>
+</div>
+{%- endif -%}
+
+
 <div class="footer"> 
 
   {% for block in section.blocks %}
@@ -9,7 +54,9 @@
         <div class="footer-item footer-text {{ block.settings.size }}">
         
           {% if block.settings.title contains 720 %}
-             <h4>CALL US // <a href="tel:+17204320373">(720) 432-0373</a></h4>
+             <div class="contacts call">CALL US // <a href="tel:+17204320373">(720) 432-0373</a></div>
+             <div class="contacts email">EMAIL // <a href="mailto:info@auralfetish.com">info@auralfetish.com</a></div>
+
           {% elsif block.settings.title != blank %}
             <h4>{{ block.settings.title | escape }}</h4>
           {% endif %}
