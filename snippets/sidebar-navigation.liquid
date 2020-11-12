@@ -45,12 +45,16 @@
 																{% for vendor in shop.vendors %}
 																	{% assign vendor_handle = vendor | handleize %}
 																	{% assign vendor_product_count = collections[vendor_handle].products_count %}
+																	{% assign vendor_linktext = vendor | escape %}
+																	{% if vendor_handle == "the-voice-of-music" %}
+																		{% assign vendor_linktext = "V-M / The Voice of Music" %}
+																	{% endif %}
 																	<li class="brand">
 																		{% if vendor_product_count == 0 or vendor_handle == "test" %}
 																		{% elsif vendor_product_count == 1%}
-																			<a href="/products/{{ collections[vendor_handle].products[0].handle }}" {% if subchildlink.active %} class="selected" {% endif %}><span class="underline-animation">{{ vendor | escape }}</span></a> 
+																			<a href="/products/{{ collections[vendor_handle].products[0].handle }}" {% if subchildlink.active %} class="selected" {% endif %}><span class="underline-animation">{{ vendor_linktext }}</span></a> 
 																		{% else %}
-																			<a href="/collections/{{ vendor_handle }}" {% if subchildlink.active %} class="selected" {% endif %}><span class="underline-animation">{{ vendor | escape }}</span></a>
+																			<a href="/collections/{{ vendor_handle }}" {% if subchildlink.active %} class="selected" {% endif %}><span class="underline-animation">{{ vendor_linktext }}</span></a>
 																		{% endif %}
 																	</li>
 
