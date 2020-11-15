@@ -1,0 +1,317 @@
+{% capture email_title %}Your shipping status has been updated {% endcapture %}
+{% capture email_body %}The following items have been updated with new shipping information.{% endcapture %}
+
+<!DOCTYPE html>
+<html lang="en" xmlns:o="urn:schemas-microsoft-com:office:office">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{{ email_title }}</title>
+    <!--[if mso]>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+    <style>
+      table {border-collapse: collapse;}
+      .spacer,.divider {mso-line-height-rule: exactly;}
+      td,th,div,p,a {font-size: 13px; line-height: 23px;}
+      td,th,div,p,a,h1,h2,h3,h4,h5,h6 {font-family:"Segoe UI",Helvetica,Arial,sans-serif;}
+    </style>
+    <![endif]-->
+
+    <style type="text/css">
+
+      @media only screen and (min-width: 1px) {
+        @font-face {
+          font-family: 'Montserrat';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/zhcz-_WihjSQC0oHJ9TCYAzyDMXhdD8sAj6OAJTFsBI.woff2) format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+        }
+
+        @font-face {
+          font-family: 'Montserrat';
+          font-style: normal;
+          font-weight: 700;
+          src: local('Montserrat Bold'), local('Montserrat-Bold'), url(https://fonts.gstatic.com/s/montserrat/v12/IQHow_FEYlDC4Gzy_m8fcmaVI6zN22yiurzcBKxPjFE.woff2) format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+        }
+
+        @font-face {
+          font-family: 'Open Sans';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v15/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+        }
+
+        @font-face {
+          font-family: 'Open Sans';
+          font-style: normal;
+          font-weight: 700;
+          src: local('Open Sans Bold'), local('OpenSans-Bold'), url(https://fonts.gstatic.com/s/opensans/v15/k3k702ZOKiLJc3WVjuplzOgdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+        }
+
+        .column, th, td, div, p {font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI","Roboto",Helvetica,Arial,sans-serif;}
+        .serif {font-family: "Montserrat",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI","Roboto",Helvetica,Arial,sans-serif;}
+        .sans-serif {font-family: "Open Sans",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI","Roboto",Helvetica,Arial,sans-serif;}
+      }
+
+      a {text-decoration: none;}
+      img {border: 0; line-height: 100%; vertical-align: middle;}
+
+      .wrapper {min-width: 700px;}
+      .row {margin: 0 auto; width: 700px;}
+      .row .row, th .row {width: 100%;}
+      .column {font-size: 13px; line-height: 23px;}
+
+      @media only screen and (max-width: 699px) {
+
+        .wrapper {min-width: 100% !important;}
+        .row {width: 90% !important;}
+        .row .row {width: 100% !important;}
+
+        .column {
+          box-sizing: border-box;
+          display: inline-block !important;
+          line-height: inherit !important;
+          width: 100% !important;
+          word-break: break-word;
+          -webkit-text-size-adjust: 100%;
+        }
+
+        .mobile-1  {max-width: 8.33333%;}
+        .mobile-4  {max-width: 33.33333%;}
+        .mobile-8  {max-width: 66.66667%;}
+        .mobile-11 {max-width: 91.66667%;}
+        .mobile-12 {
+          padding-right: 30px !important;
+          padding-left: 30px !important;
+        }
+
+        .has-columns {
+          padding-right: 20px !important;
+          padding-left: 20px !important;
+        }
+
+        .has-columns .column {
+          padding-right: 10px !important;
+          padding-left: 10px !important;
+        }
+
+        .mobile-collapsed .column {
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+        }
+
+        .wrapper img {max-width: 100%;}
+
+        .mobile-center {
+          display: table !important;
+          float: none;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+
+        .mobile-text-center {text-align: center !important;}
+
+        .mobile-full-width {
+          display: table;
+          width: 100% !important;
+        }
+
+        .spacer {height: 30px; line-height: 100% !important; font-size: 100% !important;}
+        .divider th {height: 60px;}
+        .mobile-padding-top-mini {padding-top: 10px !important;}
+        .mobile-margin-top-mini {margin-top: 10px !important;}
+        .mobile-margin-bottom-mini {margin-bottom: 10px !important;}
+      }
+    </style>
+  </head>
+  <body style="box-sizing:border-box;margin:0;padding:0;width: 100%;-webkit-font-smoothing:antialiased;">
+
+    <table class="wrapper" align="center" bgcolor="#EEEEEE" cellpadding="0" cellspacing="0" width="100%" role="presentation">
+      <tr>
+        <td style="padding: 30px 0;">
+
+          <table class="row" align="center" bgcolor="#FFFFFF" cellpadding="0" cellspacing="0" role="presentation">
+            <tr>
+              <td class="spacer" colspan="2" height="40" style="line-height: 40px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <th class="column mobile-12" width="310" style="padding-left: 30px; padding-right: 10px; text-align: left;">
+                {%- if shop.email_logo_url %}
+                <a href="{{ shop.url }}" style="text-decoration: none;">
+                  <img class="mobile-center" src="{{ shop.email_logo_url }}" alt="{{shop.name}}" width="{{ shop.email_logo_width }}">
+                </a>
+                {%- else %}
+                <h1 style="margin: 0;">
+                  <a href="{{ shop.url }}" class="serif" style="color: {{ shop.email_accent_color | #1F2225 }}; text-decoration: none;">{{ shop.name }}</a>
+                </h1>
+                {%- endif %}
+              </th>
+              <th class="column mobile-12 mobile-text-center mobile-padding-top-mini" width="310" style="padding-left: 10px; padding-right: 30px; text-align: right;">
+                <div class="sans-serif" style="color: #969AA1; font-size: 14px; font-weight: 400;">ORDER {{ order_name }}</div>
+              </th>
+            </tr>
+            <tr>
+              <td class="spacer" colspan="2" height="40" style="line-height: 40px;">&nbsp;</td>
+            </tr>
+          </table>
+
+          <table class="row" align="center" bgcolor="#F8F8F8" cellpadding="0" cellspacing="0" role="presentation">
+            <tr>
+              <td class="spacer" height="80" style="line-height: 80px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <th class="column" width="640" style="padding-left: 30px; padding-right: 30px; font-weight: 400; text-align: left;">
+                <div class="serif" style="color: #1F2225; font-size: 24px; font-weight: 700; line-height: 32px; margin-bottom: 30px;">{{ email_title }}</div>
+                <div class="sans-serif" style="color: #969AA1; font-size: 18px; line-height: 24px;">{{ email_body }}</div>
+                <div class="sans-serif" style="color: #969AA1; font-size: 16px; line-height: 24px; margin-bottom: 30px;">{{ email_emphasis }}</div>
+                {% if order_status_url %}
+                <table class="mobile-collapsed" cellpadding="0" cellspacing="0" role="presentation">
+                  <tr>
+                    <th class="column mobile-margin-bottom-mini">
+                      <table bgcolor="{{ shop.email_accent_color | #3FB58B }}" cellpadding="0" cellspacing="0" style="border-radius: 3px;" role="presentation">
+                        <tr>
+                          <th>
+                            <a href="{{ order_status_url }}" class="sans-serif" style="border: 0 solid {{ shop.email_accent_color | #3FB58B }}; color: #FFFFFF; display: inline-block; font-size: 13px; font-weight: 400; padding: 13px 25px 13px 25px; text-decoration: none;">View your order</a>
+                          </th>
+                        </tr>
+                      </table>
+                    </th>
+                    {% if shop.url %}
+                    <th class="column mobile-1 sans-serif" style="padding-left: 20px; color: #969AA1; font-weight: 400; text-align: left;">or</th>
+                    <th class="column mobile-11" style="padding-left: 10px; font-weight: 400; text-align: left;">
+                      <a href="{{ shop.url }}" class="sans-serif" style="color: #1F2225; text-decoration: none;">Visit our store</a>
+                    </th>
+                    {% endif %}
+                  </tr>
+                </table>
+                {% else %}
+                  {% if shop.url %}
+                  <table class="mobile-full-width" bgcolor="{{ shop.email_accent_color | #3FB58B }}" cellpadding="0" cellspacing="0" style="border-radius: 3px;" role="presentation">
+                    <tr>
+                      <th>
+                        <a href="{{ shop.url }}" class="sans-serif" style="border: 0 solid {{ shop.email_accent_color | #3FB58B }}; color: #FFFFFF; display: block; font-size: 13px; font-weight: 400; padding: 15px 25px 15px 25px; text-decoration: none;">Visit Our Store</a>
+                      </th>
+                    </tr>
+                  </table>
+                  {% endif %}
+                {% endif %}
+              </th>
+            </tr>
+            <tr>
+              <td class="spacer" height="80" style="line-height: 80px;">&nbsp;</td>
+            </tr>
+          </table>
+
+          <table class="row" align="center" bgcolor="#FFFFFF" cellpadding="0" cellspacing="0" role="presentation">
+            <tr>
+              <td class="spacer" height="80" style="line-height: 80px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <th class="column" width="640" style="padding-left: 30px; padding-right: 30px; font-weight: 400; text-align: left;">
+                <div class="serif" style="color: #1F2225; font-size: 22px;">Items in this shipment</div>
+              </th>
+            </tr>
+            <tr>
+              <td class="spacer" height="50" style="line-height: 50px;">&nbsp;</td>
+            </tr>
+          </table>
+
+          {% assign rows_count = 0 %}
+          {% for line in fulfillment.fulfillment_line_items %}
+          <table class="row" align="center" bgcolor="#FFFFFF" cellpadding="0" cellspacing="0" role="presentation">
+            {% unless rows_count == 0 %}
+            <tr>
+              <th class="column" colspan="2" width="640" style="padding-left: 30px; padding-right: 30px;">
+                <table class="divider" cellpadding="0" cellspacing="0" width="100%" role="presentation">
+                  <tr>
+                    <th height="60">
+                      <div style="border-top: 1px solid #EEEEEE; line-height: 0;">&nbsp;</div>
+                    </th>
+                  </tr>
+                </table>
+              </th>
+            </tr>
+            {% endunless %}
+            {% capture temp %}{{ num | plus: 1 }}{% endcapture %}
+            {% assign rows_count = temp %}
+            <tr>
+              {% if line.line_item.image %}
+              <th class="column mobile-4" width="145" style="padding-left: 30px; padding-right: 10px; text-align: left;">
+                <img src="{{ line.line_item | img_url: '200x200' }}" alt="{{ line.line_item.title }}" width="100">
+              </th>
+              {% endif %}
+
+              <th class="column mobile-{% if line.line_item.image %}8{% else %}12{% endif %}" width="{% if line.line_item.image %}475{% else %}640{% endif %}" style="padding-left: {% if line.line_item.image %}10{% else %}30{% endif %}px; padding-right: 30px; font-weight: 400; text-align: left;">
+                {% if line.quantity < line.line_item.quantity %}
+                  {% capture line_display %} {{ line.quantity }} of {{ line.line_item.quantity }} {% endcapture %}
+                {% else %}
+                  {% assign line_display = line.line_item.quantity  %}
+                {% endif %}
+                <div class="serif" style="color: #1F2225; font-size: 16px; font-weight: 700;">{{ line.line_item.title }} x {{ line_display }}</div>
+                {% if line.line_item.variant.title != 'Default Title' %}
+                <div class="mobile-margin-top-mini sans-serif" style="color: #969AA1; font-size: 13px; line-height: 20px; margin-top: 20px;">{{ line.line_item.variant.title }}</div>
+                {% endif %}
+              </th>
+            </tr>
+          </table>{% endfor %}
+
+          <table class="row" align="center" bgcolor="#FFFFFF" cellpadding="0" cellspacing="0" role="presentation">
+            <tr>
+              <th class="column has-columns" width="640" style="padding-left: 30px; padding-right: 30px;">
+
+                <table class="divider" cellpadding="0" cellspacing="0" width="100%" role="presentation">
+                  <tr>
+                    <th height="60">
+                      <div style="border-top: 1px solid #EEEEEE; line-height: 0;">&nbsp;</div>
+                    </th>
+                  </tr>
+                </table>
+
+                <table class="row" cellpadding="0" cellspacing="0" width="100%" role="presentation">
+                  <tr>
+                    <th class="column" style="text-align: left;">
+                      {%- if shop.email_logo_url %}
+                      <a href="{{ shop.url }}">
+                        <img src="{{ shop.email_logo_url }}" alt="{{ shop.name }}" width="{{ shop.email_logo_width }}">
+                      </a>
+                      {%- else %}
+                      <h2 style="margin: 0;">
+                        <a href="{{ shop.url }}" class="serif" style="color: {{ shop.email_accent_color | #1F2225 }}; text-decoration: none;">{{ shop.name }}</a>
+                      </h2>
+                      {%- endif %}
+                    </th>
+                  </tr>
+                </table>
+
+                <div class="spacer" style="line-height: 15px; height: 15px;">&nbsp;</div>
+
+                <table class="row" cellpadding="0" cellspacing="0" role="presentation">
+                  <tr>
+                    <th class="column" width="640" style="color: #969AA1; font-weight: 400; text-align: left;">
+                      <div class="sans-serif">If you have any questions, reply to this email or contact us at <a href="mailto:{{ shop.email }}" style="color: #969AA1; text-decoration: underline;">{{ shop.email }}</a></div>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td class="spacer" height="30" style="line-height: 30px;">&nbsp;</td>
+                  </tr>
+                </table>
+
+              </th>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
+  </body>
+</html>

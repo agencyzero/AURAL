@@ -1,0 +1,173 @@
+{% capture email_title %}Reset your password{% endcapture %}
+
+{% capture email_body %}Click the button below to reset your customer account password at <a href="{{shop.url}}" style="color: {{ shop.email_accent_color | #3FB58B }}; text-decoration: none;">{{shop.name}}</a>. If you didn't request a new password, you can safely delete this email.{% endcapture %}
+
+{% capture button_label %}Reset your password {% endcapture %}
+
+<!DOCTYPE html>
+<html lang="en" xmlns:o="urn:schemas-microsoft-com:office:office">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if mso]>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+    <style>
+      table {border-collapse: collapse;}
+      .spacer,.divider {mso-line-height-rule: exactly;}
+      td,th,div,p,a {font-size: 13px; line-height: 23px;}
+      td,th,div,p,a,h1,h2,h3,h4,h5,h6 {font-family:"Segoe UI",Helvetica,Arial,sans-serif;}
+    </style>
+    <![endif]-->
+
+    <style type="text/css">
+
+      @media only screen and (min-width: 1px) {
+        @font-face {
+          font-family: 'Montserrat';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/zhcz-_WihjSQC0oHJ9TCYAzyDMXhdD8sAj6OAJTFsBI.woff2) format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+        }
+
+        @font-face {
+          font-family: 'Montserrat';
+          font-style: normal;
+          font-weight: 700;
+          src: local('Montserrat Bold'), local('Montserrat-Bold'), url(https://fonts.gstatic.com/s/montserrat/v12/IQHow_FEYlDC4Gzy_m8fcmaVI6zN22yiurzcBKxPjFE.woff2) format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+        }
+
+        @font-face {
+          font-family: 'Open Sans';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v15/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+        }
+
+        @font-face {
+          font-family: 'Open Sans';
+          font-style: normal;
+          font-weight: 700;
+          src: local('Open Sans Bold'), local('OpenSans-Bold'), url(https://fonts.gstatic.com/s/opensans/v15/k3k702ZOKiLJc3WVjuplzOgdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+        }
+
+        .column, th, td, div, p {font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI","Roboto",Helvetica,Arial,sans-serif;}
+        .serif {font-family: "Montserrat",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI","Roboto",Helvetica,Arial,sans-serif;}
+        .sans-serif {font-family: "Open Sans",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI","Roboto",Helvetica,Arial,sans-serif;}
+      }
+
+      a {text-decoration: none;}
+      img {border: 0; line-height: 100%; vertical-align: middle;}
+
+      .wrapper {min-width: 700px;}
+      .row {margin: 0 auto; width: 700px;}
+      .row .row, th .row {width: 100%;}
+      .column {font-size: 13px; line-height: 23px;}
+
+      @media only screen and (max-width: 699px) {
+
+        .wrapper {min-width: 100% !important;}
+        .row {width: 90% !important;}
+        .row .row {width: 100% !important;}
+
+        .column {
+          box-sizing: border-box;
+          display: inline-block !important;
+          line-height: inherit !important;
+          width: 100% !important;
+          word-break: break-word;
+          -webkit-text-size-adjust: 100%;
+        }
+
+        .wrapper img {max-width: 100%;}
+
+        .mobile-center {
+          display: table !important;
+          float: none;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+
+        .mobile-full-width {
+          display: table;
+          width: 100% !important;
+        }
+
+        .spacer {height: 30px; line-height: 100% !important; font-size: 100% !important;}
+        .divider th {height: 60px;}
+        .mobile-margin-bottom {margin-bottom: 30px !important;}
+      }
+    </style>
+  </head>
+  <body style="box-sizing: border-box; margin: 0; padding: 0; width: 100%;">
+
+    <table class="wrapper" align="center" bgcolor="#EEEEEE" cellpadding="0" cellspacing="0" width="100%" role="presentation">
+      <tr>
+        <td style="padding: 30px 0;">
+
+          <table class="row" align="center" bgcolor="#FFFFFF" cellpadding="0" cellspacing="0" role="presentation">
+            <tr>
+              <td class="spacer" height="40" style="line-height: 40px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <th class="column" width="640" style="padding-left: 30px; padding-right: 30px; text-align: left;">
+                {%- if shop.email_logo_url %}
+                <a href="{{ shop.url }}" style="text-decoration: none;">
+                  <img class="mobile-center" src="{{ shop.email_logo_url }}" alt="{{shop.name}}" width="{{ shop.email_logo_width }}">
+                </a>
+                {%- else %}
+                <h1 style="margin: 0;">
+                  <a href="{{ shop.url }}" class="serif" style="color: {{ shop.email_accent_color | #1F2225 }}; text-decoration: none;">{{ shop.name }}</a>
+                </h1>
+                {%- endif %}
+              </th>
+            </tr>
+            <tr>
+              <td class="spacer" height="40" style="line-height: 40px;">&nbsp;</td>
+            </tr>
+          </table>
+
+          <table class="row" align="center" bgcolor="#F8F8F8" cellpadding="0" cellspacing="0" role="presentation">
+            <tr>
+              <td class="spacer" height="80" style="line-height: 80px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <th class="column" width="640" style="padding-left: 30px; padding-right: 30px; font-weight: 400; text-align: left;">
+                <div class="serif" style="color: #1F2225; font-size: 26px; font-weight: 700; line-height: 30px; margin-bottom: 30px;">{{ email_title }}</div>
+                <div class="mobile-margin-bottom sans-serif" style="color: #969AA1; font-size: 18px; line-height: 28px; margin-bottom: 40px;">{{ email_body }}</div>
+                <table class="mobile-full-width" bgcolor="{{ shop.email_accent_color | #3FB58B }}" cellpadding="0" cellspacing="0" style="border-radius: 3px;" role="presentation">
+                  <tr>
+                    <th>
+                      <a href="{{ customer.reset_password_url }}" class="sans-serif" style="border: 0 solid {{ shop.email_accent_color | #3FB58B }}; color: #FFFFFF; display: block; font-size: 14px; font-weight: 400; padding: 15px 50px 15px 50px; text-decoration: none;">{{ button_label }}</a>
+                    </th>
+                  </tr>
+                </table>
+              </th>
+            </tr>
+            <tr>
+              <td class="spacer" height="80" style="line-height: 80px;">&nbsp;</td>
+            </tr>
+          </table>
+
+          <table class="row" align="center" bgcolor="#FFFFFF" cellpadding="0" cellspacing="0" role="presentation">
+            <tr>
+              <th class="column" width="640" style="padding: 30px;">
+                <div class="sans-serif" style="color: #969AA1; font-weight: 400; text-align: left;">If you have any questions, reply to this email or contact us at <a href="mailto:{{ shop.email }}" style="color: #969AA1; text-decoration: underline;">{{ shop.email }}</a></div>
+              </th>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
+  </body>
+</html>
