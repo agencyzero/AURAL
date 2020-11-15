@@ -82,7 +82,7 @@
               <div class="footer-links body-size-lesser-than-normal">
                 {% for link in linklists[block.settings.menu_1].links %}
                   <span>
-                    <a href="{{ link.url | escape }}"><span class="underline-animation">{{ link.title | escape }}</span></a>
+                    <a href="{{ link.url | escape }}" {% if link.url contains "http" %}target="_blank"{% endif %}><span class="underline-animation">{{ link.title | escape }}</span></a>
                   </span>
                 {% endfor %}
                 {% if shop.customer_accounts_enabled %}
