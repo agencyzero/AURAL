@@ -148,7 +148,7 @@
               <td class="spacer" colspan="2" height="40" style="line-height: 40px;">&nbsp;</td>
             </tr>
             <tr>
-              <th class="column mobile-12" width="310" style="padding-left: 30px; padding-right: 10px; text-align: left;">
+              <th class="column mobile-12" width="310" class="headtxt" style="color:#ffffff;padding-left: 30px; padding-right: 10px; text-align: left;">
                 {%- if shop.email_logo_url %}
                 <a href="{{ shop.url }}" style="text-decoration: none;">
                   <img class="mobile-center" src="{{ shop.email_logo_url }}" alt="{{shop.name}}" width="{{ shop.email_logo_width }}">
@@ -160,7 +160,7 @@
                 {%- endif %}
               </th>
               <th class="column mobile-12 mobile-text-center mobile-padding-top-mini" width="310" style="padding-left: 10px; padding-right: 30px; text-align: right;">
-                <div class="sans-serif" style="color: #969AA1; font-size: 14px; font-weight: 400;">ORDER {{ order_name }}</div>
+                <div class="sans-serif" style="color: #ffffff; font-size: 14px; font-weight: 400;">ORDER {{ order_name }}</div>
               </th>
             </tr>
             <tr>
@@ -181,7 +181,7 @@
                 <table class="mobile-collapsed" cellpadding="0" cellspacing="0" role="presentation">
                   <tr>
                     <th class="column mobile-margin-bottom-mini">
-                      <table bgcolor="{{ shop.email_accent_color | #3FB58B }}" cellpadding="0" cellspacing="0" style="border-radius: 3px;" role="presentation">
+                      <table bgcolor="{{ shop.email_accent_color | #3FB58B }}" cellpadding="0" cellspacing="0" style="border-radius: 0px;" role="presentation">
                         <tr>
                           <th>
                             <a href="{{ order_status_url }}" class="sans-serif" style="border: 0;color: #FFFFFF;background: #fa6b10;display: inline-block;font-size: 13px;font-weight: 700;padding: 13px 25px 13px 25px;text-decoration: none;text-transform: uppercase;">View your order</a>
@@ -199,7 +199,7 @@
                 </table>
                 {% else %}
                   {% if shop.url %}
-                  <table class="mobile-full-width" bgcolor="{{ shop.email_accent_color | #3FB58B }}" cellpadding="0" cellspacing="0" style="border-radius: 3px;" role="presentation">
+                  <table class="mobile-full-width" bgcolor="{{ shop.email_accent_color | #3FB58B }}" cellpadding="0" cellspacing="0" style="border-radius: 0px;" role="presentation">
                     <tr>
                       <th>
                         <a href="{{ shop.url }}" class="sans-serif" style="border: 0;color: #FFFFFF;background: #fa6b10;display: inline-block;font-size: 13px;font-weight: 700;padding: 13px 25px 13px 25px;text-decoration: none;text-transform: uppercase;">Visit Our Store</a>
