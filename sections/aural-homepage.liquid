@@ -184,10 +184,12 @@
 {%- comment -%} {%- endif -%} {%- endcomment -%}
 {%- for block in section.blocks -%}
   {%- if block.type == "prod" -%}
-    {%- if arrProd != "" -%}
-      {%- assign arrProd = arrProd | append: ',' -%}
+    {%- if all_products[block.settings.prod].available -%}
+      {%- if arrProd != "" -%}
+        {%- assign arrProd = arrProd | append: ',' -%}
+      {%- endif -%}
+      {%- assign arrProd = arrProd | append: block.settings.prod -%}
     {%- endif -%}
-    {%- assign arrProd = arrProd | append: block.settings.prod -%}
   {%- elsif block.type == "coll" -%}
     {%- if arrColl != "" -%}
       {%- assign arrColl = arrColl | append: ',' -%}
@@ -362,9 +364,9 @@
                 {% endif %}
              
               </div>
-              {% if form.posted_successfully? or form.errors %}{% else %}
+              {% unless form.posted_successfully? or form.errors %}
                 <div class="newsletter__text rte">{{ section.settings.body-news }}</div>
-              {% endif %}
+              {% endunless %}
             </div>
           {% endform %}
           <!-- *~*~*~*~*~*~* / FORM *~*~*~*~*~*~* -->

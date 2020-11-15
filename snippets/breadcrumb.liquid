@@ -84,7 +84,13 @@
 			{% elsif product %}
 
 				<span class="breadcrumb__separator">/</span>
-				<span class="breadcrumb__link"><a href="{{ routes.all_products_collection_url }}">Shop</a></span>
+				<span class="breadcrumb__link">
+				{% if product.available %}
+					<a href="{{ routes.all_products_collection_url }}">Shop</a>
+				{% else %}
+					<a href="/collections/archive">Archive</a>
+				{% endif %}
+				</span>
 
 				<span class="breadcrumb__separator">/</span>
 				<span class="breadcrumb__link">{{ product.vendor | link_to_vendor  }}</span>

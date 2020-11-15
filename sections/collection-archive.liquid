@@ -1,4 +1,4 @@
-<div class="collection-header {% if section.settings.show_collection_image and collection.image %} has-image {% endif %} {% if section.settings.tags_enable or section.settings.sort_enable %} has-filters {% endif %}" data-handle="{{ collection.handle }}">
+<div class="collection-header archive {% if section.settings.show_collection_image and collection.image %} has-image {% endif %} {% if section.settings.tags_enable or section.settings.sort_enable %} has-filters {% endif %}" data-handle="{{ collection.handle }}">
     
   <div class="collection-header__container">
 
@@ -75,9 +75,10 @@
     <div class="collection collection--{{ settings.grid_style }} collection--grid mount-collection">
 
       {% for product in collection.products %}
-        {% unless product.handle == 'test' or product.available == false %}
-          {% render 'product-item', product: product %}
+        {% unless product.handle == 'test' %}
+          
         {% endunless %}
+        {% render 'product-item', product: product %}
       {% else %}
         <p class="no-content-message">{{ 'products.grid.no_products_text' | t }}</p>
       {% endfor %}
@@ -199,7 +200,7 @@
 
 {% schema %}
   {
-    "name": "Collection page",
+    "name": "Collection archive",
     "class": "mount-collection mount-collection-filters overflow-hidden",
     "settings": [
       {

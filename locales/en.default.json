@@ -71,7 +71,7 @@
     },
     "language_dropdown_label": "Language",
     "currency_dropdown_label": "Currency",
-    "share_on": "Share on"
+    "share_on": "Share"
   },
   "collections": {
     "title": "Collections",
@@ -101,7 +101,7 @@
     "grid": {
       "on_sale_from_html": "On Sale from {{ price }}",
       "from_text_html": "From {{ price }}",
-      "sold_out_product": "Sold Out",
+      "sold_out_product": "Sold",
       "on_sale_product": "On Sale",
       "new_product": "New",
       "preorder_product": "Pre Order",
@@ -111,7 +111,7 @@
       "more_description_label": "Show more",
       "less_description_label": "Show less",
       "inventory": {
-        "sold_out_variant": "Sold out",
+        "sold_out_variant": "Sold",
         "unavailable_variant": "Unavailable",
         "one_product": "There is only one product left!",
         "few_products": "There are {{ count }} products left",
