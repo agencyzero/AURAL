@@ -25,45 +25,63 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-social-pinterest:before {
+  content: "\e90c";
+}
+.icon-social-facebook:before {
+  content: "\e90d";
+}
+.icon-social-twitter:before {
+  content: "\e90e";
+}
+.icon-mail:before {
+  content: "\e90f";
+}
 .icon-play:before {
   content: "\e900";
 }
-.icon-diners:before {
+.icon-cc-diners-club:before {
   content: "\e901";
 }
-.icon-jcb:before {
+.icon-cc-jcb:before {
   content: "\e902";
 }
-.icon-amex:before {
+.icon-cc-amex:before {
   content: "\e903";
 }
-.icon-paypal:before {
+.icon-cc-paypal:before {
   content: "\e904";
 }
-.icon-discover:before {
+.icon-cc-discover:before {
   content: "\e905";
 }
-.icon-mastercard:before {
+.icon-cc-mastercard:before {
   content: "\e906";
 }
-.icon-visa:before {
+.icon-cc-visa:before {
   content: "\e907";
+}
+.icon-caret-right:before {
+  content: "\e910";
+}
+.icon-caret-down:before {
+  content: "\e911";
 }
 .icon-shopify:before {
   content: "\e908";
-    color:black;
+  color: #000;
 }
 .icon-venmo:before {
   content: "\e909";
-    color:black;
+  color: #000;
 }
 .icon-googlepay:before {
   content: "\e90a";
-    color:black;
+  color: #000;
 }
 .icon-applepay:before {
   content: "\e90b";
-    color:black;
+  color: #000;
 }
 .footer-icons {
     font-size: 2em;
@@ -92,15 +110,19 @@
 
 /*customize button***************************************/
 .kissme svg {
-    fill: #c00;
+    fill: #fa6b10;
+	transition: fill 500ms ease-in;
+}
+.kissme:hover svg {
+    fill: #fff;
 }
 .kissme{
 	width:80px;
 	position:absolute;
-	top: 470px;
-	left: 30px;
+	top: 0px;
+	left: 15px;
 	opacity:0;
-	transition: opacity 1500ms ease-in;
+	transition: opacity 500ms ease-out;
 	transform: scaleX(-1);
 }
 .kissme:hover{
@@ -418,8 +440,24 @@ div#shopify-section-footer .email
 
 /*product pages*/
 div#share-popup {
-    background: #fa6b10;
+    background: linear-gradient(90deg, rgba(250,107,16,1) 0%, rgba(250,107,16,1) 40%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(250,107,16,1) 60%, rgba(250,107,16,1) 100%);
     border-radius: 50% 50% 0 50%;
+    color: #fff;
+}
+.share-popup span.h4 {
+    transform: rotate(90deg);
+    text-transform: uppercase;
+    z-index: 1;
+}
+div#share-popup a {
+    color: white;
+    margin-top: 0.3em;
+    font-size: 2em; 
+    z-index: 100;
+    transition:all 400ms ease-out;
+}
+div#share-popup a:hover{
+	color:#fa6b10;
 }
 /* orange buttons with white text */
 .product__form .button--minor{
@@ -582,7 +620,12 @@ content: "\2713";
 .share-link {
 	margin: 0!important;
     position: relative;
-    top: 230px;
+    top: 232px;
+}
+.archive .share-link {
+    margin: 0!important;
+    position: relative;
+    top: 111px;
 }
 .product__cart-functions {
     margin: -35px 0 55px 0;
@@ -594,6 +637,10 @@ content: "\2713";
 a.button.button--solid {
     text-align: center;
     text-transform:uppercase;
+}
+.strikethrough {
+    color: #b7b7b7;
+    text-decoration: line-through;
 }
 /*footer*/
 @media screen and (min-width:768px){
@@ -1073,10 +1120,13 @@ button .svg {
 }
 .home .triple .newsletter__title {
     margin: 1vw 0 1vw 0;
-    font-size: 2.28vw;
+    font-size: 1.88vw;
 }
 .newsletter__form .alert {
     padding: 0px 0 6px 1em!important;
+}
+.newsletter__form .alert--success {
+    margin-top: 4vw;
 }
 .home .triple .subscribe input {
     font-size: 1.25vw;
