@@ -261,7 +261,7 @@
                 {% assign line_display = line.quantity  %}
               {% endif %}
               <th class="column mobile-{% if line.image %}8{% else %}12{% endif %}" width="{% if line.image %}255{% else %}400{% endif %}" style="padding-left: {% if line.image %}10{% else %}30{% endif %}px; padding-right: 10px; font-weight: 400; text-align: left;">
-                <div class="serif" class="h2" style="text-transform:uppercase;color:#000000; font-size: 16px; font-weight: 700;">{{ line_title }} x {{ line_display }}</div>
+                <div class="serif" class="h2" style="text-transform:uppercase;color:#000000; font-size: 16px; font-weight: 700;">{{ line_title }} {%- if line_display > 1 -%} x {{ line_display }}{%- endif -%}</div>
                 {% if line.product.description %}
                 <div class="mobile-margin-top-mini sans-serif" style="color: #969AA1; font-size: 13px; line-height: 20px; margin-top: 20px;">{{ line.product.description | strip_html | truncatewords: 20 }}</div>
                 {% else %}

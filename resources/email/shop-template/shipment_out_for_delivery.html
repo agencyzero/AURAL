@@ -278,7 +278,7 @@
                 {% else %}
                   {% assign line_display = line.line_item.quantity  %}
                 {% endif %}
-                <div class="serif" class="h2" style="text-transform:uppercase;color:#000000; font-size: 16px; font-weight: 700;">{{ line.line_item.title }} x {{ line_display }}</div>
+                <div class="serif" class="h2" style="text-transform:uppercase;color:#000000; font-size: 16px; font-weight: 700;">{{ line.line_item.title }} {%- if line_display > 1 -%} x {{ line_display }}{%- endif -%}</div>
                 {% if line.line_item.variant.title != 'Default Title' %}
                 <div class="mobile-margin-top-mini sans-serif" style="color: #969AA1; font-size: 13px; line-height: 20px; margin-top: 20px;">{{ line.line_item.variant.title }}</div>
                 {% endif %}
