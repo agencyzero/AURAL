@@ -328,10 +328,10 @@
                 </table>
                 <table class="row" align="center" bgcolor="#FFFFFF" cellpadding="0" cellspacing="0" role="presentation">
                   <tr>
-                    <th class="column mobile-5" width="175" style="padding-right: 10px; color: #fa6b10; text-align: left; vertical-align: top;">
+                    <th class="column mobile-5" width="175" style="padding-right: 10px; color: #000000; text-align: left; vertical-align: top;">
                       <div class="sans-serif" style="font-size: 16px; font-weight: 700;">Total</div>
                     </th>
-                    <th class="column mobile-7" width="505" style="padding-left: 10px; color: #fa6b10; text-align: right;">
+                    <th class="column mobile-7" width="505" style="padding-left: 10px; color: #000000; text-align: right;">
                       <div class="sans-serif" style="font-size: 24px; font-weight: 700;">{{ total_price | money_with_currency }}</div>
                     </th>
                   </tr>
@@ -354,10 +354,10 @@
                         {% capture transaction_name %}{{ transaction.gateway | replace: "_", " " | capitalize }}{% endcapture %}
                     {% endif %}
                   <tr>
-                    <th class="column mobile-6" width="175" style="padding-right: 10px; color: #fa6b10; text-align: left;">
+                    <th class="column mobile-6" width="175" style="padding-right: 10px; color: #000000; text-align: left;">
                       <div class="sans-serif" style="font-size: 16px; font-weight: 700;">{{ transaction_name }}</div>
                     </th>
-                    <th class="column mobile-6" width="505" style="padding-left: 10px; color: #fa6b10; text-align: right;">
+                    <th class="column mobile-6" width="505" style="padding-left: 10px; color: #000000; text-align: right;">
                       <div class="sans-serif" style="font-size: 16px; font-weight: 700;">{{ transaction.amount | money }}</div>
                     </th>
                   </tr>
@@ -370,14 +370,14 @@
                     {% assign refund_method_title = transaction.gateway %}
                   {% endif %}
                   <tr>
-                    <th class="column mobile-6" width="175" style="padding-right: 10px; color: #fa6b10; text-align: left;">
+                    <th class="column mobile-6" width="175" style="padding-right: 10px; color: #000000; text-align: left;">
                       <div class="sans-serif" style="font-size: 16px; font-weight: 700;">
                         Refund
                         <br>
                         <small>{{ refund_method_title | capitalize }}</small>
                       </div>
                     </th>
-                    <th class="column mobile-6" width="505" style="padding-left: 10px; color: #fa6b10; text-align: right;">
+                    <th class="column mobile-6" width="505" style="padding-left: 10px; color: #000000; text-align: right;">
                       <div class="sans-serif" style="font-size: 16px; font-weight: 700;">- {{ transaction.amount | money }}</div>
                     </th>
                   </tr>
@@ -409,13 +409,13 @@
                   <tr>
                     {% if requires_shipping and shipping_address %}
                     <th class="column" width="310" style="padding-right: 10px; color: #969AA1; font-size: 13px; font-weight: 400; text-align: left;">
-                      <div class="sans-serif" class="mobile-margin-bottom-mini" style="color: #fa6b10; font-size: 17px; margin-bottom: 30px;">Shipping address</div>
+                      <div class="sans-serif" class="mobile-margin-bottom-mini" style="color: #000000;font-size: 17px;font-variant: all-small-caps;margin-bottom: 30px;">Shipping address</div>
                       <div class="sans-serif" class="sans-serif" style="font-size: 14px;">{{ shipping_address | format_address }}</div>
                     </th>
                     {% endif %}
                     {% if billing_address %}
                     <th class="column mobile-padding-top" width="310" style="padding-left: 10px; color: #969AA1; font-weight: 400; text-align: left;">
-                      <div class="sans-serif" class="mobile-margin-bottom-mini" style="color: #fa6b10; font-size: 17px; margin-bottom: 30px;">Billing address</div>
+                      <div class="sans-serif" class="mobile-margin-bottom-mini" style="color: #000000;font-size: 17px;font-variant: all-small-caps;margin-bottom: 30px;">Billing address</div>
                       <div class="sans-serif" style="font-size: 14px;">{{ billing_address | format_address }}</div>
                     </th>
                     {% endif %}
@@ -428,14 +428,14 @@
                   <tr>
                     {% if requires_shipping and shipping_address %}
                     <th class="column mobile-padding-bottom" width="310" style="padding-right: 10px; color: #969AA1; font-size: 13px; font-weight: 400; text-align: left;">
-                      <div class="mobile-margin-bottom-mini sans-serif" style="color: #fa6b10; font-size: 17px; margin-bottom: 30px;">Shipping method</div>
+                      <div class="mobile-margin-bottom-mini sans-serif" style="color: #000000;font-size: 17px;font-variant: all-small-caps;margin-bottom: 30px;">Shipping method</div>
                       <div class="sans-serif" style="font-size: 14px;">{{ shipping_method.title }}<br>{{ shipping_method.price | money }}</div>
                     </th>
                     {% endif %}
                     {% assign transaction_count = transactions | size %}
                     {% if transaction_count > 0 %}
                     <th class="column" width="310" style="padding-left: 10px; color: #969AA1; font-weight: 400; text-align: left; vertical-align: top;">
-                      <div class="mobile-margin-bottom-mini sans-serif" style="color: #fa6b10; font-size: 17px; margin-bottom: 30px;">Payment method</div>
+                      <div class="mobile-margin-bottom-mini sans-serif" style="color: #000000;font-size: 17px;font-variant: all-small-caps;margin-bottom: 30px;">Payment method</div>
                       {%- for transaction in transactions -%}
                         {%- if transaction.status == "success" or transaction.status == "pending" -%}
                           {%- if transaction.kind == "authorization" or transaction.kind == "sale" -%}
@@ -477,7 +477,7 @@
 
                 <table class="row" cellpadding="0" cellspacing="0" width="100%" role="presentation">
                   <tr>
-                    <th class="column" style="text-align: left;">
+                    <th class="column" style="color:#ffffff;text-align: left;">
                       {%- if shop.email_logo_url %}
                       <a href="{{ shop.url }}">
                         <img src="{{ shop.email_logo_url }}" alt="{{ shop.name }}" width="{{ shop.email_logo_width }}">
@@ -495,8 +495,8 @@
 
                 <table class="row" cellpadding="0" cellspacing="0" role="presentation">
                   <tr>
-                    <th class="column" width="640" style="color: #969AA1; font-weight: 400; text-align: left;">
-                      <div class="sans-serif">If you have any questions, reply to this email or contact us at <a href="mailto:{{ shop.email }}" style="color: #969AA1; text-decoration: underline;">{{ shop.email }}</a></div>
+                    <th class="column" width="640" style="color: #878787; font-weight: 400; text-align: left;">
+                      <div class="sans-serif">If you have any questions, reply to this email or contact us at <a href="mailto:{{ shop.email }}" style="color: #878787; text-decoration: underline;">{{ shop.email }}</a></div>
                     </th>
                   </tr>
                   <tr>
