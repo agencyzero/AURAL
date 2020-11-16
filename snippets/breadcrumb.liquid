@@ -93,7 +93,7 @@
 				</span>
 
 				<span class="breadcrumb__separator">/</span>
-				<span class="breadcrumb__link">{{ product.vendor | link_to_vendor  }}</span>
+				<span class="breadcrumb__link"><a href="/collections/{{ product.vendor | handleize }}" title="">{{ product.vendor }}</a></span>
 				{% comment %}<span class="breadcrumb__separator">/</span>
 				<span class="breadcrumb__link"><a href="{{ routes.collections_url }}">{{ 'collections.title' | t }}</a></span>{%endcomment%}
 

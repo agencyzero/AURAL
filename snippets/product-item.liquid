@@ -22,7 +22,26 @@
 	{% assign aspect_ratio = settings.grid_aspect %}
 {% endif %}
 
-<div class="product-item {% if product.tags contains 'featured' and settings.grid_enhance_featured_product and template != 'search' %} featured {% endif %}">
+<div itemscope itemtype="https://schema.org/Product" class="product-item {% if product.tags contains 'featured' and settings.grid_enhance_featured_product and template != 'search' %} featured {% endif %}">
+	<div class="noseeum theschema">
+		{% assign today = 'now' | date: '%s' | abs %}
+		{% assign validFor = 7 |  times:86400 | abs %}
+		{% assign cutoff = today | plus:validFor | abs %}
+		
+		<img itemprop="image" src="{{ image | img_url: '860x' }}" alt="{{ product.title }}"/>
+		<span itemprop="brand">	{{ product.vendor }}</span>
+		<span itemprop="url">	{{ shop.url }}{{ product.url }}</span>
+		<span itemprop="name">	{{ product.title }}</span>
+		<span itemprop="type">	{{ product.type }}</span>
+		<span itemprop="sku">	{{ product.id }}</span>
+		<span itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+			<span itemprop="price">{{ product.price | divided_by: 100 }}</span>
+			<span itemprop="priceCurrency">USD</span>
+			<span itemprop="priceValidUntil">{{ cutoff | time_tag: '%Y-%m-%d', datetime: '%Y-%m-%d' }}</span>
+			<span itemprop="url">{{ shop.url }}{{ product.url }}</span>
+			<link itemprop="availability" href="https://schema.org/InStock" />In stock
+		</span>
+	</div>
 
 	<a href="{{ product.url | within: collection }}" >
 

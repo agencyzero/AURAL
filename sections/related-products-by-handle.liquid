@@ -63,8 +63,8 @@
 
 		{% unless related_items == blank %}
 
-			<div class="product-recommendations" itemscope itemtype="http://schema.org/Product" id="ProductSection-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" data-product-id="{{ product.id }}" data-limit="8">
-				<div class="content-section gutter--on">
+			<div class="product-recommendations" id="ProductSection-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" data-product-id="{{ product.id }}" data-limit="8">
+				<div class="auralreccos content-section gutter--on">
 					{% unless heading == blank %}
 					<h3 class="h1">{{ heading }}</h3>
 			      	{% endunless %}

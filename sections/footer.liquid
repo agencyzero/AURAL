@@ -1,4 +1,4 @@
-{%- if template.name == "indexxx" -%} 
+
 <div class="grid_aural">
   <div class="grid__item triple">
       <div class="grid__subgrid">
@@ -40,7 +40,7 @@
       </div>
     </div>
 </div>
-{%- endif -%}
+{%- if template.name == "404" -%}{%- endif -%}
 
 
 <div class="footer"> 
@@ -253,132 +253,200 @@
 </div>
 
 {% schema %}
-  {
-    "name": "Footer",
-    "class": "mount-footer",
-    "max_blocks": 4,
-    "settings": [
+{
+   "name":"Footer",
+   "class":"mount-footer",
+   "max_blocks":4,
+   "settings":[
       {
-        "type": "checkbox",
-        "id": "show_payment_icons",
-        "label": "Show payment icons",
-        "default": true
+         "type":"header",
+         "content":"Newsletter"
+      },
+      {
+         "type":"text",
+         "id":"h1-news",
+         "label":"Heading",
+         "default":"Audio Inspiration. Delivered crisply to your inbox."
+      },
+      {
+         "type":"text",
+         "id":"ok-news",
+         "label":"Success H1",
+         "default":"And just like that, you’ll hear it first."
+      },
+      {
+         "type":"text",
+         "id":"success-news",
+         "label":"Success Msg",
+         "default":"Thank you for signing up!"
+      },
+      {
+         "type":"html",
+         "id":"body-news",
+         "label":"Body",
+         "default":"Here’s the proposition. We won’t bug you unless it’s to share something worthy of hearing. New gear, discounts, and previews can be delivered to your inbox, so you never miss a thing. And you can unsubscribe any time you choose, in the unlikely event you’ve decided you’ve heard enough. Like that’s gonna happen."
+      },
+      {
+         "type":"color",
+         "id":"bg-news",
+         "label":"Background"
+      },
+      {
+         "type":"color",
+         "id":"fg-news",
+         "label":"Text Color",
+         "default":"#ffffff"
       },
       {
         "type": "header",
-        "content": "Language Selector",
-        "info": "To add a language, go to your [language settings.](/admin/settings/languages)"
+        "content": "Alt Vector"
       },
       {
-        "type": "checkbox",
-        "id": "show_locale_selector",
-        "label": "Show language selector",
-        "default": true
+        "type": "image_picker",
+        "id": "lifestyle-c",
+        "label": "..."
       },
-      {
-        "type": "header",
-        "content": "Currency Selector",
-        "info": "To add a currency, go to your [payment settings.](/admin/settings/payments)"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_currency_selector",
-        "label": "Show currency selector",
-        "default": true
-      }
-    ],
-    "blocks": [
       {
         "type": "text",
-        "name": "Text",
-        "settings": [
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Heading",
-            "default": "Contact information"
-          },
-          {
-            "type": "richtext",
-            "id": "content",
-            "label": "Content",
-            "default": "<p>Write a short statement about your brand.</p>"
-          },
-          {
-            "type": "select",
-            "id": "size",
-            "label": "Text size",
-            "options": [
-              {
-                "value": "",
-                "label": "Regular"
-              },
-              {
-                "value": "footer-text--large",
-                "label": "Large"
-              }
-            ],
-            "default": "footer-text--large"
-          }
-        ]
+        "id": "alt-c",
+        "label": "Alt Text"
       },
       {
-        "type": "menus",
-        "name": "Menus",
-        "settings": [
-          {
-            "type": "text",
-            "id": "title_1",
-            "label": "First menu heading",
-            "default": "Menu"
-          },
-          {
-            "type": "link_list",
-            "id": "menu_1",
-            "label": "First menu",
-            "default": "footer",
-            "info": "This menu won't show dropdown items"
-          },
-          {
-            "type": "text",
-            "id": "title_2",
-            "label": "Second menu heading",
-            "default": "Menu"
-          },
-          {
-            "type": "link_list",
-            "id": "menu_2",
-            "label": "Second menu",
-            "info": "This menu won't show dropdown items"
-          }
-        ]
+        "type": "text",
+        "id": "class-c",
+        "label": "Class",
+        "info": "Try: black, white, or grey..."
       },
       {
-        "type": "newsletter",
-        "name": "Newsletter",
-        "limit": 1,
-        "settings": [
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Heading",
-            "default": "Newsletter"
-          }
-        ]
+        "type": "color",
+        "id": "bg-lifestyle",
+        "label": "Image Bg (if transparent)"
       },
       {
-        "type": "social",
-        "name": "Social",
-        "limit": 1,
-        "settings": [
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Heading",
-            "default": "Follow us"
-          }
-        ]
+         "type":"header",
+         "content":"Footer"
+      },
+      {
+         "type":"checkbox",
+         "id":"show_payment_icons",
+         "label":"Show payment icons",
+         "default":true
+      },
+      {
+         "type":"header",
+         "content":"Language Selector",
+         "info":"To add a language, go to your [language settings.](/admin/settings/languages)"
+      },
+      {
+         "type":"checkbox",
+         "id":"show_locale_selector",
+         "label":"Show language selector",
+         "default":true
+      },
+      {
+         "type":"header",
+         "content":"Currency Selector",
+         "info":"To add a currency, go to your [payment settings.](/admin/settings/payments)"
+      },
+      {
+         "type":"checkbox",
+         "id":"show_currency_selector",
+         "label":"Show currency selector",
+         "default":true
       }
-    ]
-  }
+   ],
+   "blocks":[
+      {
+         "type":"text",
+         "name":"Text",
+         "settings":[
+            {
+               "type":"text",
+               "id":"title",
+               "label":"Heading",
+               "default":"Contact information"
+            },
+            {
+               "type":"richtext",
+               "id":"content",
+               "label":"Content",
+               "default":"<p>Write a short statement about your brand.</p>"
+            },
+            {
+               "type":"select",
+               "id":"size",
+               "label":"Text size",
+               "options":[
+                  {
+                     "value":"",
+                     "label":"Regular"
+                  },
+                  {
+                     "value":"footer-text--large",
+                     "label":"Large"
+                  }
+               ],
+               "default":"footer-text--large"
+            }
+         ]
+      },
+      {
+         "type":"menus",
+         "name":"Menus",
+         "settings":[
+            {
+               "type":"text",
+               "id":"title_1",
+               "label":"First menu heading",
+               "default":"Menu"
+            },
+            {
+               "type":"link_list",
+               "id":"menu_1",
+               "label":"First menu",
+               "default":"footer",
+               "info":"This menu won't show dropdown items"
+            },
+            {
+               "type":"text",
+               "id":"title_2",
+               "label":"Second menu heading",
+               "default":"Menu"
+            },
+            {
+               "type":"link_list",
+               "id":"menu_2",
+               "label":"Second menu",
+               "info":"This menu won't show dropdown items"
+            }
+         ]
+      },
+      {
+         "type":"newsletter",
+         "name":"Newsletter",
+         "limit":1,
+         "settings":[
+            {
+               "type":"text",
+               "id":"title",
+               "label":"Heading",
+               "default":"Newsletter"
+            }
+         ]
+      },
+      {
+         "type":"social",
+         "name":"Social",
+         "limit":1,
+         "settings":[
+            {
+               "type":"text",
+               "id":"title",
+               "label":"Heading",
+               "default":"Follow us"
+            }
+         ]
+      }
+   ]
+}
 {% endschema %}

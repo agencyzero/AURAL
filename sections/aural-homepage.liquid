@@ -29,67 +29,6 @@
       },
     {
       "type": "header",
-      "content": "Newsletter"
-    },
-      {
-        "type": "text",
-        "id": "h1-news",
-        "label": "Heading"
-      },
-      {
-        "type": "text",
-        "id": "ok-news",
-        "label": "Success H1",
-        "default": "You have great taste."
-      },
-      {
-        "type": "text",
-        "id": "success-news",
-        "label": "Success Msg",
-        "default": "Nom. Nom. Nom. Emails are delicious."
-      },
-      {
-        "type": "html",
-        "id": "body-news",
-        "label": "Body"
-      },
-      {
-        "type": "color",
-        "id": "bg-news",
-        "label": "Background"
-      },
-      {
-        "type": "color",
-        "id": "fg-news",
-        "label": "Text Color"
-      },
-    {
-      "type": "header",
-      "content": "Alt Vector"
-    },
-      {
-        "type": "image_picker",
-        "id": "lifestyle-c",
-        "label": "..."
-      },
-      {
-        "type": "text",
-        "id": "alt-c",
-        "label": "Alt Text"
-      },
-      {
-        "type": "text",
-        "id": "class-c",
-        "label": "Class",
-        "info": "Try: black, white, or grey..."
-      },
-      {
-        "type": "color",
-        "id": "bg-lifestyle",
-        "label": "Image Bg (if transparent)"
-      },
-    {
-      "type": "header",
       "content": "Apparel"
     },
       {
@@ -333,47 +272,6 @@
         </div>
       </div>
     </div>  
-
-    <div class="grid__item triple">
-      <div class="grid__subgrid">
-
-        <div class="grid__subgrid-el lifestyle" style="background-color:{{section.settings.bg-lifestyle}};">
-          <img class="{{section.settings.class-c}}" src="{{ section.settings.lifestyle-c | img_url: '840x' }}" alt="{{ section.settings.alt-c }}">
-        </div>
-
-        <div class="grid__subgrid-el subscribe" style="background:{{ section.settings.bg-news }};color:{{ section.settings.fg-news }};width:100%;">
-          <!-- *~*~*~*~*~*~* FORM *~*~*~*~*~*~* -->
-          {% form 'customer' %}
-            <div class="content-section">
-              {% unless section.settings.h1-news == blank %}
-                <h3 class="newsletter__title h1">{%- if form.posted_successfully? -%}{{ section.settings.ok-news | escape }}{%- else -%}{{ section.settings.h1-news | escape }}{%- endif -%}</h3>
-              {% endunless %}
-              <div class="newsletter__form">
-              
-                {% render 'form-errors', form: form %}
-                {% if form.posted_successfully? %}
-                  <span class="alert alert--success">{{ section.settings.success-news }}</span>
-                {% else %}
-                  <div class="singlefield">
-                    <input type="hidden" name="contact[tags]" value="newsletter">
-                    <input type="email" class="newsletter__input" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter.email_label' | t }}" name="contact[email]" id="Email" aria-label="{{ 'general.newsletter.email_label' | t }}" autocorrect="off" autocapitalize="off">
-                    <button type="submit" class="newsletter__submit" id="Subscribe" aria-label="{{ 'general.newsletter.submit_label' | t }}">
-                      <span aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-long' %}</span>
-                    </button>
-                  </div>
-                {% endif %}
-             
-              </div>
-              {% unless form.posted_successfully? or form.errors %}
-                <div class="newsletter__text rte">{{ section.settings.body-news }}</div>
-              {% endunless %}
-            </div>
-          {% endform %}
-          <!-- *~*~*~*~*~*~* / FORM *~*~*~*~*~*~* -->
-        </div>
-
-      </div>
-    </div>
 
   </div>
 </div>
