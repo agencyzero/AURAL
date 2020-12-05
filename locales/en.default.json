@@ -12,13 +12,13 @@
       "confirmation": "Nom. Nom. Nom. Emails are delicious."
     },
     "contact_form": {
-      "title": "Drop us a line",
+      "title": "WE’D LIKE TO HEAR FROM YOU",
       "name_label": "Name",
       "email_label": "Email",
       "phone_label": "Phone Number",
       "message_label": "Message",
       "submit_label": "Submit",
-      "success_message": "Thanks for contacting us! We'll get back to you as soon as possible."
+      "success_message": "Thanks for reaching out! We'll get back to you shortly."
     },
     "password_page": {
       "login_form_heading": "Enter store using password",
@@ -143,8 +143,8 @@
     "checkout": "Check Out",
     "note": "Special instructions for seller",
     "shipping_at_checkout": "Shipping & taxes are calculated at checkout.",
-    "empty": "Your cart is currently empty.",
-    "continue_browsing": "Continue browsing",
+    "empty": "I feel so [sigh] empty inside. What is life?",
+    "continue_browsing": "Fulfill Me",
     "remove_item": "Remove item from cart",
     "add_error": "All {{ title }} are in your cart.",
     "general_error": "There was an error. Please refresh the page and try again.",
@@ -270,11 +270,11 @@
     },
     "addresses_page": {
       "title": "My Account",
-      "subtitle": "Address Book",
-      "add_address_link": "Add New Address",
+      "subtitle": "Shipping Addresses",
+      "add_address_link": "New Shipping Address",
       "edit_address_link": "Edit",
       "delete_address_link": "Delete",
-      "add_address_title": "Add New Address",
+      "add_address_title": "New Shipping Address",
       "edit_address_title": "Edit Address",
       "form": {
         "first_name_label": "First Name",

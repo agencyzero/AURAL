@@ -1,0 +1,131 @@
+{% layout none %}{% comment %}    
+/*
+ * Shopify Product RSS feed, also needs Cloudflare Workers
+ * for Content-Type fix to application/rss+xml, because
+ * Shopify only supports text/html
+ *
+ * Copyright (c) 2018 @fmt github.com/fmt
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/mit-license.php
+ * Based on @freakdesign blog feed gist
+ */ 
+{% endcomment %}
+{%- capture varType -%}{%- render 'fn.querystring', param: "type" -%}{%- endcapture -%}
+{%- if varType contains 'json' -%}
+{
+  "schemaLocation": "http://www.hifishark.com/v1.3.xsd http://www.hifishark.com/v1.3.xsd",
+  "meta": {
+    "site_url": "{{shop.url}}",
+    "produced_at": "{{ "now" | date: "%Y-%m-%dT%H:%M:%S" }}",
+    "url_prefix": "/products/",
+    "currency_iso": "USD",
+    "pagination": null
+  },
+  "listings": {
+    "listings": [ {}
+      {% paginate collections.all.products by 1000 %}
+      {% for product in collections.all.products %}
+      {% if product.available %}
+      ,{
+        "id": "{{ product.id }}",
+        "caption": "{{ product.title }}",
+        "description": "{{ product.content | strip_html | escape | replace: '"', '&Prime;'  }}",
+        "price": {{ product.price | divided_by: 100 | abs  }},
+        "currency_iso": "USD",
+        "type": "sell",
+        "seller_type": "dealer",
+        "seller_id": "111486795944",
+        "url": "{{ product.handle }}",
+        "category": "{{ product.type }}",
+        "brand": "{{ product.vendor }}",
+        "model": "{{ product.metafields.global['MPN'] }}",
+        "image_src": "{{ product.featured_image | img_url: 'grande' }}",
+        "created_at": "{{ product.created_at | date: "%Y-%m-%d" }}",
+        "condition": "{% if product.tags contains 'condition:mint' %}mint{% else %}used{% endif %}"
+      }
+      {% endif %}
+      {% endfor %}
+      {% endpaginate %}
+    ]
+    
+  }
+}
+{%- else -%}
+{% capture feedSettings %}
+
+  {% assign feedTitle = 'Product Feeds' %}
+  {% assign feedDescription = 'All The Gear' %}
+
+  {% comment %}
+    How many products to show
+  {% endcomment %}
+  {% assign productCount = 1000 %}
+
+  {% comment %}
+    Either to include the product collections
+  {% endcomment %}
+  {% assign showCollections = true %}
+
+  {% comment %}
+    Set image size
+  {% endcomment %}
+  {% assign imageSize = 'grande' %}
+
+  {% comment %}
+    Either to truncate description and content, after how many words
+  {% endcomment %}
+  {% assign truncateDescription = true %}
+  {% assign truncateContent = false %}
+  {% assign truncateAfter = 50 %}
+
+  {% comment %}
+    Force content to plain text, if HTML breaks syntax
+  {% endcomment %}
+  {% assign plainText = false %}
+
+  {% comment %}
+    Remove CDATA tags, needed if the content already has them
+  {% endcomment %}
+  {% assign removeCdataTags = true %}
+
+{% endcapture %}<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" 
+  xmlns:g="http://base.google.com/ns/1.0"
+  >
+  <channel>
+	<title>Aural Fetish</title>
+	<atom:link href="{{ canonical_url }}?view=rss" rel="self" type="application/rss+xml"/>
+	<link>{{ canonical_url }}</link>
+	<description>{{ shop.name | escape }} // {{ feedTitle | escape }} // {{ feedDescription }}</description>
+    <lastBuildDate>{{ collections.all.products.first.created_at | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
+	<language>{{ shop.locale }}</language>
+
+  {% paginate collections.all.products by productCount %}
+    {% for product in collections.all.products %}
+    {% if product.available %}
+    <item>
+      <g:id>{{ product.id }}</g:id>
+      <g:price>{{ product.price | money_without_currency }} USD</g:price>
+      <g:title>{{ product.title | escape }}</g:title>
+      <g:brand>{{ product.vendor | escape }}</g:brand>
+      <g:mpn>{{ product.metafields.global['MPN'] }}</g:mpn>
+      <g:description>{{ product.content | strip_html | escape }}</g:description>
+      <g:link>{{ shop.url }}{{ product.url }}</g:link>
+      <g:image_link>https:{{ product.featured_image | img_url: imageSize }}</g:image_link>
+      <g:condition>refurbished</g:condition>
+      <g:availability>in stock</g:availability>
+      <g:product_detail>{{ product.metafields.global['specs'] | replace: ' & ', ' &amp; ' | replace: '%', '&#37;' | replace: '&Prime;', '&#8243;'}}</g:product_detail>
+      <g:product_highlight>{{ product.metafields.global['restorations'] | replace: '%', '&#37;'}}</g:product_highlight>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>LTL Freight</g:service>
+      </g:shipping>
+      <g:google_product_category>{{ product.metafields.global['google_cat']  | escape }}</g:google_product_category>
+      <g:product_type>Vintage Electronics &gt; Audio &gt; Audio Components &gt; {{ product.type | escape }}</g:product_type>
+    </item>
+    {% endif %}
+    {% endfor %}
+  {% endpaginate %}
+  </channel>
+</rss>
+{%- endif -%}

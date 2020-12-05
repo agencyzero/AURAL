@@ -25,6 +25,10 @@
 		{% for c in collections %}
 			<!-- looping, testing {{page.handle}}=={{c.handle}} -->
 			{% assign current = page.handle | trim | handelize %}
+			{% if page.handle == "the-mcintosh-tube-amp-museum" %}
+				{% assign heading = 'Available McIntosh Gear' %}
+				{% assign current = 'mcintosh' %}
+			{% endif %}
 			{% assign this = c.handle | trim | handelize %}
 			{% if current == this %}
 			<!-- passes -->

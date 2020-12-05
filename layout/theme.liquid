@@ -15,7 +15,7 @@
     {% if template contains 'search' %}
       {{ search.terms | replace: '*', '' | split: ' AND ' | last }} - {{ shop.name | escape }}
     {% else %}
-      {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name | escape }}{% endunless %}
+      {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% if product.available %} For Sale {% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name | escape }}{% endunless %}
     {% endif %}
   {% endcapture %}
 
@@ -108,12 +108,13 @@
 			{%- comment -%} {% section 'text-columns-with-icons' %}{%- endcomment -%}
 			{% section 'footer' %}
 
+			
 		</main>
 
 	</div>
 
-	{%- comment -%} {% section 'popup' %}{%- endcomment -%}
-
+	{%- comment -%} {%- endcomment -%}
+	{% section 'popup' %}
 	
 	<script type="text/javascript">
 

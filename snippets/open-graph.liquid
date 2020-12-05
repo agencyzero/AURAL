@@ -52,6 +52,18 @@ Validate your Pinterest rich pins
   <meta property="og:image:width" content="1024">
   <meta property="og:image:height" content="1024">
 
+{% elsif template.name == 'page' and template.suffix == 'museum' %}
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page_title | escape }}">
+
+  {% if page_image %}
+    <meta property="og:image" content="https://cdn.shopify.com/s/files/1/0478/4884/9576/files/Mcintosh_Collection_2020-3.jpg?v=1603997456">
+    <meta property="og:image:secure_url" content="https://cdn.shopify.com/s/files/1/0478/4884/9576/files/Mcintosh_Collection_2020-3.jpg?v=1603997456">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="1024">
+  {% endif %}
+
 {% else %}
 
   <meta property="og:type" content="website">
@@ -60,8 +72,8 @@ Validate your Pinterest rich pins
   {% if page_image %}
     <meta property="og:image" content="http:{{ page_image | img_url: '1024x' }}">
     <meta property="og:image:secure_url" content="https:{{ page_image | img_url: '1024x' }}">
-    <meta property="og:image:width" content="1024">
-    <meta property="og:image:height" content="1024">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
   {% endif %}
 
 {% endif %}
@@ -101,6 +113,14 @@ More information:
   <meta name="twitter:title" content="{{ collection.title | escape }}">
   <meta name="twitter:description" content="{{ collection.description | strip_html | truncatewords: 140, '' | escape }}">
   <meta name="twitter:image" content="https:{{ collection.image | default: collection.products.first.featured_media | img_url: '600x600', crop: 'center' }}">
+{% elsif template.name == 'page' and template.suffix == 'museum' %}
+  <meta name="twitter:title" content="{{ page_title | escape }}">
+  <meta name="twitter:description" content="{{ page_description | default: page_title | escape }}">
+
+  {% if page_image %}
+    <meta name="twitter:image" content="https://cdn.shopify.com/s/files/1/0478/4884/9576/files/Mcintosh_Collection_2020-3.jpg?v=1603997456">
+  {% endif %}
+  
 {% else %}
   <meta name="twitter:title" content="{{ page_title | escape }}">
   <meta name="twitter:description" content="{{ page_description | default: page_title | escape }}">

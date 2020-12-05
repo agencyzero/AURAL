@@ -58,6 +58,78 @@
       },
     {
       "type": "header",
+      "content": "Buy With Confidence"
+    },
+      {
+        "type": "text",
+        "id": "bwc-hdr-a",
+        "label": "Left Panel Header"
+      },
+      {
+        "type": "richtext",
+        "id": "bwc-copy-a",
+        "label": "Content"
+      },
+      {
+        "type": "text",
+        "id": "bwc-icon-a",
+        "label": "Left Panel Icon"
+      },
+      {
+        "type": "color",
+        "id": "bwc-bg-a",
+        "label": "Background"
+      },
+      {
+        "type": "header",
+        "content": "Center Panel"
+      },
+      {
+        "type": "text",
+        "id": "bwc-hdr-b",
+        "label": "Center Panel Header"
+      },
+      {
+        "type": "richtext",
+        "id": "bwc-copy-b",
+        "label": "Content"
+      },
+      {
+        "type": "text",
+        "id": "bwc-icon-b",
+        "label": "Center Panel Icon"
+      },
+      {
+        "type": "color",
+        "id": "bwc-bg-b",
+        "label": "Background"
+      },
+      {
+        "type": "header",
+        "content": "Right Panel"
+      },
+      {
+        "type": "text",
+        "id": "bwc-hdr-c",
+        "label": "Right Panel Header"
+      },
+      {
+        "type": "richtext",
+        "id": "bwc-copy-c",
+        "label": "Content"
+      },
+      {
+        "type": "text",
+        "id": "bwc-icon-c",
+        "label": "Right Panel Icon"
+      },
+      {
+        "type": "color",
+        "id": "bwc-bg-c",
+        "label": "Background"
+      },
+    {
+      "type": "header",
       "content": "Ethos"
     },
       {
@@ -271,7 +343,32 @@
           {{ section.settings.body-ethos }}
         </div>
       </div>
-    </div>  
+    </div> 
+
+    <div class="grid__item triple bwcrow">
+      <div class="grid__subgrid">
+        <div class="grid__subgrid-el bwc">
+          <span class="tagline">{% render 'brandlib', brandlib: section.settings.bwc-hdr-a %}</span>
+          <span class="copy">{{ section.settings.bwc-copy-a }}</span>
+          <span class="icon">{% render 'brandlib', brandlib: section.settings.bwc-icon-a %}</span>
+        </div>
+
+        <div class="grid__subgrid-el bwc">
+          <span class="tagline">{% render 'brandlib', brandlib: section.settings.bwc-hdr-b %}</span>
+          <span class="copy">{{ section.settings.bwc-copy-b }}</span>
+          <span class="icon">{% render 'brandlib', brandlib: section.settings.bwc-icon-b %}</span>
+        </div>
+
+        <div class="grid__subgrid-el bwc">
+          <span class="tagline">{% render 'brandlib', brandlib: section.settings.bwc-hdr-c %}</span>
+          <span class="copy">{{ section.settings.bwc-copy-c }}</span>
+          <span class="icon">{% render 'brandlib', brandlib: section.settings.bwc-icon-c %}</span>
+        </div>
+
+      </div>
+    </div>
 
   </div>
 </div>
+
+
