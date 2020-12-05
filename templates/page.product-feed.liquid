@@ -1,4 +1,4 @@
-{% layout none %}{% comment %}    
+{%- layout none -%}{%- comment -%}    
 /*
  * Shopify Product RSS feed, also needs Cloudflare Workers
  * for Content-Type fix to application/rss+xml, because
@@ -9,7 +9,7 @@
  * http://www.opensource.org/licenses/mit-license.php
  * Based on @freakdesign blog feed gist
  */ 
-{% endcomment %}
+{%- endcomment -%}
 {%- capture varType -%}{%- render 'fn.querystring', param: "type" -%}{%- endcapture -%}
 {%- if varType contains 'json' -%}
 {
@@ -23,9 +23,9 @@
   },
   "listings": {
     "listings": [ {}
-      {% paginate collections.all.products by 1000 %}
-      {% for product in collections.all.products %}
-      {% if product.available %}
+      {%- paginate collections.all.products by 1000 -%}
+      {%- for product in collections.all.products -%}
+      {%- if product.available -%}
       ,{
         "id": "{{ product.id }}",
         "caption": "{{ product.title }}",
@@ -41,54 +41,54 @@
         "model": "{{ product.metafields.global['MPN'] }}",
         "image_src": "{{ product.featured_image | img_url: 'grande' }}",
         "created_at": "{{ product.created_at | date: "%Y-%m-%d" }}",
-        "condition": "{% if product.tags contains 'condition:mint' %}mint{% else %}used{% endif %}"
+        "condition": "{%- if product.tags contains 'condition:mint' -%}mint{%- else -%}used{%- endif -%}"
       }
-      {% endif %}
-      {% endfor %}
-      {% endpaginate %}
+      {%- endif -%}
+      {%- endfor -%}
+      {%- endpaginate -%}
     ]
     
   }
 }
 {%- else -%}
-{% capture feedSettings %}
+{%- capture feedSettings -%}
 
-  {% assign feedTitle = 'Product Feeds' %}
-  {% assign feedDescription = 'All The Gear' %}
+  {%- assign feedTitle = 'Product Feeds' -%}
+  {%- assign feedDescription = 'All The Gear' -%}
 
-  {% comment %}
+  {%- comment -%}
     How many products to show
-  {% endcomment %}
-  {% assign productCount = 1000 %}
+  {%- endcomment -%}
+  {%- assign productCount = 1000 -%}
 
-  {% comment %}
+  {%- comment -%}
     Either to include the product collections
-  {% endcomment %}
-  {% assign showCollections = true %}
+  {%- endcomment -%}
+  {%- assign showCollections = true -%}
 
-  {% comment %}
+  {%- comment -%}
     Set image size
-  {% endcomment %}
-  {% assign imageSize = 'grande' %}
+  {%- endcomment -%}
+  {%- assign imageSize = 'grande' -%}
 
-  {% comment %}
+  {%- comment -%}
     Either to truncate description and content, after how many words
-  {% endcomment %}
-  {% assign truncateDescription = true %}
-  {% assign truncateContent = false %}
-  {% assign truncateAfter = 50 %}
+  {%- endcomment -%}
+  {%- assign truncateDescription = true -%}
+  {%- assign truncateContent = false -%}
+  {%- assign truncateAfter = 50 -%}
 
-  {% comment %}
+  {%- comment -%}
     Force content to plain text, if HTML breaks syntax
-  {% endcomment %}
-  {% assign plainText = false %}
+  {%- endcomment -%}
+  {%- assign plainText = false -%}
 
-  {% comment %}
+  {%- comment -%}
     Remove CDATA tags, needed if the content already has them
-  {% endcomment %}
-  {% assign removeCdataTags = true %}
+  {%- endcomment -%}
+  {%- assign removeCdataTags = true -%}
 
-{% endcapture %}<?xml version="1.0" encoding="UTF-8"?>
+{%- endcapture -%}<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" 
   xmlns:g="http://base.google.com/ns/1.0"
   >
@@ -114,7 +114,7 @@
       <g:image_link>https:{{ product.featured_image | img_url: imageSize }}</g:image_link>
       <g:condition>refurbished</g:condition>
       <g:availability>in stock</g:availability>
-      <g:product_detail>{{ product.metafields.global['specs'] | replace: ' & ', ' &amp; ' | replace: '%', '&#37;' | replace: '&Prime;', '&#8243;'}}</g:product_detail>
+      <g:product_detail>{{ product.metafields.global['specs'] | replace: ' & ', ' &amp; '  | replace: '&amp;amp;', '&amp;' | replace: '%', '&#37;' | replace: '&Prime;', '&#8243;'}}</g:product_detail>
       <g:product_highlight>{{ product.metafields.global['restorations'] | replace: '%', '&#37;'}}</g:product_highlight>
       <g:shipping>
         <g:country>US</g:country>
