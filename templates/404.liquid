@@ -16,40 +16,24 @@
 	</div>
 
 </div>
-
-
 {%comment%}
 
-{{ 'general.404.subtitle' | t }}
+
+
+																{% for vendor in shop.vendors %}
+																	{% assign vendor_handle = vendor | handleize %}
+																	{% assign vendor_linktext = vendor | escape %}
+																	
+																	{% assign vendor_product_count = 0 %}
+																	{% for product in collections[vendor_handle].products %}
+																	  {% if product.available %}
+																	    {% assign vendor_product_count = vendor_product_count | plus: 1 %}
+																	  {% endif %}
+																	{% endfor %}
+
+																	
+
+																{% endfor %}
 {% endcomment %}
-<!-- <div class="fluid-width-video-wrapper">
-	<! -- if you follow the instructions somewhat carefully, you could win a free pair of tube socks - - >
-	<div id="ytplayer"></div>		
-</div>
--->
-<!-- 
-<script>
-	// Load the IFrame Player API code asynchronously.
-	var tag = document.createElement('script');
-	tag.src = "https://www.youtube.com/player_api";
-	var firstScriptTag = document.getElementsByTagName('script')[0];
-	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-	var player;
-	function onYouTubePlayerAPIReady() {
-		player = new YT.Player('ytplayer', {
-			height: '360'
-			, width: '640'
-			, start: '30'
-			, autoplay: '1'
-			, controls: '0'
-			, modestbranding: '1'
-			, videoId: 'CiveqbMsHwQ'
-		});
-	}
-</script>
- -->
-
-
 
 

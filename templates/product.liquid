@@ -1,3 +1,8 @@
-{% section 'product' %}
-{% section 'product-recommendations' %}
-{% section 'product-story' %}
+{%- capture varType -%}{%- render 'fn.querystring', param: "type" -%}{%- endcapture -%}
+{%- if varType == 'cl' -%}
+	{% section 'product-craigslist' %}
+{%- else -%}
+	{% section 'product' %}
+	{% section 'product-recommendations' %}
+	{% section 'product-story' %}
+{%- endif -%}

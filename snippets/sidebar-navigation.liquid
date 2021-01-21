@@ -44,8 +44,16 @@
 															{% if childlink.title contains "BY BRAND" %}
 																{% for vendor in shop.vendors %}
 																	{% assign vendor_handle = vendor | handleize %}
-																	{% assign vendor_product_count = collections[vendor_handle].products_count %}
 																	{% assign vendor_linktext = vendor | escape %}
+																	
+																	{% assign vendor_product_count = 0 %}
+																	{% for product in collections[vendor_handle].products %}
+																	  {% if product.available %}
+																	    {% assign vendor_product_count = vendor_product_count | plus: 1 %}
+																	  {% endif %}
+																	{% endfor %}
+																	
+
 																	{% if vendor_handle == "the-voice-of-music" %}
 																		{% assign vendor_linktext = "V-M / The Voice of Music" %}
 																	{% endif %}

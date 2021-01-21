@@ -1,5 +1,9 @@
 <div class="page-content myacct">
 
+	{% if customer.email contains 'tonyfelice' %}
+	ADMIN
+	{% endif %}
+
 	<header class="page-title">
 		<div>
 			<h1 class="title h1">{{ 'customers.account_page.title' | t }}</h1>
@@ -67,7 +71,7 @@
 		</div>
 	</header>
 
-	{% paginate customer.addresses by 4 %}
+	{% paginate customer.addresses by 50 %}
 
 		<div class="customer-addresses">
 
